@@ -8,9 +8,12 @@ using UnityEngine;
  *    Date: Created 3/17/2022 by Matthew
  */ 
 
-public class Spell : MonoBehaviour
+public class Spell
 {
 /* IV */
+    // Reference to the player shared by all spells
+    public static GameObject player;
+
     // Given parts for the spell
     public SpellComponent[] spellParts;
 
@@ -20,11 +23,11 @@ public class Spell : MonoBehaviour
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
-    private float cooldownTimer = 0f, castTimeTimer = 0f; // NOTE: MAY NOT NEED castTimeTimer
+    private float cooldownTimer = 0f;
 
     // Spells that move you when cast
     private float xMove = 0f, yMove = 0f;
-    private GameObject player;
+    
     private bool playerCanMove = true; // TEMPORARY VARIABLE
 
     /* METHODS */
@@ -47,42 +50,30 @@ public class Spell : MonoBehaviour
     // 
     // THE CASTING
     //
-
-    /*
-     *       Name: startSpellCast()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: Activates all the parts and calculates all of the damage
-     *       Note: Starts a coroutine
-     */
-    public void startSpellCast()
-    {
-        startSpellTimers();
-        StartCoroutine(castSpell());
-    }
-
-    IEnumerator castSpell()
+    public IEnumerator castSpell()
     {
         List<GameObject> theHitBoxes = new List<GameObject>();
         foreach (GameObject hb in hitboxes)
         {
             if (hb == null)
                 continue;
-            GameObject g = Instantiate(hb, player.transform);
+            GameObject g = GameObject.Instantiate(hb, player.transform);
             g.GetComponent<GetHitData>().spell = this;
-            g.transform.SetParent(player.transform);
+            // g.transform.SetParent(player.transform);
             theHitBoxes.Add(g);
         }
 
+        playerCanMove = false;
         yield return new WaitForSeconds(castTime);
+        playerCanMove = true;
 
-        //foreach (GameObject hb in theHitBoxes)
-            // Destroy(hb);
+        foreach (GameObject hb in theHitBoxes)
+            GameObject.Destroy(hb);
     }
 
     public void dmgCalc(GameObject enemy)
     {
-        Debug.Log("HIT " + enemy.name);
+        Debug.Log("HIT " + enemy.name + " WITH " + ToString());
     }
 
     // 
@@ -90,24 +81,11 @@ public class Spell : MonoBehaviour
     //
 
     /*
-     *       Name: Start()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: Set up all of the parts of the spell upon creation
-     *       Note: Start is called before the first frame update
-     */
-    void Start()
-    {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
-        spellSetup();
-    }
-
-    /*
      *       Name: spellSetup()
      * Parameters: None
      *     Return: None
-     *    Purpose: Set up all of the parts of the spell upon creation
-     *       Note: Helper for Start()
+     *    Purpose: Set up all of the parts of the spell
+     *       Note: 
      */
     public void spellSetup()
     {
@@ -168,8 +146,7 @@ public class Spell : MonoBehaviour
         yMove = 0f;
         sizeMultiplier = 1f;
         cooldownTimer = 0f;
-        castTimeTimer = 0f; 
-        
+
         // Initialize the Sets/Lists
         hitboxes = new List<GameObject>();
         spellComponents = new HashSet<SpellComponent>();
@@ -202,7 +179,6 @@ public class Spell : MonoBehaviour
     public void startSpellTimers()
     {
         cooldownTimer = cooldown;
-        castTimeTimer = castTime;
     }
 
     /*
@@ -221,25 +197,33 @@ public class Spell : MonoBehaviour
             cooldownTimer = 0f;
     }
 
+    /*
+     *       Name: getCooldownTimer()
+     * Parameters: None
+     *     Return: Returns how long until it is cooldown (float)
+     *    Purpose: Get how long until the spell is usable again
+     *       Note: 
+     */
     public float getCooldownTimer()
     {
         return cooldownTimer;
     }
 
+    /*
+     *       Name: canMove()
+     * Parameters: None
+     *     Return: Returns if the player can move (bool)
+     *    Purpose: To detect if the player should be able to move
+     *       Note: 
+     */
     public bool canMove()
     {
-        return castTimeTimer <= 0f;
+        return playerCanMove;
     }
 
-    public void decrementCastTime()
-    {
-        if (!canMove())
-            castTimeTimer -= Time.deltaTime;
-
-        if (castTimeTimer <= 0f)
-            castTimeTimer = 0f;
-    }
-
+    //
+    // OVERRIDES
+    //
     // Making it so that it can check if two spells are the same or different, even if the spellComponents are rearranged
     public override bool Equals(System.Object obj)
     {
@@ -258,5 +242,12 @@ public class Spell : MonoBehaviour
     public override int GetHashCode()
     {
         return base.GetHashCode();
+    }
+    public override string ToString() {
+        string s = "";
+        foreach (SpellComponent sc in spellComponents) {
+            s += sc.ToString();
+        }
+        return s;
     }
 }
