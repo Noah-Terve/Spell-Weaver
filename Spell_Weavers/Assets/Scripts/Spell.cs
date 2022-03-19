@@ -6,7 +6,7 @@ using UnityEngine;
  *    Name: Spell.cs
  * Purpose: Respresents a spell to be cast; attached to a gameobject prefab which will be cast
  *    Date: Created 3/17/2022 by Matthew
- */
+ */ 
 
 public class Spell : MonoBehaviour
 {
@@ -28,6 +28,22 @@ public class Spell : MonoBehaviour
     private bool playerCanMove = true; // TEMPORARY VARIABLE
 
     /* METHODS */
+
+    //
+    // THE CONSTRUCTORS
+    //
+
+    public Spell()
+    {
+        spellParts = null;
+    }
+
+    public Spell(SpellComponent[] parts)
+    {
+        spellParts = parts;
+        spellSetup();
+    }
+
     // 
     // THE CASTING
     //
@@ -41,6 +57,7 @@ public class Spell : MonoBehaviour
      */
     public void startSpellCast()
     {
+        startSpellTimers();
         StartCoroutine(castSpell());
     }
 
@@ -51,15 +68,16 @@ public class Spell : MonoBehaviour
         {
             if (hb == null)
                 continue;
-            GameObject g = Instantiate(hb);
+            GameObject g = Instantiate(hb, player.transform);
             g.GetComponent<GetHitData>().spell = this;
+            g.transform.SetParent(player.transform);
             theHitBoxes.Add(g);
         }
 
         yield return new WaitForSeconds(castTime);
 
-        foreach (GameObject hb in theHitBoxes)
-            Destroy(hb);
+        //foreach (GameObject hb in theHitBoxes)
+            // Destroy(hb);
     }
 
     public void dmgCalc(GameObject enemy)
@@ -94,6 +112,9 @@ public class Spell : MonoBehaviour
     public void spellSetup()
     {
         spellClear();
+
+        if (spellParts == null)
+            return;
 
         // Sets all of the 
         foreach (SpellComponent s in spellParts)
@@ -200,6 +221,11 @@ public class Spell : MonoBehaviour
             cooldownTimer = 0f;
     }
 
+    public float getCooldownTimer()
+    {
+        return cooldownTimer;
+    }
+
     public bool canMove()
     {
         return castTimeTimer <= 0f;
@@ -223,11 +249,11 @@ public class Spell : MonoBehaviour
         if ((System.Object)s == null)
             return false;
 
-        return spellComponents == s.spellComponents;
+        return !s.spellComponents.SetEquals(spellComponents);
     }
     public bool Equals(Spell other)
     {
-        return other.spellComponents == spellComponents;
+        return other.spellComponents.SetEquals(spellComponents);
     }
     public override int GetHashCode()
     {
