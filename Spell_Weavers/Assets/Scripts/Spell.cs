@@ -20,14 +20,57 @@ public class Spell : MonoBehaviour
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
-    bool onCooldown = false; // boolean dictating if it is on cooldown
-
+    private float cooldownTimer = 0f, castTimeTimer = 0f; // NOTE: MAY NOT NEED castTimeTimer
 
     // Spells that move you when cast
     private float xMove = 0f, yMove = 0f;
+    private GameObject player;
+    private bool playerCanMove = true; // TEMPORARY VARIABLE
 
+    /* METHODS */
+    // 
+    // THE CASTING
+    //
 
-/* METHODS */
+    /*
+     *       Name: startSpellCast()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Activates all the parts and calculates all of the damage
+     *       Note: Starts a coroutine
+     */
+    public void startSpellCast()
+    {
+        StartCoroutine(castSpell());
+    }
+
+    IEnumerator castSpell()
+    {
+        List<GameObject> theHitBoxes = new List<GameObject>();
+        foreach (GameObject hb in hitboxes)
+        {
+            if (hb == null)
+                continue;
+            GameObject g = Instantiate(hb);
+            g.GetComponent<GetHitData>().spell = this;
+            theHitBoxes.Add(g);
+        }
+
+        yield return new WaitForSeconds(castTime);
+
+        foreach (GameObject hb in theHitBoxes)
+            Destroy(hb);
+    }
+
+    public void dmgCalc(GameObject enemy)
+    {
+        Debug.Log("HIT " + enemy.name);
+    }
+
+    // 
+    // THE SETUP
+    //
+
     /*
      *       Name: Start()
      * Parameters: None
@@ -37,32 +80,8 @@ public class Spell : MonoBehaviour
      */
     void Start()
     {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
         spellSetup();
-    }
-
-
-    /*
-     *       Name: isOnCooldown()
-     * Parameters: None
-     *     Return: true if it is on cooldown (bool)
-     *    Purpose: Detect if the spell is on cooldown
-     *       Note: 
-     */
-    public bool isOnCooldown()
-    {
-        return onCooldown;
-    }
-
-    public void startCooldown()
-    {
-        StartCoroutine(goOnCooldown());
-    }
-
-    IEnumerator goOnCooldown()
-    {
-        onCooldown = true;
-        yield return new WaitForSeconds(cooldown);
-        onCooldown = false;
     }
 
     /*
@@ -127,11 +146,72 @@ public class Spell : MonoBehaviour
         xMove = 0f;
         yMove = 0f;
         sizeMultiplier = 1f;
-
+        cooldownTimer = 0f;
+        castTimeTimer = 0f; 
+        
         // Initialize the Sets/Lists
         hitboxes = new List<GameObject>();
         spellComponents = new HashSet<SpellComponent>();
         superEffective = new HashSet<Element>();
+    }
+
+    // 
+    // THE TIMERS
+    //
+
+    /*
+     *       Name: isOnCooldown()
+     * Parameters: None
+     *     Return: true if it is on cooldown (bool)
+     *    Purpose: Detect if the spell is on cooldown
+     *       Note: 
+     */
+    public bool isOnCooldown()
+    {
+        return cooldownTimer > 0f;
+    }
+
+    /*
+     *       Name: startSpellTimers()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Starts the timers for the spell timers
+     *       Note: 
+     */
+    public void startSpellTimers()
+    {
+        cooldownTimer = cooldown;
+        castTimeTimer = castTime;
+    }
+
+    /*
+     *       Name: decrementCooldown()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: When called on an update, it counts the cooldown
+     *       Note: 
+     */
+    public void decrementCooldown()
+    {
+        if (isOnCooldown())
+            cooldownTimer -= Time.deltaTime;
+
+        if (cooldownTimer <= 0f)
+            cooldownTimer = 0f;
+    }
+
+    public bool canMove()
+    {
+        return castTimeTimer <= 0f;
+    }
+
+    public void decrementCastTime()
+    {
+        if (!canMove())
+            castTimeTimer -= Time.deltaTime;
+
+        if (castTimeTimer <= 0f)
+            castTimeTimer = 0f;
     }
 
     // Making it so that it can check if two spells are the same or different, even if the spellComponents are rearranged
