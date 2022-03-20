@@ -21,6 +21,7 @@ public class Spell
     float castTime = 0f, cooldown = 0f, dmg = 0f; // Basic time and damage
     List<GameObject> hitboxes; // All of the prefabs to detect the damage
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
+    
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
     private float cooldownTimer = 0f;
@@ -30,26 +31,45 @@ public class Spell
     
     private bool playerCanMove = true; // TEMPORARY VARIABLE
 
-    /* METHODS */
+    
 
-    //
-    // THE CONSTRUCTORS
-    //
-
+/* THE CONSTRUCTORS */
+    /*
+     *       Name: Spell()
+     * Parameters: None
+     *    Purpose: Default Constructor
+     *       Note: 
+     */
     public Spell()
     {
         spellParts = null;
     }
 
+    /*
+     *       Name: Spell(SpellCompnent[] parts)
+     * Parameters: The SpellComonents that make up the spell (SpellComponent[])
+     *    Purpose: Main Spell Constructor 
+     *       Note: 
+     */
     public Spell(SpellComponent[] parts)
     {
         spellParts = parts;
         spellSetup();
     }
 
+
+/* METHODS */
     // 
     // THE CASTING
     //
+
+    /*
+     *       Name: castSpell()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Creates all GameObjects and prevents movement for the cast time, then destroys it and lets the player move
+     *       Note: Is a coroutine
+     */
     public IEnumerator castSpell()
     {
         List<GameObject> theHitBoxes = new List<GameObject>();
@@ -57,9 +77,11 @@ public class Spell
         {
             if (hb == null)
                 continue;
-            GameObject g = GameObject.Instantiate(hb, player.transform);
+            
+            GameObject g = GameObject.Instantiate(hb, player.transform.position, Quaternion.identity);
+            
             g.GetComponent<GetHitData>().spell = this;
-            // g.transform.SetParent(player.transform);
+
             theHitBoxes.Add(g);
         }
 
@@ -71,11 +93,30 @@ public class Spell
             GameObject.Destroy(hb);
     }
 
+    /*
+     *       Name: dmgCalc(GameObject enemy)
+     * Parameters: The enemy to damage to (GameObject)
+     *     Return: None
+     *    Purpose: Creates all GameObjects and prevents movement for the cast time, then destroys it and lets the player move
+     *       Note: Is called in the Hitbox gameobjects when they are triggered aka onTriggerEnter
+     */
     public void dmgCalc(GameObject enemy)
     {
+        // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
     }
 
+    /*
+     *       Name: getSpellComponents()
+     * Parameters: None
+     *     Return: The set of spell components (HashSet<SpellComponent>)
+     *    Purpose: Getter for the spell components
+     *       Note: 
+     */
+    public HashSet<SpellComponent> getSpellComponents() 
+    {
+        return spellComponents;
+    }
     // 
     // THE SETUP
     //
@@ -219,35 +260,5 @@ public class Spell
     public bool canMove()
     {
         return playerCanMove;
-    }
-
-    //
-    // OVERRIDES
-    //
-    // Making it so that it can check if two spells are the same or different, even if the spellComponents are rearranged
-    public override bool Equals(System.Object obj)
-    {
-        if (obj == null)
-            return false;
-        Spell s = obj as Spell;
-        if ((System.Object)s == null)
-            return false;
-
-        return !s.spellComponents.SetEquals(spellComponents);
-    }
-    public bool Equals(Spell other)
-    {
-        return other.spellComponents.SetEquals(spellComponents);
-    }
-    public override int GetHashCode()
-    {
-        return base.GetHashCode();
-    }
-    public override string ToString() {
-        string s = "";
-        foreach (SpellComponent sc in spellComponents) {
-            s += sc.ToString();
-        }
-        return s;
     }
 }
