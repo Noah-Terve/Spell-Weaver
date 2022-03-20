@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-    // Start button
-    public Button startButton;
+    // keep track of where the player died so they can respawn from there
+    public static string SceneDied = "MainMenu";
     
     
     // Start is called before the first frame update
     void Start() {
-        // listen for the button to be clicked so the game can start
-        startButton.onClick.AddListener(StartGame);
+        
     }
 
     // Update is called once per frame
@@ -21,8 +20,18 @@ public class GameHandler : MonoBehaviour
         
     }
     
-    // Load the beginning of the game.
-    void StartGame() {
-        SceneManager.LoadScene("Zone_1", LoadSceneMode.Single);
+    // Load the beginning of the game when 
+    // the botton is clicked in the main menu.
+    public void StartGame() {
+        SceneManager.LoadScene("Zone1", LoadSceneMode.Single);
+    }
+    
+    // TODO: add an on collision enter with a checkpoint to update the SceneDied
+    //       string, so we can respawn from there when we die. 
+    
+    public void ReplayGame() {
+        // TODO: add some disincentive to dying.
+        
+        SceneManager.LoadScene(SceneDied);
     }
 }
