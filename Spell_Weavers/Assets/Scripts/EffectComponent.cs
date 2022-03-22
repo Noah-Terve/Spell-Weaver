@@ -12,6 +12,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Spell Effect")]
 public class EffectComponent : SpellComponent
 {
+    // When putting in the events for the event object, all of the effects should be coded in the EffectsList,
+    // And the Unity event that is looked at is the EffectsListHolder prefab (as events needed to be attached to a GameObject)
     public UnityEvent<GameObject, GameObject> effect;
     
     public void triggerEffect(GameObject player, GameObject target) {
