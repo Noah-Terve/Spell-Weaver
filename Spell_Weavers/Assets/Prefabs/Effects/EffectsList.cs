@@ -18,6 +18,6 @@ public class EffectsList : MonoBehaviour
 
 /* LIST OF EFFECTS */
     public static void move (GameObject player, GameObject target) {
-
+        target.transform.position = (target.transform.position + player.transform.position) / 2;
     }
 }

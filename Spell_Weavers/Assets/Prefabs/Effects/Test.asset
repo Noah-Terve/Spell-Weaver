@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   castTime: 1
-  dmg: 1
+  dmg: 0
   effect:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6665075107640486108, guid: 30c2e1ad233e4e5468d48ae2f1642675, type: 3}
         m_TargetAssemblyTypeName: EffectsList, Assembly-CSharp
-        m_MethodName: burn
+        m_MethodName: move
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

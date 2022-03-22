@@ -13,12 +13,13 @@ public class Spellbook : MonoBehaviour
 /* IV */
     // Adding references to the spell Components 
     // TODO:: Figure out how to remove this part - Shouldn't have to make this array every time (May not be able to remove, but in the prefab)
-    public SpellComponent[] allElements;
-    public SpellComponent[] allShapes;
+    public ElementComponent[] allElements;
+    public ShapeComponent[] allShapes;
+    public EffectComponent[] allEffects;
 
     // Spells to be cast
     public static List<Spell> spells = new List<Spell>();
-    
+
     // Make sure not to make a new spell when already have one there
     static HashSet<Spell> knownSpells = new HashSet<Spell>();
     // Check whether they are on cooldown
@@ -54,6 +55,8 @@ public class Spellbook : MonoBehaviour
         addSpell(test);
         test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
         addSpell(test);
+        test = new SpellComponent[] { allElements[2], allElements[0], allShapes[0], allEffects[0] };
+        addSpell(test);
 
         Debug.Log(knownSpells.Count);
         foreach (Spell s in knownSpells)
@@ -84,9 +87,9 @@ public class Spellbook : MonoBehaviour
 
         // TESTING
         // TODO:: MAKE THE INPUT WORK
-        if (Input.GetButtonDown("Fire1") && !spells[1].isOnCooldown()) {
-            startSpellCast(spells[1]);
-            onCooldown.Add(spells[1]);
+        if (Input.GetButtonDown("Fire1") && !spells[8].isOnCooldown()) {
+            startSpellCast(spells[8]);
+            onCooldown.Add(spells[8]);
             Debug.Log("FIRE");
         }
         

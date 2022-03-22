@@ -50,3 +50,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db011ceba8f9a4d4d949932870268283, type: 2}
   allShapes:
   - {fileID: 11400000, guid: 6e5edcb081ad11b4ea272792715f1623, type: 2}
+  allEffects:
+  - {fileID: 11400000, guid: 3405b922b6e9eaf49bd307ba6e5887b8, type: 2}
