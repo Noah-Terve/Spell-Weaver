@@ -11,16 +11,18 @@ using UnityEngine;
 public class Spellbook : MonoBehaviour
 {
 /* IV */
-    // Adding references to the spell Components
+    // Adding references to the spell Components 
+    // TODO:: Figure out how to remove this part - Shouldn't have to make this array every time (May not be able to remove, but in the prefab)
     public SpellComponent[] allElements;
     public SpellComponent[] allShapes;
 
-    public List<Spell> spells = new List<Spell>();
-
+    // Spells to be cast
+    public static List<Spell> spells = new List<Spell>();
+    
     // Make sure not to make a new spell when already have one there
     static HashSet<Spell> knownSpells = new HashSet<Spell>();
     // Check whether they are on cooldown
-    HashSet<Spell> onCooldown = new HashSet<Spell>();
+    static HashSet<Spell> onCooldown = new HashSet<Spell>();
 
 
 /* METHODS */
@@ -35,13 +37,24 @@ public class Spellbook : MonoBehaviour
     {
         Spell.player = GameObject.FindGameObjectsWithTag("Player")[0];
         // TESTING
+        // TODO:: REMOVE TESTING
         SpellComponent[] test = { allElements[0], allShapes[0] };
         addSpell(test);
-        SpellComponent[] test2 = { allElements[1], allShapes[0] };
-        addSpell(test2);
-        SpellComponent[] test3 = { allElements[1], allShapes[0] };
-        addSpell(test3);
-        
+        test = new SpellComponent[] { allElements[1], allShapes[0] };
+        addSpell(test);
+        test = new SpellComponent[] { allElements[1], allShapes[0] };
+        addSpell(test);
+        test = new SpellComponent[] { allElements[1], allShapes[0], allElements[2] };
+        addSpell(test);
+        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        addSpell(test);
+        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        addSpell(test);
+        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        addSpell(test);
+        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        addSpell(test);
+
         Debug.Log(knownSpells.Count);
         foreach (Spell s in knownSpells)
             Debug.Log(s);
@@ -58,7 +71,8 @@ public class Spellbook : MonoBehaviour
     private HashSet<Spell> removeSet = new HashSet<Spell>();
     void Update()
     {
-        
+        // Cooldown
+        // TODO:: MAKE THE COOLDOWN EFFIECIENT AS WELL AS PUT INTO METHOD
         foreach (Spell s in onCooldown)
         {
             s.decrementCooldown();
@@ -69,6 +83,7 @@ public class Spellbook : MonoBehaviour
         removeSet.Clear();
 
         // TESTING
+        // TODO:: MAKE THE INPUT WORK
         if (Input.GetButtonDown("Fire1") && !spells[1].isOnCooldown()) {
             startSpellCast(spells[1]);
             onCooldown.Add(spells[1]);
@@ -88,27 +103,28 @@ public class Spellbook : MonoBehaviour
     {
         if (components == null)
             return;
-
         
-        // TODO:: THE HASHSET CAN HAVE DUPLICATES (MAY BE PROBLEM WITH EQUALS OVERLOAD)
-        // HashSet<SpellComponent> temp = new HashSet<SpellComponent>(components);
+        Spell temp = null;
         bool hasVal = false;
+        
         foreach (Spell s in knownSpells) {
             if (s.getSpellComponents().SetEquals(components)) {
                 hasVal = true;
+                temp = s;
                 break;
             }
         }
 
-        Spell temp = new Spell(components);
-        if (!hasVal)
-            knownSpells.Add(temp);
-
+        
+        if (!hasVal) {
+           temp = new Spell(components);
+           knownSpells.Add(temp);
+        }
         spells.Add(temp);
     }
 
     /*
-     *       Name: removeSpell()
+     *       Name: removeSpell(int spellIndex)
      * Parameters: Index of the spell in the list (int);
      *     Return: None
      *    Purpose: Removes the spell from the list

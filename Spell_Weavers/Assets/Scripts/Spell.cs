@@ -21,7 +21,8 @@ public class Spell
     float castTime = 0f, cooldown = 0f, dmg = 0f; // Basic time and damage
     List<GameObject> hitboxes; // All of the prefabs to detect the damage
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
-    
+    HashSet<EffectComponent> effects;
+
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
     private float cooldownTimer = 0f;
@@ -79,7 +80,7 @@ public class Spell
                 continue;
             
             GameObject g = GameObject.Instantiate(hb, player.transform.position, Quaternion.identity);
-            
+            g.transform.localScale = Vector3.one * sizeMultiplier;
             g.GetComponent<GetHitData>().spell = this;
 
             theHitBoxes.Add(g);
@@ -104,6 +105,19 @@ public class Spell
     {
         // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
+    }
+
+    /*
+     *       Name: activateEffects(GameObject enemy)
+     * Parameters: The enemy the spell hit (GameObject)
+     *     Return: None
+     *    Purpose: Triggers all of the effects
+     *       Note: Is called in the Hitbox gameobjects when they are triggered aka onTriggerEnter
+     */
+
+    public void activateEffects(GameObject enemy) {
+        foreach (EffectComponent e in effects)
+            e.triggerEffect(player, enemy);
     }
 
     /*
@@ -148,16 +162,20 @@ public class Spell
             // Specific effects of the spell
             if (s is ElementComponent)
             {
-                ElementComponent x = (ElementComponent)s;
+                ElementComponent x = s as ElementComponent;
                 superEffective.Add(x.strongAgainst);
                 sizeMultiplier *= x.sizeMultiplier;
             }
             else if (s is ShapeComponent)
             {
-                ShapeComponent x = (ShapeComponent)s;
+                ShapeComponent x = s as ShapeComponent;
                 hitboxes.Add(x.shapePrefab);
                 xMove += x.xMove;
                 yMove += x.yMove;
+            }
+            else if (s is EffectComponent)
+            {
+                effects.Add(s as EffectComponent);
             }
 
         }
@@ -192,6 +210,7 @@ public class Spell
         hitboxes = new List<GameObject>();
         spellComponents = new HashSet<SpellComponent>();
         superEffective = new HashSet<Element>();
+        effects = new HashSet<EffectComponent>();
     }
 
     // 
@@ -260,5 +279,24 @@ public class Spell
     public bool canMove()
     {
         return playerCanMove;
+    }
+
+
+    //
+    // OVERRIDES
+    //
+
+    /*
+     *       Name: ToString()
+     * Parameters: None
+     *     Return: Returns the string representing the spell (string)
+     *    Purpose: Should give the name in terms of the components
+     *       Note: 
+     */
+    public override string ToString() {
+        string str = "[ - ";
+        foreach (SpellComponent s in spellComponents)
+            str += s.ToString() + " - ";
+        return str + "]";
     }
 }
