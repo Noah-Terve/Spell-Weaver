@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     //public Animator animator;
-    public Rigidbody2D rb2D;
+    public Rigidbody2D rb;
     private bool FaceRight = true; // determine which way player is facing.
     public static float runSpeed = 10f;
     public float startSpeed = 10f;
@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour {
 
     void Start(){
         //animator = gameObject.GetComponentInChildren<Animator>();
-        rb2D = transform.GetComponent<Rigidbody2D>();
+        rb = transform.GetComponent<Rigidbody2D>();
     }
 
     void Update(){
@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour {
     void FixedUpdate(){
         //slow down on hills / stops sliding from velocity
         if (hMove.x == 0){
-            rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
+            rb.velocity = new Vector2(rb.velocity.x / 1.1f, rb.velocity.y) ;
         }
     }
 

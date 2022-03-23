@@ -615,7 +615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3772095556843924874}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -801,20 +801,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be313de3aabb84090b27714a38ed30ff, type: 3}
---- !u!1 &3772095556843924873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4977296677426205680, guid: be313de3aabb84090b27714a38ed30ff, type: 3}
-  m_PrefabInstance: {fileID: 3772095556843924872}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3772095556843924874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772095556843924873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96ba1ed1bfa04a07b9d5e578ecb865e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

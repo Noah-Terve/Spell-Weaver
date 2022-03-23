@@ -24,10 +24,12 @@ public class GameHandler : MonoBehaviour
     // the botton is clicked in the main menu.
     public void StartGame() {
         SceneManager.LoadScene("Zone1", LoadSceneMode.Single);
+        SceneDied = "Zone1";
     }
     
     // TODO: add an on collision enter with a checkpoint to update the SceneDied
-    //       string, so we can respawn from there when we die. 
+    //       string, so we can respawn from there when we die. Not sure about
+    //       how this will work, ie where exactly it needs to respan from.
     
     public void ReplayGame() {
         // TODO: add some disincentive to dying.
