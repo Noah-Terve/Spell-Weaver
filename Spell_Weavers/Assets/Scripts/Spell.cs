@@ -79,8 +79,10 @@ public class Spell
             if (hb == null)
                 continue;
             
-            GameObject g = GameObject.Instantiate(hb, player.transform.position, Quaternion.identity);
-            g.transform.localScale = Vector3.one * sizeMultiplier;
+            GameObject g = GameObject.Instantiate(hb, player.transform);
+            g.transform.SetParent(null);
+            g.transform.localScale *= sizeMultiplier;
+
             g.GetComponent<GetHitData>().spell = this;
 
             theHitBoxes.Add(g);
