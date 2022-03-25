@@ -9,8 +9,6 @@ public class GameHandler : MonoBehaviour
     // keep track of where the player died so they can respawn from there
     public static string SceneDied = "MainMenu";
     
-    // so if i make changes here can i just auto update them to git from vs?
-    
     // Start is called before the first frame update
     void Start() {
         
