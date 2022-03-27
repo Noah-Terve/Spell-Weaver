@@ -11,7 +11,7 @@ public class EffectsList : MonoBehaviour
 {
 /* TEMPLATE */
 /* 
-    public static void NAME (GameObject target, GameObject player) {
+    public static void NAME (GameObject player, GameObject target) {
         // Whatever the effect is 
     }
 */
@@ -19,5 +19,8 @@ public class EffectsList : MonoBehaviour
 /* LIST OF EFFECTS */
     public static void move (GameObject player, GameObject target) {
         target.transform.position = (target.transform.position + player.transform.position) / 2;
+    }
+    public static void burn (GameObject player, GameObject target) {
+        // Whatever the effect is 
     }
 }

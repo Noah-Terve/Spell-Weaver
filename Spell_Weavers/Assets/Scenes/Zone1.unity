@@ -197,6 +197,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3549278109469787891, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
   m_PrefabInstance: {fileID: 145862539}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &163808454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 145862540}
+    m_Modifications:
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600896, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600911, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: m_Name
+      value: Spell Center
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
 --- !u!1 &542777617
 GameObject:
   m_ObjectHideFlags: 0
