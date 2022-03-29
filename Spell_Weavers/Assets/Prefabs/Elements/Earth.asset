@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Earth
   m_EditorClassIdentifier: 
-  cooldown: 2
-  castTime: 3
+  cooldown: 0.2
+  castTime: 0.3
   dmg: 2
   sizeMultiplier: 2
   strongAgainst: 1

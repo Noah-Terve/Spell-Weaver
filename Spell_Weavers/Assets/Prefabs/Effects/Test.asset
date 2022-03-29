@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   cooldown: 1
-  castTime: 1
+  castTime: 0.1
   dmg: 0
   effect:
     m_PersistentCalls:

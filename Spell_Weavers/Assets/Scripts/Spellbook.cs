@@ -27,6 +27,12 @@ public class Spellbook : MonoBehaviour
 
 
 /* METHODS */
+
+    void Awake()
+    {
+        Spell.player = GameObject.FindGameObjectsWithTag("Player")[0];
+    }
+
     /*
      *       Name: Start()
      * Parameters: None
@@ -36,7 +42,7 @@ public class Spellbook : MonoBehaviour
      */
     void Start()
     {
-        Spell.player = GameObject.FindGameObjectsWithTag("Player")[0];
+        
         // TESTING
         // TODO:: REMOVE TESTING
         SpellComponent[] test = { allElements[0], allShapes[0] };

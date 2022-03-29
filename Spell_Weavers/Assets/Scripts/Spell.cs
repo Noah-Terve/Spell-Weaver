@@ -29,8 +29,6 @@ public class Spell
 
     // Spells that move you when cast
     private float xMove = 0f, yMove = 0f;
-    
-    private bool playerCanMove = true; // TEMPORARY VARIABLE
 
     
 
@@ -88,9 +86,9 @@ public class Spell
             theHitBoxes.Add(g);
         }
 
-        playerCanMove = false;
+        player.GetComponent<PlayerMove>().canMove = false;
         yield return new WaitForSeconds(castTime);
-        playerCanMove = true;
+        player.GetComponent<PlayerMove>().canMove = true;
 
         foreach (GameObject hb in theHitBoxes)
             GameObject.Destroy(hb);
@@ -270,19 +268,6 @@ public class Spell
     {
         return cooldownTimer;
     }
-
-    /*
-     *       Name: canMove()
-     * Parameters: None
-     *     Return: Returns if the player can move (bool)
-     *    Purpose: To detect if the player should be able to move
-     *       Note: 
-     */
-    public bool canMove()
-    {
-        return playerCanMove;
-    }
-
 
     //
     // OVERRIDES

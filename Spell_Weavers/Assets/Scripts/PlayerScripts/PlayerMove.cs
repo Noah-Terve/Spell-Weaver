@@ -10,6 +10,9 @@ public class PlayerMove : MonoBehaviour {
     public static float runSpeed = 10f;
     public float startSpeed = 10f;
     public bool isAlive = true;
+
+    public bool canMove = true;
+
     //public AudioSource WalkSFX;
     private Vector3 hMove;
 
@@ -20,7 +23,12 @@ public class PlayerMove : MonoBehaviour {
 
     void Update(){
         //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
-        hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+        if (canMove)
+            hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+        else
+            hMove = Vector3.zero;
+
+
         if (isAlive == true){
             transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
         }
