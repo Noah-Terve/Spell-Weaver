@@ -13,15 +13,13 @@ public class Spellbook : MonoBehaviour
 /* IV */
     // Adding references to the spell Components 
     // TODO:: Figure out how to remove this part - Shouldn't have to make this array every time (May not be able to remove, but in the prefab)
-    public ElementComponent[] allElements;
-    public ShapeComponent[] allShapes;
-    public EffectComponent[] allEffects;
-
+    public SpellComponentList list;
     // Spells to be cast
     public static List<Spell> spells = new List<Spell>();
 
+    // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
     // Make sure not to make a new spell when already have one there
-    static HashSet<Spell> knownSpells = new HashSet<Spell>();
+ //   static HashSet<Spell> knownSpells = new HashSet<Spell>();
     // Check whether they are on cooldown
     static HashSet<Spell> onCooldown = new HashSet<Spell>();
 
@@ -45,29 +43,29 @@ public class Spellbook : MonoBehaviour
         
         // TESTING
         // TODO:: REMOVE TESTING
-        SpellComponent[] test = { allElements[0], allShapes[0] };
+        SpellComponent[] test = { list.allElements[0], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[1], allShapes[0] };
+        test = new SpellComponent[] { list.allElements[1], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[1], allShapes[0] };
+        test = new SpellComponent[] { list.allElements[1], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[1], allShapes[0], allElements[2] };
+        test = new SpellComponent[] { list.allElements[1], list.allShapes[0], list.allElements[2] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[2], allElements[1], allShapes[0] };
+        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
         addSpell(test);
-        test = new SpellComponent[] { allElements[2], allElements[0], allShapes[0], allEffects[0] };
+        test = new SpellComponent[] { list.allElements[2], list.allElements[0], list.allShapes[0], list.allEffects[0] };
         addSpell(test);
-
+        /*
         Debug.Log(knownSpells.Count);
         foreach (Spell s in knownSpells)
             Debug.Log(s);
-
+        */ 
     }
 
     /*
@@ -110,12 +108,16 @@ public class Spellbook : MonoBehaviour
      */
     public void addSpell(SpellComponent[] components)
     {
+        spells.Add(new Spell(components));
+        
+        // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
+        /*
         if (components == null)
             return;
         
         Spell temp = null;
         bool hasVal = false;
-        
+         
         foreach (Spell s in knownSpells) {
             if (s.getSpellComponents().SetEquals(components)) {
                 hasVal = true;
@@ -123,13 +125,14 @@ public class Spellbook : MonoBehaviour
                 break;
             }
         }
-
+        
         
         if (!hasVal) {
            temp = new Spell(components);
            knownSpells.Add(temp);
         }
         spells.Add(temp);
+        */
     }
 
     /*
@@ -155,7 +158,7 @@ public class Spellbook : MonoBehaviour
     public void resetSpellBook()
     {
         onCooldown.Clear();
-        knownSpells.Clear();
+        // knownSpells.Clear();
     }
 
     /*

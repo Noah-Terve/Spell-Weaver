@@ -43,12 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c96532166ee6c54aaf7810ca92727ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allElements:
-  - {fileID: 11400000, guid: 1d22204f7a9d6114db4ab80240b8049c, type: 2}
-  - {fileID: 11400000, guid: 1ebcb4a7819cf10458e4f0c302a52cf5, type: 2}
-  - {fileID: 11400000, guid: ee2f98936c922604b8fc279e4654e333, type: 2}
-  - {fileID: 11400000, guid: db011ceba8f9a4d4d949932870268283, type: 2}
-  allShapes:
-  - {fileID: 11400000, guid: 6e5edcb081ad11b4ea272792715f1623, type: 2}
-  allEffects:
-  - {fileID: 11400000, guid: 3405b922b6e9eaf49bd307ba6e5887b8, type: 2}
+  list: {fileID: 11400000, guid: 97419284400aaa94a9082f05f86fe733, type: 2}
