@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Spell Center
+  - Spell Menu
   layers:
   - Default
   - TransparentFX

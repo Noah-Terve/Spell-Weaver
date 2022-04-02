@@ -15,7 +15,11 @@ public class Spellbook : MonoBehaviour
     // TODO:: Figure out how to remove this part - Shouldn't have to make this array every time (May not be able to remove, but in the prefab)
     public SpellComponentList list;
     // Spells to be cast
-    public static List<Spell> spells = new List<Spell>();
+    public static Queue<Spell> spells = new Queue<Spell>();
+
+    public static bool isCasting = true;
+
+    public static bool inCast = false;
 
     // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
     // Make sure not to make a new spell when already have one there
@@ -43,6 +47,7 @@ public class Spellbook : MonoBehaviour
         
         // TESTING
         // TODO:: REMOVE TESTING
+        /*
         SpellComponent[] test = { list.allElements[0], list.allShapes[0] };
         addSpell(test);
         test = new SpellComponent[] { list.allElements[1], list.allShapes[0] };
@@ -61,6 +66,7 @@ public class Spellbook : MonoBehaviour
         addSpell(test);
         test = new SpellComponent[] { list.allElements[2], list.allElements[0], list.allShapes[0], list.allEffects[0] };
         addSpell(test);
+        */
         /*
         Debug.Log(knownSpells.Count);
         foreach (Spell s in knownSpells)
@@ -89,14 +95,28 @@ public class Spellbook : MonoBehaviour
         onCooldown.ExceptWith(removeSet);
         removeSet.Clear();
 
+        if (!isCasting)
+            return;
+
         // TESTING
         // TODO:: MAKE THE INPUT WORK
-        if (Input.GetButtonDown("Fire1") && !spells[8].isOnCooldown()) {
-            startSpellCast(spells[8]);
-            onCooldown.Add(spells[8]);
-            Debug.Log("FIRE");
+        if (Input.GetButtonDown("Fire1") && !Spellbook.inCast) {
+            castSpell();
         }
         
+    }
+
+    bool castSpell() {
+        if (spells.Count != 0 && !spells.Peek().isOnCooldown()) {
+            startSpellCast(spells.Peek());
+            onCooldown.Add(spells.Peek());
+            Debug.Log("FIRE");
+            spells.Enqueue(spells.Dequeue());
+
+            return true;
+        }
+        else 
+            return false;
     }
 
     /*
@@ -108,8 +128,9 @@ public class Spellbook : MonoBehaviour
      */
     public void addSpell(SpellComponent[] components)
     {
-        spells.Add(new Spell(components));
-        
+        Spell s = new Spell(components);
+        spells.Enqueue(s);
+        Debug.Log(s);
         // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
         /*
         if (components == null)
@@ -133,18 +154,6 @@ public class Spellbook : MonoBehaviour
         }
         spells.Add(temp);
         */
-    }
-
-    /*
-     *       Name: removeSpell(int spellIndex)
-     * Parameters: Index of the spell in the list (int);
-     *     Return: None
-     *    Purpose: Removes the spell from the list
-     *       Note: 
-     */
-    public void removeSpell(int spellIndex) 
-    {
-        spells.Remove(spells[spellIndex]);
     }
     
 

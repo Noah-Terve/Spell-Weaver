@@ -87,7 +87,10 @@ public class Spell
         }
 
         player.GetComponent<PlayerMove>().canMove = false;
+        Spellbook.inCast = true;
         yield return new WaitForSeconds(castTime);
+        
+        Spellbook.inCast = false;
         player.GetComponent<PlayerMove>().canMove = true;
 
         foreach (GameObject hb in theHitBoxes)
