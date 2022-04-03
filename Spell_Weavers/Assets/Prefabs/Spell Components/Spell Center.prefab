@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4977296677426205680
+--- !u!1 &3677108242575600911
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4472397330743399905}
-  - component: {fileID: 466162208057611079}
-  - component: {fileID: -285165254478259321}
+  - component: {fileID: 3677108242575600896}
+  - component: {fileID: 3677108242575600897}
   m_Layer: 0
-  m_Name: GameHandler
-  m_TagString: GameController
+  m_Name: Spell Center
+  m_TagString: Spell Center
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4472397330743399905
+--- !u!4 &3677108242575600896
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4977296677426205680}
+  m_GameObject: {fileID: 3677108242575600911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,27 +31,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &466162208057611079
+--- !u!114 &3677108242575600897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4977296677426205680}
+  m_GameObject: {fileID: 3677108242575600911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96ba1ed1bfa04a07b9d5e578ecb865e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c96532166ee6c54aaf7810ca92727ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-285165254478259321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4977296677426205680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5047dd63c6808f4b972bce61765176a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  list: {fileID: 11400000, guid: 97419284400aaa94a9082f05f86fe733, type: 2}

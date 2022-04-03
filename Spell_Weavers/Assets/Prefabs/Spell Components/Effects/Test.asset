@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f988a350f7b664092faca8d1560e8d, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  castTime: 0.1
+  dmg: 0
+  effect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6665075107640486108, guid: 30c2e1ad233e4e5468d48ae2f1642675, type: 3}
+        m_TargetAssemblyTypeName: EffectsList, Assembly-CSharp
+        m_MethodName: move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
