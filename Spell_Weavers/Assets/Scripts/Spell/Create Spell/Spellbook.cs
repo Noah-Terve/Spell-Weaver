@@ -20,6 +20,8 @@ public class Spellbook : MonoBehaviour
     public static bool isCasting = true;
 
     public static bool inCast = false;
+    
+    public static bool GameisPaused = false;
 
     // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
     // Make sure not to make a new spell when already have one there
@@ -100,7 +102,7 @@ public class Spellbook : MonoBehaviour
 
         // TESTING
         // TODO:: MAKE THE INPUT WORK
-        if (Input.GetButtonDown("Fire1") && !Spellbook.inCast) {
+        if (Input.GetButtonDown("Fire1") && !inCast && !GameisPaused) {
             castSpell();
         }
         
