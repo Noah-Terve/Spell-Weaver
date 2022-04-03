@@ -36,13 +36,13 @@ public class HoldComponents : MonoBehaviour
      */
     void makeMenu() {
         for (int i = 0; i < compList.allElements.Length; i++) 
-            makeButton(100, 100 + i * 30, compList.allElements[i]);
+            makeButton(-100, 100 - i * 30, compList.allElements[i]);
         
         for (int i = 0; i < compList.allShapes.Length; i++) 
-            makeButton(220, 100 + i * 30, compList.allShapes[i]);
+            makeButton(0, 100 - i * 30, compList.allShapes[i]);
 
         for (int i = 0; i < compList.allEffects.Length; i++) 
-            makeButton(340, 100 + i * 30, compList.allEffects[i]);    
+            makeButton(100, 100 - i * 30, compList.allEffects[i]);    
     }
     /*
      *       Name: makeButton(float x, float y, SpellComponent comp)
@@ -52,7 +52,8 @@ public class HoldComponents : MonoBehaviour
      *       Note: Is used in making the buttons
      */
     void makeButton(float x, float y, SpellComponent comp) {
-        GameObject button = Instantiate(buttonPrefab, new Vector3(x, y, 0), Quaternion.identity, gameObject.transform);
+        GameObject button = Instantiate(buttonPrefab, gameObject.transform);
+        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
         button.GetComponent<Button>().onClick.AddListener(delegate{addComponent(comp);});
         button.GetComponentInChildren<Text>().text = comp.name;
         
