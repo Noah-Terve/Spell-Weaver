@@ -103,13 +103,14 @@ public class Spellbook : MonoBehaviour
         // TESTING
         // TODO:: MAKE THE INPUT WORK
         if (Input.GetButtonDown("Fire1") && !inCast && !GameisPaused) {
-            castSpell();
+            if (!castSpell())
+                Debug.Log("ON COOLDOWN");
         }
         
     }
 
     bool castSpell() {
-        if (spells.Count != 0 && !spells.Peek().isOnCooldown()) {
+        if (spells.Count != 0 && !onCooldown.Contains(spells.Peek())) {
             startSpellCast(spells.Peek());
             onCooldown.Add(spells.Peek());
             Debug.Log("FIRE");
@@ -133,29 +134,6 @@ public class Spellbook : MonoBehaviour
         Spell s = new Spell(components);
         spells.Enqueue(s);
         Debug.Log(s);
-        // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
-        /*
-        if (components == null)
-            return;
-        
-        Spell temp = null;
-        bool hasVal = false;
-         
-        foreach (Spell s in knownSpells) {
-            if (s.getSpellComponents().SetEquals(components)) {
-                hasVal = true;
-                temp = s;
-                break;
-            }
-        }
-        
-        
-        if (!hasVal) {
-           temp = new Spell(components);
-           knownSpells.Add(temp);
-        }
-        spells.Add(temp);
-        */
     }
     
 
@@ -169,7 +147,6 @@ public class Spellbook : MonoBehaviour
     public void resetSpellBook()
     {
         onCooldown.Clear();
-        // knownSpells.Clear();
     }
 
     /*

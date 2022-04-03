@@ -30,7 +30,8 @@ public class Spell
     // Spells that move you when cast
     private float xMove = 0f, yMove = 0f;
 
-    
+    // HASH CODE STUFF
+    private int hashingCode = 0;
 
 /* THE CONSTRUCTORS */
     /*
@@ -152,9 +153,17 @@ public class Spell
         if (spellParts == null)
             return;
 
-        // Sets all of the 
+
+        double tempHashCode = 0f;
+        // Sets all of the Spell Components up
         foreach (SpellComponent s in spellParts)
         {
+            if (s == null)
+                continue;
+
+            // HashCode Setup
+            tempHashCode += s.GetHashCode()/10.0;
+
             // All spell components affect
             cooldown += s.cooldown;
             castTime += s.castTime;
@@ -190,6 +199,10 @@ public class Spell
             castTime = 0.01f;
         if (dmg <= 0f)
             dmg = 0.01f;
+        
+        while (tempHashCode > 214748364.7)
+            tempHashCode -= 214748364.7;
+        hashingCode = (int)(tempHashCode * 10);
     }
 
     /*
@@ -289,4 +302,30 @@ public class Spell
             str += s.ToString() + " - ";
         return str + "]";
     }
+
+    /*
+     *       Name: Equals(System.Object s)
+     * Parameters: The object it is being compared to (System.Object)
+     *     Return: Returns whether it is the same [returns false if null or not a Spell] (bool)
+     *    Purpose: Changes how it sees things as equal
+     *       Note: 
+     */
+    public override bool Equals(System.Object s) {
+        if (s == null || !(s is Spell))
+            return false;
+        return spellComponents.SetEquals((s as Spell).spellComponents);
+    }
+
+
+    /*
+     *       Name: GetHashCode()
+     * Parameters: None
+     *     Return: Returns the hashcode, which is all of the hashcodes of the spell components combined; different orderings create the same hashcode (int)
+     *    Purpose: Makes different instances of the same spell go into the same spot as each other when checking the value
+     *       Note: Used in the HashSet
+     */
+    public override int GetHashCode() {
+        return hashingCode;
+    }
+
 }
