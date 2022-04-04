@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("collision occurred with the " + Collision.gameObject.tag);
         if(Collision.gameObject.tag == "Enemy") {
             Debug.Log("player health was " + Health.RuntimeVal);
-            Health.RuntimeVal -= 5;
+            Health.RuntimeVal -= 2;
             Debug.Log("player health is now " + Health.RuntimeVal);
             
             if (Health.RuntimeVal == 0)
