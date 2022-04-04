@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public RuntimeVar Health;
+    public static GameHandler Handler;
     
     // Start is called before the first frame update
     void Start()
     {
-         
+        if (Handler == null)
+            Handler = FindObjectOfType(typeof(GameHandler)) as GameHandler;
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("player health is now " + Health.RuntimeVal);
             
             if (Health.RuntimeVal == 0)
-                Died();
+                Handler.Died();
         }
     }
 }

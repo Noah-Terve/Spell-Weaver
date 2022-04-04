@@ -49,7 +49,7 @@ public class GameHandler : MonoBehaviour
     // pause menu functions
     void Pause(){
         if (SceneDied == "MainMenu") return;
-         
+        
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         GameisPaused = true;
