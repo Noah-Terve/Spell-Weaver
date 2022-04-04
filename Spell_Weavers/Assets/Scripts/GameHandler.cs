@@ -9,6 +9,7 @@ public class GameHandler : MonoBehaviour
 {
     // keep track of where the player died so they can respawn from there
     public static string SceneDied = "MainMenu";
+    public GameObject Player;
     
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
@@ -28,6 +29,9 @@ public class GameHandler : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
+        if (Player == null)
+            Player = GameObject.FindWithTag("Player");
+        
         pauseMenuUI.SetActive(false);
         GameisPaused = false;
         Spellbook.GameisPaused = false;
@@ -36,6 +40,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
+            Debug.Log("Hit Escape");
             if (GameisPaused) Resume();
             else Pause();
         }
@@ -95,5 +100,14 @@ public class GameHandler : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+    
+    public void Died(){
+        Player.SetActive(false);
+        
+        
+        
+        // TODO: bring up a button that allows them to respawn for now, 
+        // eventually that will just be automatic at the last checkpoint
     }
 }

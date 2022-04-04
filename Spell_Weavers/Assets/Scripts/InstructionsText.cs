@@ -13,7 +13,7 @@ public class InstructionsText : MonoBehaviour
     void Start()
     {
         if (Text == null)
-            Text = GameObject.Find ("InstructionsText");
+            Text = GameObject.Find("InstructionsText");
         
         if (!Text.activeInHierarchy)
             Text.SetActive(true);
