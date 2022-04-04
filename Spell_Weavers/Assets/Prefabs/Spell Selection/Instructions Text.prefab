@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8478775275380267455}
   - component: {fileID: 8478775275380267449}
   - component: {fileID: 8478775275380267448}
+  - component: {fileID: 5239174471301097989}
   m_Layer: 5
   m_Name: Instructions Text
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MonoBehaviour:
   m_Text: '[E] Open Spell Creator
 
     [ESC] Pause Menu'
+--- !u!114 &5239174471301097989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478775275380267454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b34c59f7d7074314adf6217f3235672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InstructionsAwakeFor: 15
