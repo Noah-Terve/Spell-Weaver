@@ -43,6 +43,8 @@ public class GameHandler : MonoBehaviour
     
     // pause menu functions
     void Pause(){
+        if (SceneDied == "MainMenu") return;
+         
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         GameisPaused = true;
@@ -83,6 +85,7 @@ public class GameHandler : MonoBehaviour
     public void RestartGame(){
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        SceneDied = "MainMenu";
     }
     
     // This function quits the entire game, again for pause menu.
