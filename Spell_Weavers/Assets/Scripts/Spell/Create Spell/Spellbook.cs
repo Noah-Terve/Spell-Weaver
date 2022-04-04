@@ -38,45 +38,6 @@ public class Spellbook : MonoBehaviour
     }
 
     /*
-     *       Name: Start()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: Sets everything up, as well as finding the player GameObject
-     *       Note: Start is called before the first frame update
-     */
-    void Start()
-    {
-        
-        // TESTING
-        // TODO:: REMOVE TESTING
-        /*
-        SpellComponent[] test = { list.allElements[0], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[1], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[1], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[1], list.allShapes[0], list.allElements[2] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[2], list.allElements[1], list.allShapes[0] };
-        addSpell(test);
-        test = new SpellComponent[] { list.allElements[2], list.allElements[0], list.allShapes[0], list.allEffects[0] };
-        addSpell(test);
-        */
-        /*
-        Debug.Log(knownSpells.Count);
-        foreach (Spell s in knownSpells)
-            Debug.Log(s);
-        */ 
-    }
-
-    /*
      *       Name: Update()
      * Parameters: None
      *     Return: None

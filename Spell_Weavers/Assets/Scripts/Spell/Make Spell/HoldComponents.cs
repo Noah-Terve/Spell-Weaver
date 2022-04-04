@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class HoldComponents : MonoBehaviour
 {
-    public int numComponents = 3;
+    [SerializeField]
+    private int initialNumComponentOnBootUp = 3;
+
+    public static int numComponents = 3;
     public List<SpellComponent> components = new List<SpellComponent>();
 
     public GameObject buttonPrefab;
+    public ShowChoices choiceBox;
+   //  public UpdateSpellList listDisplay;
 
     // NOTE:: SHOWS ALL SPELL COMPONENTS FOR NOW; WILL HAVE TO CHANGE LATER
     public SpellComponentList compList;
@@ -16,14 +21,17 @@ public class HoldComponents : MonoBehaviour
     Spellbook spellBook;
     List<GameObject> componentButtons = new List<GameObject>();
 
+
+
     /*
-     *       Name: Start()
+     *       Name: Awake()
      * Parameters: None
      *     Return: None
      *    Purpose: Makes the menu and finds the correct spellbook
-     *       Note: Starts on first frame
+     *       Note: Starts before the first frame, before Start Functions
      */
-    void Start() {
+    void Awake() {
+        numComponents = initialNumComponentOnBootUp;
         spellBook = GameObject.FindGameObjectsWithTag("Spell Center")[0].GetComponent<Spellbook>();
         makeMenu();
     }
@@ -66,8 +74,11 @@ public class HoldComponents : MonoBehaviour
      *       Note: 
      */
     void addComponent(SpellComponent component) {
-        components.Add(component);
+        if (components.Count < numComponents)
+            components.Add(component);
+        choiceBox.updateText();
     }
+    
     /*
      *       Name: clearSpell()
      * Parameters: None
@@ -75,8 +86,9 @@ public class HoldComponents : MonoBehaviour
      *    Purpose: Clears the spell that they are currently making
      *       Note: 
      */
-    void clearSpell() {
+    public void clearSpell() {
         components.Clear();
+        choiceBox.updateText();
     }
     /*
      *       Name: makeSpell()
@@ -86,16 +98,32 @@ public class HoldComponents : MonoBehaviour
      *       Note: Uses the components in the list
      */
     public void makeSpell() {
+        if (components.Count == 0)
+            return;
+        
         spellBook.addSpell(components.ToArray());
-
+        UpdateSpellList.updateList();
+        
         // TODO:: TESTING
         string s = "NEW SPELL: - ";
         foreach (SpellComponent sp in components)
             s += sp + " - ";
         Debug.Log(s);
         Debug.Log(Spellbook.spells.Peek());
+        // END OF TESTING
+
         clearSpell();
         
     }
-
+    /*
+     *       Name: clearSpellList()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Clears the spell list that they currently have
+     *       Note: 
+     */
+    public void clearSpellList() {
+        Spellbook.spells.Clear();
+        UpdateSpellList.updateList();
+    }
 }

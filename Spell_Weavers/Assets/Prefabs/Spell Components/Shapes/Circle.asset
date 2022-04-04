@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Circle
   m_EditorClassIdentifier: 
   cooldown: 1
-  castTime: 1
+  castTime: 0.5
   dmg: 1
   xMove: 0
   yMove: 0

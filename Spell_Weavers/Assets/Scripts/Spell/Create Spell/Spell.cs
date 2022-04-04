@@ -299,7 +299,7 @@ public class Spell
     public override string ToString() {
         string str = "[ - ";
         foreach (SpellComponent s in spellComponents)
-            str += s.ToString() + " - ";
+            str += s.name + " - ";
         return str + "]";
     }
 
