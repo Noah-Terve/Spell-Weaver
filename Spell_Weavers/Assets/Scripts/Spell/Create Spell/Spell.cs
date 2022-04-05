@@ -18,7 +18,7 @@ public class Spell
     public SpellComponent[] spellParts;
 
     // Specs of the spell
-    float castTime = 0f, cooldown = 0f, dmg = 0f; // Basic time and damage
+    public float castTime = 0f, cooldown = 0f, dmg = 0f; // Basic time and damage
     List<GameObject> hitboxes; // All of the prefabs to detect the damage
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<EffectComponent> effects; // All of the effects that would be triggered
