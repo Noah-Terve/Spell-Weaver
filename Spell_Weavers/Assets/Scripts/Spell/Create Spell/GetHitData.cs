@@ -20,7 +20,7 @@ public class GetHitData : MonoBehaviour
             spell.dmgCalc(hit.gameObject);
 
             // TESTING PURPOSES
-            hit.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.Normalize(hit.gameObject.transform.position - gameObject.transform.position) * spell.dmg);
+            hit.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.Normalize(hit.gameObject.transform.position - gameObject.transform.position) * spell.dmg * 100);
         }
     }
 }
