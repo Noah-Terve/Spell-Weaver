@@ -1,28 +1,37 @@
 fileFormatVersion: 2
-guid: 2724dd97fdaec2e43bf3fdf9c08d52bb
+guid: 1415542a5cb574640977774b286adc53
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5389042818256922924
-    second: run_anim_0
+      213: -1509315072589313272
+    second: stnad_run_jump_anim_0
   - first:
-      213: 780472159036190651
-    second: run_anim_1
+      213: 1423593325864034748
+    second: stnad_run_jump_anim_1
   - first:
-      213: 166707685845639347
-    second: run_anim_2
+      213: 6725529737286291661
+    second: stnad_run_jump_anim_2
   - first:
-      213: -2592204232035060858
-    second: run_anim_3
+      213: -7806546838974711854
+    second: stnad_run_jump_anim_3
   - first:
-      213: -6729507631412815728
-    second: run_anim_4
+      213: -5063792174792572280
+    second: stnad_run_jump_anim_4
   - first:
-      213: -2562543354091556977
-    second: run_anim_5
+      213: -1063681449642905336
+    second: stnad_run_jump_anim_5
   - first:
-      213: 8087618413827658202
-    second: run_anim_6
+      213: -6674007707144695159
+    second: stnad_run_jump_anim_6
+  - first:
+      213: -6537261739612350856
+    second: stnad_run_jump_anim_7
+  - first:
+      213: -7112747638831117360
+    second: stnad_run_jump_anim_8
+  - first:
+      213: 3405411214698201769
+    second: stnad_run_jump_anim_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,13 +133,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_anim_0
+      name: stnad_run_jump_anim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29e29d04e9b9ca40800000000000000
-      internalID: 5389042818256922924
+      spriteID: 80bcb2c20f5dd0be0800000000000000
+      internalID: -1509315072589313272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_anim_1
+      name: stnad_run_jump_anim_1
       rect:
         serializedVersion: 2
-        x: 994
+        x: 1016
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbf2f642b4bc4da00800000000000000
-      internalID: 780472159036190651
+      spriteID: cb12ebc569e91c310800000000000000
+      internalID: 1423593325864034748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_anim_2
+      name: stnad_run_jump_anim_2
       rect:
         serializedVersion: 2
-        x: 1988
+        x: 2032
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0282cc1c3405200800000000000000
-      internalID: 166707685845639347
+      spriteID: dc09645a9a1e55d50800000000000000
+      internalID: 6725529737286291661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_anim_3
+      name: stnad_run_jump_anim_3
       rect:
         serializedVersion: 2
-        x: 2982
+        x: 3048
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 683394c2cf3a60cd0800000000000000
-      internalID: -2592204232035060858
+      spriteID: 2d7b674c20399a390800000000000000
+      internalID: -7806546838974711854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_anim_4
+      name: stnad_run_jump_anim_4
       rect:
         serializedVersion: 2
-        x: 3976
+        x: 4064
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 098db54b67cfb92a0800000000000000
-      internalID: -6729507631412815728
+      spriteID: 882061d98dbc9b9b0800000000000000
+      internalID: -5063792174792572280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_anim_5
+      name: stnad_run_jump_anim_5
       rect:
         serializedVersion: 2
-        x: 4970
+        x: 5080
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8fa5d97564007cd0800000000000000
-      internalID: -2562543354091556977
+      spriteID: 801bcdf6b5b0d31f0800000000000000
+      internalID: -1063681449642905336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_anim_6
+      name: stnad_run_jump_anim_6
       rect:
         serializedVersion: 2
-        x: 5964
+        x: 6096
         y: 0
-        width: 994
-        height: 1344
+        width: 1016.8
+        height: 1464
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,8 +273,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad11b1be81efc3070800000000000000
-      internalID: 8087618413827658202
+      spriteID: 982db6bc9592163a0800000000000000
+      internalID: -6674007707144695159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stnad_run_jump_anim_7
+      rect:
+        serializedVersion: 2
+        x: 7112
+        y: 0
+        width: 1016.8
+        height: 1464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87657ae651bf645a0800000000000000
+      internalID: -6537261739612350856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stnad_run_jump_anim_8
+      rect:
+        serializedVersion: 2
+        x: 8128
+        y: 0
+        width: 1016.8
+        height: 1464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db097a15b17a4d90800000000000000
+      internalID: -7112747638831117360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stnad_run_jump_anim_9
+      rect:
+        serializedVersion: 2
+        x: 9144
+        y: 0
+        width: 1016.8
+        height: 1464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2c7360573724f20800000000000000
+      internalID: 3405411214698201769
       vertices: []
       indices: 
       edges: []
