@@ -18,7 +18,7 @@ public class Spell
     public SpellComponent[] spellParts;
 
     // Specs of the spell
-    public float castTime = 0f, cooldown = 0f, dmg = 0f; // Basic time and damage
+    public float castTime = 0f, cooldown = 0f, dmg = 0f, lingering = 0f; // Basic time and damage
     List<GameObject> hitboxes; // All of the prefabs to detect the damage
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<EffectComponent> effects; // All of the effects that would be triggered
@@ -94,6 +94,7 @@ public class Spell
         Spellbook.inCast = false;
         player.GetComponent<PlayerMove>().canMove = true;
 
+        yield return new WaitForSeconds(lingering);
         foreach (GameObject hb in theHitBoxes)
             GameObject.Destroy(hb);
     }
@@ -168,6 +169,7 @@ public class Spell
             cooldown += s.cooldown;
             castTime += s.castTime;
             dmg += s.dmg;
+            lingering += s.lingering;
 
             spellComponents.Add(s);
 
@@ -199,7 +201,11 @@ public class Spell
             castTime = 0.01f;
         if (dmg <= 0f)
             dmg = 0.01f;
+        if (lingering <= 0f)
+            lingering = 0f;
         
+
+        // Setting the new hash code (less efficient)
         while (tempHashCode > 214748364.7)
             tempHashCode -= 214748364.7;
         hashingCode = (int)(tempHashCode * 10);

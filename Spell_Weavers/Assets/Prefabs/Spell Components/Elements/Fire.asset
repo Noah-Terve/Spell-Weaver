@@ -15,5 +15,6 @@ MonoBehaviour:
   cooldown: 0.3
   castTime: 0.2
   dmg: 3
+  lingering: 0.2
   sizeMultiplier: 1
   strongAgainst: 2
