@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  cooldown: 0.3
+  cooldown: 10
   castTime: 0.2
   dmg: 3
   lingering: 0.2
