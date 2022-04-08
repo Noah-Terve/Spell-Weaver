@@ -69,7 +69,13 @@ public class Spellbook : MonoBehaviour
         }
         
     }
-
+    /*
+     *       Name: castSpell()
+     * Parameters: None
+     *     Return: Returns true if the spell was cast, false if on cooldown
+     *    Purpose: Cast the next spell if not on cooldown
+     *       Note: 
+     */
     bool castSpell() {
         if (spells.Count != 0 && !onCooldown.Contains(spells.Peek())) {
             startSpellCast(spells.Peek());
