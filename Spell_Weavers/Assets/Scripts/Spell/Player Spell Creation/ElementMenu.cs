@@ -17,7 +17,7 @@ public class ElementMenu : MonoBehaviour
     void Start() {
         spellMenu = GameObject.FindGameObjectsWithTag("Spell Menu")[0];
         spellMenu.SetActive(false);
-        Spellbook.isCasting = true;
+        Spellbook.canCast = true;
     }
     /*
      *       Name: Update()
@@ -41,7 +41,7 @@ public class ElementMenu : MonoBehaviour
      */
     public static void switchMenu() {
         spellMenu.SetActive(!spellMenu.activeSelf);
-        Spellbook.isCasting = !spellMenu.activeSelf;
+        Spellbook.canCast = !spellMenu.activeSelf;
         UpdateSpellList.updateList();
     }
 }

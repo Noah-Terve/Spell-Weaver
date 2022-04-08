@@ -25,7 +25,6 @@ public class Spell
 
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
-    private float cooldownTimer = 0f;
 
     // Spells that move you when cast
     private float xMove = 0f, yMove = 0f;
@@ -226,7 +225,6 @@ public class Spell
         xMove = 0f;
         yMove = 0f;
         sizeMultiplier = 1f;
-        cooldownTimer = 0f;
 
         // Initialize the Sets/Lists
         hitboxes = new List<GameObject>();
@@ -248,47 +246,22 @@ public class Spell
      */
     public bool isOnCooldown()
     {
-        return cooldownTimer > 0f;
+        return getCooldownTimer() > 0;
     }
 
-    /*
-     *       Name: startSpellTimers()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: Starts the timers for the spell timers
-     *       Note: 
-     */
-    public void startSpellTimers()
-    {
-        cooldownTimer = cooldown;
-    }
-
-    /*
-     *       Name: decrementCooldown()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: When called on an update, it counts the cooldown
-     *       Note: 
-     */
-    public void decrementCooldown()
-    {
-        if (isOnCooldown())
-            cooldownTimer -= Time.deltaTime;
-
-        if (cooldownTimer <= 0f)
-            cooldownTimer = 0f;
-    }
 
     /*
      *       Name: getCooldownTimer()
      * Parameters: None
      *     Return: Returns how long until it is cooldown (float)
      *    Purpose: Get how long until the spell is usable again
-     *       Note: 
+     *       Note: Returns -1 if not in the table
      */
     public float getCooldownTimer()
     {
-        return cooldownTimer;
+        if (Spellbook.cooldownTable.ContainsKey(this)) 
+            return Spellbook.cooldownTable[this] - Time.time;
+        return -1;
     }
 
     //
