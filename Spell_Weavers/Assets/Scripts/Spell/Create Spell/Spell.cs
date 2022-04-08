@@ -88,6 +88,7 @@ public class Spell
 
         player.GetComponent<PlayerMove>().canMove = false;
         Spellbook.inCast = true;
+        player.GetComponent<Rigidbody2D>().velocity += new Vector2(xMove * player.transform.localScale.x, yMove * player.transform.localScale.y);
         yield return new WaitForSeconds(castTime);
         
         Spellbook.inCast = false;
@@ -183,7 +184,7 @@ public class Spell
             {
                 ShapeComponent x = s as ShapeComponent;
                 hitboxes.Add(x.shapePrefab);
-                xMove += x.xMove;
+                xMove -= x.xMove;
                 yMove += x.yMove;
             }
             else if (s is EffectComponent)
