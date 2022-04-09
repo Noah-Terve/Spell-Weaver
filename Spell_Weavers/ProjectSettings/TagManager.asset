@@ -9,6 +9,7 @@ TagManager:
   - Spell Menu
   - PauseMenuVolumeSlider
   - Ground
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

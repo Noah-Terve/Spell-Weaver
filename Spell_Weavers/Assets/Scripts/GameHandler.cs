@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 public class GameHandler : MonoBehaviour
 {
     // keep track of where the player died so they can respawn from there
-    public static string SceneDied = "MainMenu";
+    public Transform pSpawn;
     public GameObject Player;
     
     public static bool GameisPaused = false;
@@ -16,7 +16,6 @@ public class GameHandler : MonoBehaviour
     public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
-    
 
     void Awake (){
         SetLevel (volumeLevel);
@@ -32,6 +31,9 @@ public class GameHandler : MonoBehaviour
         if (Player == null)
             Player = GameObject.FindWithTag("Player");
         
+        if (pSpawn == null)
+            pSpawn = Player.transform;
+        
         pauseMenuUI.SetActive(false);
         GameisPaused = false;
         Spellbook.GameisPaused = false;
@@ -40,7 +42,6 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
-            Debug.Log("Hit Escape");
             if (GameisPaused) Resume();
             else Pause();
         }
@@ -48,7 +49,7 @@ public class GameHandler : MonoBehaviour
     
     // pause menu functions
     void Pause(){
-        if (SceneDied == "MainMenu") return;
+        if (SceneManager.GetActiveScene().name == "MainMenu") return;
         
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
@@ -73,16 +74,6 @@ public class GameHandler : MonoBehaviour
     // the botton is clicked in the main menu.
     public void StartGame() {
         SceneManager.LoadScene("Zone1", LoadSceneMode.Single);
-        SceneDied = "Zone1";
-    }
-    
-    // TODO: add an on collision enter with a checkpoint to update the SceneDied
-    //       string, so we can respawn from there when we die. Not sure about
-    //       how this will work, ie where exactly it needs to respan from.
-    
-    public void ReplayGame() {
-        // TODO: add some disincentive to dying.
-        SceneManager.LoadScene(SceneDied);
     }
     
     // This function is for the pause menu restart, which brings them back
@@ -90,7 +81,6 @@ public class GameHandler : MonoBehaviour
     public void RestartGame(){
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-        SceneDied = "MainMenu";
     }
     
     // This function quits the entire game, again for pause menu.
@@ -102,12 +92,9 @@ public class GameHandler : MonoBehaviour
         #endif
     }
     
+    // respawn at the last checkpoint they ran into
     public void Died(){
-        Player.SetActive(false);
-        
-        
-        
-        // TODO: bring up a button that allows them to respawn for now, 
-        // eventually that will just be automatic at the last checkpoint
+        Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, Player.transform.position.z);
+        Player.transform.position = pSpn2;
     }
 }

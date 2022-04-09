@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class RuntimeVar : ScriptableObject, ISerializationCallbackReceiver
 {
-    
-    // Start is called before the first frame update
     public float InitialVal;
 
     [System.NonSerialized]
