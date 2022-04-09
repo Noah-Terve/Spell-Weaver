@@ -14,7 +14,7 @@ public class GetHitData : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.gameObject.tag == "Enemy" && spell != null)
+        if (hit.gameObject.tag == spell.targetTag && spell != null)
         {
             spell.activateEffects(hit.gameObject);
             spell.dmgCalc(hit.gameObject);
