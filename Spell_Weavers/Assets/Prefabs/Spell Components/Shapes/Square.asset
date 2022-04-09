@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Square
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 3
   castTime: 1
   dmg: 1
+  lingering: 0.2
   xMove: 0
   yMove: 0
   shapePrefab: {fileID: 5326866034775984319, guid: 18a9f8e83968f6343b015b630223c483, type: 3}

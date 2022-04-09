@@ -17,18 +17,14 @@ public class Spellbook : MonoBehaviour
     // Spells to be cast
     public static Queue<Spell> spells = new Queue<Spell>();
 
-    public static bool isCasting = true;
+    public static bool canCast = true;
 
     public static bool inCast = false;
     
     public static bool GameisPaused = false;
 
-    // TODO:: DO WE EVEN NEED TO KEEP TRACK OF SPELLS WE HAVE SEEN?
-    // Make sure not to make a new spell when already have one there
- //   static HashSet<Spell> knownSpells = new HashSet<Spell>();
-    // Check whether they are on cooldown
-    static HashSet<Spell> onCooldown = new HashSet<Spell>();
-
+    // All of the cooldown information
+    public static Dictionary<Spell, float> cooldownTable = new Dictionary<Spell, float>();
 
 /* METHODS */
 
@@ -47,40 +43,53 @@ public class Spellbook : MonoBehaviour
     private HashSet<Spell> removeSet = new HashSet<Spell>();
     void Update()
     {
-        // Cooldown
-        // TODO:: MAKE THE COOLDOWN EFFIECIENT AS WELL AS PUT INTO METHOD
-        foreach (Spell s in onCooldown)
-        {
-            s.decrementCooldown();
-            if (!s.isOnCooldown())
-                removeSet.Add(s);
-        }
-        onCooldown.ExceptWith(removeSet);
-        removeSet.Clear();
-
-        if (!isCasting)
+        
+        if (!canCast || inCast || GameisPaused)
             return;
 
         // TESTING
+        
         // TODO:: MAKE THE INPUT WORK
-        if (Input.GetButtonDown("Fire1") && !inCast && !GameisPaused) {
+        if (Input.GetButtonDown("Fire1")) {
             if (!castSpell())
                 Debug.Log("ON COOLDOWN");
         }
         
     }
 
+    /*
+     *       Name: castSpell()
+     * Parameters: None
+     *     Return: Returns true if the spell was cast, false if on cooldown
+     *    Purpose: Cast the next spell if not on cooldown
+     *       Note: 
+     */
     bool castSpell() {
-        if (spells.Count != 0 && !onCooldown.Contains(spells.Peek())) {
+        if (spells.Count != 0 && !spells.Peek().isOnCooldown()) {
             startSpellCast(spells.Peek());
-            onCooldown.Add(spells.Peek());
-            Debug.Log("FIRE");
+            addSpellCooldown(spells.Peek());
             spells.Enqueue(spells.Dequeue());
+            
+            Debug.Log("FIRE");
 
             return true;
         }
         else 
             return false;
+    }
+
+    /*
+     *       Name: addSpellCooldown(Spell s)
+     * Parameters: The spell to update the cooldown of (Spell)
+     *     Return: None
+     *    Purpose: Updates the timer table to make it contain the cooldown
+     *       Note: 
+     */
+    void addSpellCooldown(Spell s) {
+        if (cooldownTable.ContainsKey(s))
+            cooldownTable[s] = s.cooldown + Time.time;
+        else 
+            cooldownTable.Add(s, s.cooldown + Time.time);
     }
 
     /*
@@ -107,7 +116,7 @@ public class Spellbook : MonoBehaviour
      */
     public void resetSpellBook()
     {
-        onCooldown.Clear();
+        cooldownTable.Clear();
     }
 
     /*
@@ -123,7 +132,6 @@ public class Spellbook : MonoBehaviour
             Debug.Log("No Spell");
             return;
         }
-        s.startSpellTimers();
         StartCoroutine(s.castSpell());
     }
 }

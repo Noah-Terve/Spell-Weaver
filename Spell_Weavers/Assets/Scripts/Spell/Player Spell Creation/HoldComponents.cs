@@ -11,6 +11,7 @@ public class HoldComponents : MonoBehaviour
     public static int numComponents = 3;
     public List<SpellComponent> components = new List<SpellComponent>();
 
+    public ShapeComponent defaultAttack;
     public GameObject buttonPrefab;
     public ShowChoices choiceBox;
    //  public UpdateSpellList listDisplay;
@@ -20,7 +21,7 @@ public class HoldComponents : MonoBehaviour
 
     Spellbook spellBook;
     List<GameObject> componentButtons = new List<GameObject>();
-
+    bool containsShape = false;
 
 
     /*
@@ -74,8 +75,13 @@ public class HoldComponents : MonoBehaviour
      *       Note: 
      */
     void addComponent(SpellComponent component) {
-        if (components.Count < numComponents)
-            components.Add(component);
+        if (components.Count >= numComponents)
+            return;
+
+        components.Add(component);
+        if (component is ShapeComponent)
+            containsShape = true;
+        
         choiceBox.updateText();
     }
     
@@ -89,6 +95,7 @@ public class HoldComponents : MonoBehaviour
     public void clearSpell() {
         components.Clear();
         choiceBox.updateText();
+        containsShape = false;
     }
     /*
      *       Name: makeSpell()
@@ -100,6 +107,9 @@ public class HoldComponents : MonoBehaviour
     public void makeSpell() {
         if (components.Count == 0)
             return;
+        
+        if (!containsShape)
+            components.Add(defaultAttack);
         
         spellBook.addSpell(components.ToArray());
         UpdateSpellList.updateList();

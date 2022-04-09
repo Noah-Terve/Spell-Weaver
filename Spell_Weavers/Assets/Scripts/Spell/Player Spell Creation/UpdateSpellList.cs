@@ -15,7 +15,7 @@ public class UpdateSpellList : MonoBehaviour
      *    Purpose: Finds the text box to modify
      *       Note: Runs before the first frame
      */
-    void Start()
+    void Awake()
     {
         text = GetComponent<Text>();
     }

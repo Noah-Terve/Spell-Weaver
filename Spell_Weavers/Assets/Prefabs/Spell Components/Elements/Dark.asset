@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Dark
   m_EditorClassIdentifier: 
-  cooldown: 0.1
+  cooldown: 10
   castTime: 0.1
   dmg: 1
+  lingering: 0.2
   sizeMultiplier: 1
   strongAgainst: 3

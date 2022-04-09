@@ -18,14 +18,13 @@ public class Spell
     public SpellComponent[] spellParts;
 
     // Specs of the spell
-    public float castTime = 0f, cooldown = 0f, dmg = 0f; // Basic time and damage
+    public float castTime = 0f, cooldown = 0f, dmg = 0f, lingering = 0f; // Basic time and damage
     List<GameObject> hitboxes; // All of the prefabs to detect the damage
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<EffectComponent> effects; // All of the effects that would be triggered
 
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
-    private float cooldownTimer = 0f;
 
     // Spells that move you when cast
     private float xMove = 0f, yMove = 0f;
@@ -94,6 +93,7 @@ public class Spell
         Spellbook.inCast = false;
         player.GetComponent<PlayerMove>().canMove = true;
 
+        yield return new WaitForSeconds(lingering);
         foreach (GameObject hb in theHitBoxes)
             GameObject.Destroy(hb);
     }
@@ -168,6 +168,7 @@ public class Spell
             cooldown += s.cooldown;
             castTime += s.castTime;
             dmg += s.dmg;
+            lingering += s.lingering;
 
             spellComponents.Add(s);
 
@@ -199,7 +200,11 @@ public class Spell
             castTime = 0.01f;
         if (dmg <= 0f)
             dmg = 0.01f;
+        if (lingering <= 0f)
+            lingering = 0f;
         
+
+        // Setting the new hash code (less efficient)
         while (tempHashCode > 214748364.7)
             tempHashCode -= 214748364.7;
         hashingCode = (int)(tempHashCode * 10);
@@ -220,7 +225,6 @@ public class Spell
         xMove = 0f;
         yMove = 0f;
         sizeMultiplier = 1f;
-        cooldownTimer = 0f;
 
         // Initialize the Sets/Lists
         hitboxes = new List<GameObject>();
@@ -242,47 +246,22 @@ public class Spell
      */
     public bool isOnCooldown()
     {
-        return cooldownTimer > 0f;
+        return getCooldownTimer() > 0;
     }
 
-    /*
-     *       Name: startSpellTimers()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: Starts the timers for the spell timers
-     *       Note: 
-     */
-    public void startSpellTimers()
-    {
-        cooldownTimer = cooldown;
-    }
-
-    /*
-     *       Name: decrementCooldown()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: When called on an update, it counts the cooldown
-     *       Note: 
-     */
-    public void decrementCooldown()
-    {
-        if (isOnCooldown())
-            cooldownTimer -= Time.deltaTime;
-
-        if (cooldownTimer <= 0f)
-            cooldownTimer = 0f;
-    }
 
     /*
      *       Name: getCooldownTimer()
      * Parameters: None
      *     Return: Returns how long until it is cooldown (float)
      *    Purpose: Get how long until the spell is usable again
-     *       Note: 
+     *       Note: Returns -1 if not in the table
      */
     public float getCooldownTimer()
     {
-        return cooldownTimer;
+        if (Spellbook.cooldownTable.ContainsKey(this)) 
+            return Spellbook.cooldownTable[this] - Time.time;
+        return -1;
     }
 
     //

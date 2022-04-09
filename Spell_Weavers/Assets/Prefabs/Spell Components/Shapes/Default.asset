@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
-  m_Name: Circle
+  m_Name: Default
   m_EditorClassIdentifier: 
-  cooldown: 5
-  castTime: 0.5
-  dmg: 1
+  cooldown: 10
+  castTime: 0.1
+  dmg: 0
   lingering: 0.2
   xMove: 0
   yMove: 0
-  shapePrefab: {fileID: 5837742671477024622, guid: 4714da6017c85444093610ff7fe430fe, type: 3}
+  shapePrefab: {fileID: 7530902202250185914, guid: 3885b9f52cab6bd4c9a87bea889017b8, type: 3}

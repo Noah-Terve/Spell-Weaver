@@ -959,6 +959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialNumComponentOnBootUp: 3
   components: []
+  defaultAttack: {fileID: 11400000, guid: 141e2c86effa010428161d437e0aad3c, type: 2}
   buttonPrefab: {fileID: 6875240064574068460, guid: 5c1bef158f3130f4286accae6a777e4b, type: 3}
   choiceBox: {fileID: 6673154073055485329}
   compList: {fileID: 11400000, guid: 97419284400aaa94a9082f05f86fe733, type: 2}

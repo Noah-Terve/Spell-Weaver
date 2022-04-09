@@ -3,7 +3,11 @@ guid: adbf5cdfeac8e47459c36bc09eb12ca2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - defaultAttack: {fileID: 7530902202250185914, guid: 3885b9f52cab6bd4c9a87bea889017b8, type: 3}
+  - buttonPrefab: {instanceID: 0}
+  - choiceBox: {instanceID: 0}
+  - compList: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
