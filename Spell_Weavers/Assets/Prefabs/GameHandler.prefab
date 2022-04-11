@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96ba1ed1bfa04a07b9d5e578ecb865e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pSpawn: {fileID: 0}
   Player: {fileID: 0}
   pauseMenuUI: {fileID: 0}
   mixer: {fileID: 24100000, guid: 34dd49e7b97d74ef2bed0967661a83fa, type: 2}
+  InitialHP: 20
 --- !u!114 &-285165254478259321
 MonoBehaviour:
   m_ObjectHideFlags: 0
