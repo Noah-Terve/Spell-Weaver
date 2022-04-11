@@ -76,6 +76,10 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("Zone1", LoadSceneMode.Single);
     }
     
+    public void StartTutorial() {
+        SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
+    }
+    
     // This function is for the pause menu restart, which brings them back
     // to the main menu
     public void RestartGame(){
