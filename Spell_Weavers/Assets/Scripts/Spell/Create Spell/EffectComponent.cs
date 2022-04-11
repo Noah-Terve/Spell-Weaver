@@ -14,9 +14,9 @@ public class EffectComponent : SpellComponent
 {
     // When putting in the events for the event object, all of the effects should be coded in the EffectsList,
     // And the Unity event that is looked at is the EffectsListHolder prefab (as events needed to be attached to a GameObject)
-    public UnityEvent<GameObject, GameObject> effect;
+    public UnityEvent<GameObject, GameObject, Spell> effect;
     
-    public void triggerEffect(GameObject player, GameObject target) {
-        effect.Invoke(player, target);
+    public void triggerEffect(GameObject player, GameObject target, Spell spell) {
+        effect.Invoke(player, target, spell);
     }
 }

@@ -123,7 +123,7 @@ public class Spell
 
     public virtual void activateEffects(GameObject enemy) {
         foreach (EffectComponent e in effects)
-            e.triggerEffect(player, enemy);
+            e.triggerEffect(player, enemy, this);
     }
 
     /*

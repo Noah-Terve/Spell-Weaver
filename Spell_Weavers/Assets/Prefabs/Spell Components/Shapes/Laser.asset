@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
-  m_Name: Water
+  m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
+  m_Name: Laser
   m_EditorClassIdentifier: 
-  cooldown: 10
-  castTime: 0.2
-  dmg: 2
+  cooldown: 5
+  castTime: 0.1
+  dmg: 1
   lingering: 0.2
-  sizeMultiplier: 0.5
-  strongAgainst: 0
+  xMove: -1
+  yMove: 0
+  shapePrefab: {fileID: 4938108803940002116, guid: 68ad5b51eacb56d4bb7a9e11810b20ed, type: 3}

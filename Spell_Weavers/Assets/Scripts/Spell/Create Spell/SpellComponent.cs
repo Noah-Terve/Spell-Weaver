@@ -9,8 +9,8 @@ using UnityEngine;
  */
 public abstract class SpellComponent : ScriptableObject
 {
-    public float cooldown = 1f;
-    public float castTime = 0.1f;
-    public float dmg = 1f;
+    public float cooldown = 10f;
+    public float castTime = 0.4f;
+    public float dmg = 2f;
     public float lingering = 0.2f;
 }

@@ -6,7 +6,7 @@ public class EnemySpell : Spell
 {
     EnemySpellbook enemySpellbook;
     
-    GameObject enemyInstance;
+    public GameObject enemyInstance;
 
     public EnemySpell(SpellComponent[] parts, GameObject enemy, EnemySpellbook currSpellbook) : base(parts) {
         enemySpellbook = currSpellbook;
@@ -47,7 +47,7 @@ public class EnemySpell : Spell
 
     public override void activateEffects(GameObject pl) {
         foreach (EffectComponent e in effects)
-            e.triggerEffect(enemyInstance, pl);
+            e.triggerEffect(enemyInstance, pl, this);
     }
 
     public override float getCooldownTimer()
