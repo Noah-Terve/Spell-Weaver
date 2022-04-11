@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
-  m_Name: Water
+  m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
+  m_Name: Punch
   m_EditorClassIdentifier: 
-  cooldown: 10
-  castTime: 0.2
+  cooldown: 15
+  castTime: 0.1
   dmg: 2
-  lingering: 0.2
-  sizeMultiplier: 0.5
-  strongAgainst: 0
+  lingering: 0.7
+  xMove: 1
+  yMove: 0
+  shapePrefab: {fileID: 1796393663475916875, guid: 4ed22252449940447bfd23ab14511efc, type: 3}
