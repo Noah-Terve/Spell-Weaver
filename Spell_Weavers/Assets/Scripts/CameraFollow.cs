@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject target;
-    public float camSpeed = 4.0f;
+    // this script is aplied to a camera meant to folow the player, without LERP.
 
-    void Start(){
-        target = GameObject.FindWithTag("Player");
-    }
+	public GameObject player; // reference to player object
+	private Vector3 offset; // distance we want to maintain from the player
 
-    void FixedUpdate () {
-        Vector2 pos = Vector2.Lerp ((Vector2)transform.position, 
-                                    (Vector2)target.transform.position, 
-                                    camSpeed * Time.fixedDeltaTime);
-                                    
-        transform.position = new Vector3 (pos.x, pos.y, transform.position.z);
-    }
+	void Start () {
+		// get player by tag
+		if (GameObject.FindGameObjectWithTag ("Player") != null) {
+			player = GameObject.FindGameObjectWithTag ("Player");
+		}
+			// camera position - object position before first frame
+		offset = transform.position - player.transform.position; 
+	}
+
+	// LateUpdate is called after all other Scene Object scripts finish their Updates
+	void LateUpdate () {
+		transform.position = player.transform.position + offset;
+	}
 }

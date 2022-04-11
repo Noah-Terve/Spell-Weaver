@@ -1557,6 +1557,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 430269563324417498, guid: ba652545d29924f76b1e6450c6e3e3da, type: 3}
+      propertyPath: camSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7838500938730587700, guid: ba652545d29924f76b1e6450c6e3e3da, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1604,6 +1608,10 @@ PrefabInstance:
     - target: {fileID: 7838500938730587705, guid: ba652545d29924f76b1e6450c6e3e3da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838500938730587706, guid: ba652545d29924f76b1e6450c6e3e3da, type: 3}
+      propertyPath: orthographic size
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba652545d29924f76b1e6450c6e3e3da, type: 3}
