@@ -16,6 +16,6 @@ MonoBehaviour:
   castTime: 0.1
   dmg: 2
   lingering: 0
-  xMove: 10
+  xMove: 20
   yMove: 0
   shapePrefab: {fileID: 8023837910763921396, guid: 3d68fb9bbdb782b489d00c17f4a9d3c1, type: 3}
