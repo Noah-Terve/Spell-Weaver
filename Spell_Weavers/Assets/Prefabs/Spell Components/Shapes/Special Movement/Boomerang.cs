@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ *    Name: Boomerang
+ * Purpose: Allows for the boomerang attack to move
+ *    Date: Created 3/17/2022 by Matthew
+ */
 public class Boomerang : MonoBehaviour
 {
 

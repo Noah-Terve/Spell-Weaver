@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ *    Name: SpellComponentContainer
+ * Purpose: Stores what Component is actually in the button
+ *    Date: Created 3/17/2022 by Matthew
+ */
 public class SpellComponentContainer : MonoBehaviour
 {
     public static Text text;

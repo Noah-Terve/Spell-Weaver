@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ *    Name: UpdateSpellLisst
+ * Purpose: A component which updates the spell in the slot (for the spell menu)
+ *    Date: Created 3/17/2022 by Matthew
+ */
 public class UpdateSpellList : MonoBehaviour
 {
     // Static so that it can update upon opening up the menu; this may cause bugs when switching scenes down the line
@@ -21,11 +26,11 @@ public class UpdateSpellList : MonoBehaviour
     }
 
     /*
-     *       Name: updateList()
+     *       Name: Update()
      * Parameters: None
      *     Return: None
-     *    Purpose: Updates the text to display what spells the people currently have
-     *       Note: Runs whenever the spell list is updated and when the spell menu is opened
+     *    Purpose: Makes the textbox what it is supposed to be
+     *       Note: Runs every frame
      */
     void Update() {
         if (Spellbook.spells[slot] != null)

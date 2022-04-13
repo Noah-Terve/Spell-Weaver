@@ -21,8 +21,11 @@ public class GetHitData : MonoBehaviour
             spell.activateEffects(hit.gameObject);
             spell.dmgCalc(hit.gameObject);
 
+
+            Vector2 direction = hit.gameObject.transform.position - gameObject.transform.position;
+            direction.Normalize() ;
             // TESTING PURPOSES
-            hit.gameObject.GetComponent<Rigidbody2D>().velocity = (Vector3.Normalize(hit.gameObject.transform.position - gameObject.transform.position) + Vector3.up)* knockBack;
+            hit.gameObject.GetComponent<Rigidbody2D>().velocity += (direction)* knockBack;
         }
     }
 }
