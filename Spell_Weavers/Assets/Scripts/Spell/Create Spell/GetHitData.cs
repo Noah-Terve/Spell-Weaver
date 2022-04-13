@@ -12,6 +12,8 @@ public class GetHitData : MonoBehaviour
 {
     public Spell spell;
 
+    public float knockBack = 1;
+
     void OnTriggerEnter2D(Collider2D hit)
     {
         if (hit.gameObject.tag == spell.targetTag && spell != null)
@@ -20,7 +22,7 @@ public class GetHitData : MonoBehaviour
             spell.dmgCalc(hit.gameObject);
 
             // TESTING PURPOSES
-            hit.gameObject.GetComponent<Rigidbody2D>().velocity = (Vector3.Normalize(hit.gameObject.transform.position - gameObject.transform.position) + Vector3.up)* spell.dmg;
+            hit.gameObject.GetComponent<Rigidbody2D>().velocity = (Vector3.Normalize(hit.gameObject.transform.position - gameObject.transform.position) + Vector3.up)* knockBack;
         }
     }
 }

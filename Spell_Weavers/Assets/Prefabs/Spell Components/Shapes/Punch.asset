@@ -15,7 +15,7 @@ MonoBehaviour:
   cooldown: 4
   castTime: 0.1
   dmg: 3
-  lingering: 0.7
+  lingering: 0
   description: 'Cooldown + 4 s
 
     Cast Time + 0.1 s
@@ -28,7 +28,7 @@ MonoBehaviour:
 
     [Shape]
 
-    A big quick punch'
+    A big quick punch with huge knockback'
   xMove: 1
   yMove: 0
   shapePrefab: {fileID: 1796393663475916875, guid: 4ed22252449940447bfd23ab14511efc, type: 3}
