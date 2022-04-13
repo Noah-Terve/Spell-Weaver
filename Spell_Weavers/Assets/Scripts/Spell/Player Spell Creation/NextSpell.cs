@@ -26,6 +26,8 @@ public class NextSpell : MonoBehaviour
      */
     void Update()
     {
+        // TODO:: ADD THE BUTTON COOLDOWN
+        /*
         // TODO:: BUG - When deleting than making the same spell, the cooldown is not properly shown
         string str = "";
         if (Spellbook.spells.Count != 0)
@@ -36,6 +38,6 @@ public class NextSpell : MonoBehaviour
         else
             str = "NEXT SPELL: None \nCOOLDOWN: None";
         text.text = str;
-
+        */
     }
 }

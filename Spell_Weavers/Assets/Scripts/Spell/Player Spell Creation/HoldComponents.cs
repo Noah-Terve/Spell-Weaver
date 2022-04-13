@@ -35,6 +35,7 @@ public class HoldComponents : MonoBehaviour
         numComponents = initialNumComponentOnBootUp;
         spellBook = GameObject.FindGameObjectsWithTag("Spell Center")[0].GetComponent<Spellbook>();
         makeMenu();
+        slotMenu();
     }
     /*
      *       Name: makeMenu()
@@ -51,8 +52,37 @@ public class HoldComponents : MonoBehaviour
             makeButton(0, 100 - i * 30, compList.allShapes[i]);
 
         for (int i = 0; i < compList.allEffects.Length; i++) 
-            makeButton(100, 100 - i * 30, compList.allEffects[i]);    
+            makeButton(100, 100 - i * 30, compList.allEffects[i]);
     }
+    
+    /*
+     *       Name: slotMenu()
+     * Parameters: The x position of the button(float); The y position of the button (float); The component that it will add (SpellComponent)
+     *     Return: None
+     *    Purpose: Creates the button as a child of the gameObject
+     *       Note: Is used in making the buttons
+     */
+    void slotMenu() {
+        makeSlot(300, -200, 0, "J");
+        makeSlot(300, 0   , 1, "K");
+        makeSlot(300, 200 , 2, "L");
+    }
+
+    /*
+     *       Name: makeSlot(float x, float y, SpellComponent comp)
+     * Parameters: The x position of the button(float); The y position of the button (float); The component that it will add (SpellComponent)
+     *     Return: None
+     *    Purpose: Creates the button as a child of the gameObject
+     *       Note: Is used in making the buttons
+     */
+    void makeSlot(float x, float y, int i, string name) {
+        GameObject button = Instantiate(buttonPrefab, gameObject.transform);
+        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
+        button.GetComponent<Button>().onClick.AddListener(delegate{makeSpell{}});
+        button.GetComponentInChildren<Text>().text = name;
+        
+    }
+
     /*
      *       Name: makeButton(float x, float y, SpellComponent comp)
      * Parameters: The x position of the button(float); The y position of the button (float); The component that it will add (SpellComponent)
@@ -97,6 +127,7 @@ public class HoldComponents : MonoBehaviour
         choiceBox.updateText();
         containsShape = false;
     }
+
     /*
      *       Name: makeSpell()
      * Parameters: None
@@ -104,23 +135,17 @@ public class HoldComponents : MonoBehaviour
      *    Purpose: Compiles the spell from the component list
      *       Note: Uses the components in the list
      */
-    public void makeSpell() {
+    public void makeSpell(int idx) {
         if (components.Count == 0)
             return;
         
         if (!containsShape)
             components.Add(defaultAttack);
         
-        spellBook.addSpell(components.ToArray());
+
+        spellBook.addSpell(components.ToArray(), idx);
         UpdateSpellList.updateList();
         
-        // TODO:: TESTING
-        string s = "NEW SPELL: - ";
-        foreach (SpellComponent sp in components)
-            s += sp + " - ";
-        Debug.Log(s);
-        Debug.Log(Spellbook.spells.Peek());
-        // END OF TESTING
 
         clearSpell();
         

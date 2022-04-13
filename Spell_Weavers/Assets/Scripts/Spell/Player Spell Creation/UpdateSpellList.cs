@@ -28,12 +28,14 @@ public class UpdateSpellList : MonoBehaviour
      *       Note: Runs whenever the spell list is updated and when the spell menu is opened
      */
     public static void updateList() {
+        /*
         Spell[] list = Spellbook.spells.ToArray();
         string str = "";
 
         foreach (Spell s in list) 
             str += s.ToString() + "\n";
         text.text = str;
+        */
     }
     
 }

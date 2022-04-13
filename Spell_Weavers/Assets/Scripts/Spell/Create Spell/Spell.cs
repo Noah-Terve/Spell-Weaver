@@ -20,18 +20,18 @@ public class Spell
 
     // Specs of the spell
     public float castTime = 0f, cooldown = 0f, dmg = 0f, lingering = 0f; // Basic time and damage
-    protected List<GameObject> hitboxes; // All of the prefabs to detect the damage
-    protected HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
-    protected HashSet<EffectComponent> effects; // All of the effects that would be triggered
+    List<GameObject> hitboxes; // All of the prefabs to detect the damage
+    HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
+    HashSet<EffectComponent> effects; // All of the effects that would be triggered
 
-    protected HashSet<Element> superEffective; // elemental system
-    protected float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
+    HashSet<Element> superEffective; // elemental system
+    float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
 
     // Spells that move you when cast
-    protected float xMove = 0f, yMove = 0f;
+    float xMove = 0f, yMove = 0f;
 
     // HASH CODE STUFF
-    protected int hashingCode = 0;
+    int hashingCode = 0;
 
 /* THE CONSTRUCTORS */
     /*
