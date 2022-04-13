@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6185dc6d7e3474ab1054fb1c1075e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBack: 5
 --- !u!50 &5540679165653990763
 Rigidbody2D:
   serializedVersion: 4
@@ -179,5 +180,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fe544485e26ae43a730335e5ec7567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceX: 25
-  returnPwr: 0.1
+  distance: 10
+  returnSpeed: 10

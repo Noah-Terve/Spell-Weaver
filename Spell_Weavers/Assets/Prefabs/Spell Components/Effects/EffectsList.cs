@@ -27,4 +27,8 @@ public class EffectsList : MonoBehaviour
     public static void lifeSteal (GameObject player, GameObject target, Spell spell) {
         player.GetComponent<PlayerHealth>().Health.InitialVal += spell.dmg;
     }
+    public static void knockback (GameObject player, GameObject target, Spell spell) {
+        foreach (GameObject x in spell.hitboxes)
+            x.GetComponent<GetHitData>().knockBack *= 2;
+    }
 }

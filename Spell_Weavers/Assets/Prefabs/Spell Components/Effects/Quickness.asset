@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f988a350f7b664092faca8d1560e8d, type: 3}
   m_Name: Quickness
   m_EditorClassIdentifier: 
-  cooldown: -3
+  cooldown: -0.5
   castTime: 0
   dmg: 0
   lingering: 0
-  description: Cooldown -3 s
+  description: Cooldown - 0.5 s
   effect:
     m_PersistentCalls:
       m_Calls: []

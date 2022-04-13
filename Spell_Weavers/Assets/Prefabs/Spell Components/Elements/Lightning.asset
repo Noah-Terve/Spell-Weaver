@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Lightning
   m_EditorClassIdentifier: 
-  cooldown: -1
+  cooldown: -0.1
   castTime: -0.1
   dmg: 1
   lingering: -0.1
-  description: 'Cooldown - 1 s
+  description: 'Cooldown - 0.1 s
 
     Cast Time - 0.1 s
 

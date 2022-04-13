@@ -20,7 +20,7 @@ public class Spell
 
     // Specs of the spell
     public float castTime = 0f, cooldown = 0f, dmg = 0f, lingering = 0f; // Basic time and damage
-    List<GameObject> hitboxes; // All of the prefabs to detect the damage
+    public List<GameObject> hitboxes; // All of the prefabs to detect the damage
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<EffectComponent> effects; // All of the effects that would be triggered
 
@@ -262,7 +262,10 @@ public class Spell
     public float getCooldownTimer()
     {
         if (Spellbook.cooldownTable.ContainsKey(this)) 
-            return Spellbook.cooldownTable[this] - Time.time;
+            if (Spellbook.cooldownTable[this] - Time.time > 0)
+                return Spellbook.cooldownTable[this] - Time.time;
+            else
+                return 0;
         return -1;
     }
 
