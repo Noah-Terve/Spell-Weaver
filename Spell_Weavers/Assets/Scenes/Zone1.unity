@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9186588549238648294, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6204739504612756899, guid: 6e1f9bb78a3d32a40a9c3442c8fe9f66, type: 3}
+    - target: {fileID: 9186588549238648294, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
 --- !u!1 &145862540 stripped
@@ -1166,7 +1174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 086cb97f56056e64b82c65193d71ea00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
