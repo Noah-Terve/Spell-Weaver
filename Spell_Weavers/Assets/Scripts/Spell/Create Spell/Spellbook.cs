@@ -14,13 +14,16 @@ public class Spellbook : MonoBehaviour
     // Adding references to the spell Components 
     public SpellComponentList list;
     // Spells to be cast
-    public static Queue<Spell> spells = new Queue<Spell>();
+    // public static Queue<Spell> spells = new Queue<Spell>();
 
     public static bool canCast = true;
 
     public static bool inCast = false;
     
     public static bool GameisPaused = false;
+
+    public static Spell[] spells = new Spell[3];
+
 
     // All of the cooldown information
     public static Dictionary<Spell, float> cooldownTable = new Dictionary<Spell, float>();
@@ -48,12 +51,20 @@ public class Spellbook : MonoBehaviour
 
         // TESTING
         
+        if (Input.GetKeyDown(KeyCode.J))
+            castSpell(0);
+        if (Input.GetKeyDown(KeyCode.K))
+            castSpell(1);
+        if (Input.GetKeyDown(KeyCode.L))
+            castSpell(2);
+        
+        /*
         // TODO:: MAKE THE INPUT WORK
         if (Input.GetButtonDown("Fire1")) {
             if (!castSpell())
                 Debug.Log("ON COOLDOWN");
         }
-        
+        */
     }
 
     /*
@@ -63,7 +74,15 @@ public class Spellbook : MonoBehaviour
      *    Purpose: Cast the next spell if not on cooldown
      *       Note: 
      */
-    bool castSpell() {
+    bool castSpell(int idx) {
+        if (spells[idx] != null && !spells[idx].isOnCooldown()) {
+            startSpellCast(spells[idx]);
+            addSpellCooldown(spells[idx]);
+            return true;
+        }
+
+        return false;
+        /*
         if (spells.Count != 0 && !spells.Peek().isOnCooldown()) {
             startSpellCast(spells.Peek());
             addSpellCooldown(spells.Peek());
@@ -75,6 +94,7 @@ public class Spellbook : MonoBehaviour
         }
         else 
             return false;
+        */
     }
 
     /*
@@ -92,17 +112,21 @@ public class Spellbook : MonoBehaviour
     }
 
     /*
-     *       Name: addSpell(SpellComponent[] components)
-     * Parameters: The components which make the new spell (SpellComponent[])
+     *       Name: addSpell(SpellComponent[] components, int idx)
+     * Parameters: The components which make the new spell (SpellComponent[]); which slot it goes into (int)
      *     Return: None
      *    Purpose: Adds the spell to the set of all known spells if it does not exist and adds it to the list
      *       Note: 
      */
-    public void addSpell(SpellComponent[] components)
+    public void addSpell(SpellComponent[] components, int idx)
     {
+        Spell s = new Spell(components);
+        spells[idx] = s;
+        /*
         Spell s = new Spell(components);
         spells.Enqueue(s);
         Debug.Log(s);
+        */
     }
     
 

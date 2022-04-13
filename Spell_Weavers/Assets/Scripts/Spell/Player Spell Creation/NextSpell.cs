@@ -26,16 +26,6 @@ public class NextSpell : MonoBehaviour
      */
     void Update()
     {
-        // TODO:: BUG - When deleting than making the same spell, the cooldown is not properly shown
-        string str = "";
-        if (Spellbook.spells.Count != 0)
-            if (Spellbook.spells.Peek().isOnCooldown())
-                str = "NEXT SPELL: " + Spellbook.spells.Peek().ToString() + "\nCOOLDOWN: " + Spellbook.spells.Peek().getCooldownTimer().ToString("F2");
-            else 
-                str = "NEXT SPELL: " + Spellbook.spells.Peek().ToString() + "\nCOOLDOWN: READY";
-        else
-            str = "NEXT SPELL: None \nCOOLDOWN: None";
-        text.text = str;
-
+       
     }
 }

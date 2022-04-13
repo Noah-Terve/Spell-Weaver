@@ -12,10 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Boomerang
   m_EditorClassIdentifier: 
-  cooldown: 10
+  cooldown: 2
   castTime: 0.2
   dmg: 2
   lingering: 0.4
+  description: 'Cooldown + 2 s
+
+    Cast Time + 0.2 s
+
+    Damage + 2
+
+    Lingering
+    + 0.4 s
+
+
+    [Shape]
+
+    Sends a ball out which boomerangs back for the duration
+
+    Also
+    sends the player back a little from recoil'
   xMove: -5
   yMove: 1
   shapePrefab: {fileID: 5540679165653990760, guid: a1ff85e979bb42e46b3dab7995abb269, type: 3}

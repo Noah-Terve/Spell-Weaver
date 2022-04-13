@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f988a350f7b664092faca8d1560e8d, type: 3}
   m_Name: Power++
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 2
   castTime: 0
   dmg: 2
   lingering: 0
+  description: 'Cooldown + 2 s
+
+    Damage + 2'
   effect:
     m_PersistentCalls:
       m_Calls: []

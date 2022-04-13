@@ -20,18 +20,18 @@ public class Spell
 
     // Specs of the spell
     public float castTime = 0f, cooldown = 0f, dmg = 0f, lingering = 0f; // Basic time and damage
-    protected List<GameObject> hitboxes; // All of the prefabs to detect the damage
-    protected HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
-    protected HashSet<EffectComponent> effects; // All of the effects that would be triggered
+    List<GameObject> hitboxes; // All of the prefabs to detect the damage
+    HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
+    HashSet<EffectComponent> effects; // All of the effects that would be triggered
 
-    protected HashSet<Element> superEffective; // elemental system
-    protected float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
+    HashSet<Element> superEffective; // elemental system
+    float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
 
     // Spells that move you when cast
-    protected float xMove = 0f, yMove = 0f;
+    float xMove = 0f, yMove = 0f;
 
     // HASH CODE STUFF
-    protected int hashingCode = 0;
+    int hashingCode = 0;
 
 /* THE CONSTRUCTORS */
     /*
@@ -70,7 +70,7 @@ public class Spell
      *    Purpose: Creates all GameObjects and prevents movement for the cast time, then destroys it and lets the player move
      *       Note: Is a coroutine
      */
-    public virtual IEnumerator castSpell()
+    public IEnumerator castSpell()
     {
         List<GameObject> theHitBoxes = new List<GameObject>();
         foreach (GameObject hb in hitboxes)
@@ -121,7 +121,7 @@ public class Spell
      *       Note: Is called in the Hitbox gameobjects when they are triggered aka onTriggerEnter
      */
 
-    public virtual void activateEffects(GameObject enemy) {
+    public void activateEffects(GameObject enemy) {
         foreach (EffectComponent e in effects)
             e.triggerEffect(player, enemy, this);
     }
@@ -259,7 +259,7 @@ public class Spell
      *    Purpose: Get how long until the spell is usable again
      *       Note: Returns -1 if not in the table
      */
-    public virtual float getCooldownTimer()
+    public float getCooldownTimer()
     {
         if (Spellbook.cooldownTable.ContainsKey(this)) 
             return Spellbook.cooldownTable[this] - Time.time;

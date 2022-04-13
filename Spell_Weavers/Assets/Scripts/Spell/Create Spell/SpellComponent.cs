@@ -13,4 +13,6 @@ public abstract class SpellComponent : ScriptableObject
     public float castTime = 0.4f;
     public float dmg = 2f;
     public float lingering = 0.2f;
+    [TextArea(5,10)]
+    public string description;
 }

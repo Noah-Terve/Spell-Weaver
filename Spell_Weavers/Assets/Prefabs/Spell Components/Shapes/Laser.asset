@@ -12,10 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Laser
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 1
   castTime: 0.1
   dmg: 1
   lingering: 0.2
+  description: 'Cooldown + 1 s
+
+    Cast Time + 0.1 s
+
+    Damage + 1
+
+    Lingering
+    + 0.2 s
+
+
+    [Shape]
+
+    A straight laser which has tiny recoil'
   xMove: -1
   yMove: 0
   shapePrefab: {fileID: 4938108803940002116, guid: 68ad5b51eacb56d4bb7a9e11810b20ed, type: 3}

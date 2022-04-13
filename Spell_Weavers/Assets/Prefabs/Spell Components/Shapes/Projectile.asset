@@ -12,10 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Projectile
   m_EditorClassIdentifier: 
-  cooldown: 10
+  cooldown: 2
   castTime: 0.4
   dmg: 2
   lingering: 0.2
+  description: 'Cooldown + 2 s
+
+    Cast Time + 0.4 s
+
+    Damage + 2
+
+    Lingering
+    + 0.2 s
+
+
+    [Shape]
+
+    Throws a ball out, and sends the player back from
+    recoil'
   xMove: -5
   yMove: 1
   shapePrefab: {fileID: 1400317046751589886, guid: 8a34253e963df2a448ff326cf25cde60, type: 3}

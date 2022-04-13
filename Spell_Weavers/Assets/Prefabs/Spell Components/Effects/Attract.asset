@@ -15,6 +15,18 @@ MonoBehaviour:
   cooldown: 1
   castTime: 0.1
   dmg: 0
+  lingering: 0.2
+  description: 'Cooldown + 1 s
+
+    Cast Time + 0.1 s
+
+    Lingering + 0.2 s
+
+
+    [Effect]
+
+    Makes
+    enemies hit come towards you'
   effect:
     m_PersistentCalls:
       m_Calls:

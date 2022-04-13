@@ -42,6 +42,5 @@ public class ElementMenu : MonoBehaviour
     public static void switchMenu() {
         spellMenu.SetActive(!spellMenu.activeSelf);
         Spellbook.canCast = !spellMenu.activeSelf;
-        UpdateSpellList.updateList();
     }
 }
