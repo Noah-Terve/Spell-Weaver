@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  cooldown: 20
+  cooldown: 3
   castTime: 0.4
   dmg: 3
   lingering: 0
+  description: 'Cooldown + 3 s
+
+    Cast Time + 0.4 s
+
+    Damage + 3
+
+
+    [Element]
+
+    Powerful
+    flames, which grows the size of the spell by 50%
+
+    Strong against Wind'
   sizeMultiplier: 1.5
   strongAgainst: 2

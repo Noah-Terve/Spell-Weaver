@@ -70,7 +70,7 @@ public class Spell
      *    Purpose: Creates all GameObjects and prevents movement for the cast time, then destroys it and lets the player move
      *       Note: Is a coroutine
      */
-    public virtual IEnumerator castSpell()
+    public IEnumerator castSpell()
     {
         List<GameObject> theHitBoxes = new List<GameObject>();
         foreach (GameObject hb in hitboxes)
@@ -121,7 +121,7 @@ public class Spell
      *       Note: Is called in the Hitbox gameobjects when they are triggered aka onTriggerEnter
      */
 
-    public virtual void activateEffects(GameObject enemy) {
+    public void activateEffects(GameObject enemy) {
         foreach (EffectComponent e in effects)
             e.triggerEffect(player, enemy, this);
     }
@@ -259,7 +259,7 @@ public class Spell
      *    Purpose: Get how long until the spell is usable again
      *       Note: Returns -1 if not in the table
      */
-    public virtual float getCooldownTimer()
+    public float getCooldownTimer()
     {
         if (Spellbook.cooldownTable.ContainsKey(this)) 
             return Spellbook.cooldownTable[this] - Time.time;

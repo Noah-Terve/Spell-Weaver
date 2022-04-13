@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UpdateSpellList : MonoBehaviour
 {
     // Static so that it can update upon opening up the menu; this may cause bugs when switching scenes down the line
-    static Text text;
-
+    Text textBox;
+    public int slot;
     /*
      *       Name: Start()
      * Parameters: None
@@ -17,7 +17,7 @@ public class UpdateSpellList : MonoBehaviour
      */
     void Awake()
     {
-        text = GetComponent<Text>();
+        textBox = GetComponentsInChildren<Text>()[1];
     }
 
     /*
@@ -27,15 +27,11 @@ public class UpdateSpellList : MonoBehaviour
      *    Purpose: Updates the text to display what spells the people currently have
      *       Note: Runs whenever the spell list is updated and when the spell menu is opened
      */
-    public static void updateList() {
-        /*
-        Spell[] list = Spellbook.spells.ToArray();
-        string str = "";
-
-        foreach (Spell s in list) 
-            str += s.ToString() + "\n";
-        text.text = str;
-        */
+    void Update() {
+        if (Spellbook.spells[slot] != null)
+            textBox.text = Spellbook.spells[slot].ToString();
+        else
+            textBox.text = "None";
     }
     
 }

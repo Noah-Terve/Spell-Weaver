@@ -12,9 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Lightning
   m_EditorClassIdentifier: 
-  cooldown: 5
-  castTime: 0.1
+  cooldown: -1
+  castTime: -0.1
   dmg: 1
-  lingering: 0.3
+  lingering: -0.1
+  description: 'Cooldown - 1 s
+
+    Cast Time - 0.1 s
+
+    Damage + 1
+
+    Lingering
+    - 0.1 s
+
+
+    [Element]
+
+    Quick component, which speeds things up at the cost
+    of being half the size
+
+    Strong against Earth'
   sizeMultiplier: 0.5
   strongAgainst: 3

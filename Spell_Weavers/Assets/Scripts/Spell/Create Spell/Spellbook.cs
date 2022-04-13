@@ -51,11 +51,11 @@ public class Spellbook : MonoBehaviour
 
         // TESTING
         
-        if (Input.GetButtonDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
             castSpell(0);
-        if (Input.GetButtonDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
             castSpell(1);
-        if (Input.GetButtonDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
             castSpell(2);
         
         /*

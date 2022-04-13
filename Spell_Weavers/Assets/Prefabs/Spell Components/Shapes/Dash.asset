@@ -12,10 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 1
   castTime: 0.1
   dmg: 2
   lingering: 0
+  description: 'Cooldown + 1 s
+
+    Cast Time + 0.1 s
+
+    Damage + 2
+
+    Lingering
+    + 0 s
+
+
+    [Shape]
+
+    Sends the player forward, damaging enemies in the way'
   xMove: 20
   yMove: 0
   shapePrefab: {fileID: 8023837910763921396, guid: 3d68fb9bbdb782b489d00c17f4a9d3c1, type: 3}

@@ -14,7 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: -1
   castTime: 0.2
-  dmg: 1
+  dmg: -1
   lingering: 0.2
+  description: 'Cooldown -1
+
+    Cast Time + 0.2 s
+
+    Damage - 1
+
+    Lingering
+    + 0.2 s
+
+
+    [Element]
+
+    A faster refresh for less cooldown
+
+    Strong against
+    Earth'
   sizeMultiplier: 1
   strongAgainst: 3

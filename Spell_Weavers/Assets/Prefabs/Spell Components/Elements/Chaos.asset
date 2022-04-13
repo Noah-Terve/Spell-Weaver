@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422e408f3e6da74c89803c356d1bf4b, type: 3}
   m_Name: Chaos
   m_EditorClassIdentifier: 
-  cooldown: 20
+  cooldown: 5
   castTime: 1
   dmg: 4
   lingering: 0
+  description: 'Cooldown + 5 s
+
+    Cast Time + 1 s
+
+    Damage + 4
+
+
+    [Element]
+
+    Doubles
+    size of attack
+
+    Strong against Fire'
   sizeMultiplier: 2
   strongAgainst: 0
