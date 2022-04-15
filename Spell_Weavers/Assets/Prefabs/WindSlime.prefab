@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9188657201802994393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WindSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7896160407628816591}
   - component: {fileID: 3924782826040154345}
   - component: {fileID: 6706425604133584827}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WindSlimeArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

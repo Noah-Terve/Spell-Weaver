@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5784263810389631331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1026121598921022581}
   - component: {fileID: 6085751003503181767}
   - component: {fileID: 2429251380978788277}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundSlimeArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

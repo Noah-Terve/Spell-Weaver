@@ -109,10 +109,16 @@ public class Spell
      */
     public void dmgCalc(GameObject enemy)
     {
+        delayComingAfter(enemy);
         // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
     }
 
+    IEnumerator delayComingAfter(GameObject enemy) {
+        enemy.GetComponent<PlayerDetect>().isHit = true;
+        yield return new WaitForSeconds(1f);
+        enemy.GetComponent<PlayerDetect>().isHit = false;
+    }
     /*
      *       Name: activateEffects(GameObject enemy)
      * Parameters: The enemy the spell hit (GameObject)

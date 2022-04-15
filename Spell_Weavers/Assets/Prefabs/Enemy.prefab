@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4865023030873359367}
   - component: {fileID: 5924110981483454577}
   - component: {fileID: 6280814982469410033}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: -2692365927827356299}
   - component: {fileID: 5199125844399300414}
   - component: {fileID: 9197007555009335168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpPower: 5
+  jumpWithinRange: 0.5
 --- !u!114 &9197007555009335168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,3 +267,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDistance: 5
   forgetTime: 10
+  isHit: 0
