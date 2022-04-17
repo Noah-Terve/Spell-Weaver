@@ -52,8 +52,5 @@ public class PlayerDetect : MonoBehaviour
             enemyAI.attackPlayer(player);
         else // What to do when not tracking
             enemyAI.idle();
-        
-        if (foundPlayer)
-            Debug.Log("FOUND PLAYER");
     }
 }
