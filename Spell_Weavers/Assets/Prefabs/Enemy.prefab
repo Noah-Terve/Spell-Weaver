@@ -229,3 +229,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 20
+  type: 1

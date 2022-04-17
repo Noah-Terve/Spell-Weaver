@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 20
+  type: 3
 --- !u!1 &1865231548231250146
 GameObject:
   m_ObjectHideFlags: 0

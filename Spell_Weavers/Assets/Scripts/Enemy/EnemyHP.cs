@@ -5,17 +5,12 @@ using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
     public float HP = 20;
-    private GameObject enemy;
-
-    void Start(){
-        if (enemy == null)
-            enemy = gameObject.GetComponentInParent<GameObject>();
-    }
+    public Element type;
 
     // Update is called once per frame
     void Update()
     {
         if (HP == 0)
-            enemy.SetActive(false);
+            gameObject.SetActive(false);
     }
 }
