@@ -729,7 +729,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2651043116735610521, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_Name
-      value: BaseCheckpoint
+      value: StartPoint
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_RootOrder

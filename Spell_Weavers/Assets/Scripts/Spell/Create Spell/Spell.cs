@@ -122,7 +122,7 @@ public class Spell
 
     IEnumerator delayComingAfter(GameObject enemy) {
         enemy.GetComponent<PlayerDetect>().isHit = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         enemy.GetComponent<PlayerDetect>().isHit = false;
     }
     /*

@@ -315,6 +315,7 @@ MonoBehaviour:
   lookDistance: 5
   forgetTime: 10
   isHit: 0
+  DistanceToPlayer: 1.5
 --- !u!114 &7843505854422422064
 MonoBehaviour:
   m_ObjectHideFlags: 0
