@@ -110,8 +110,6 @@ public class Spell
     public void dmgCalc(GameObject enemy)
     {
         delayComingAfter(enemy);
-        
-        enemy.GetComponent<EnemyHP>().HP -= 1;
         // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
     }
