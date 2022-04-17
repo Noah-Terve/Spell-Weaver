@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1249447882304341077}
   - component: {fileID: 3420786164735728980}
   - component: {fileID: 666061029077358046}
+  - component: {fileID: 5765793689543596442}
   m_Layer: 7
   m_Name: WindSlime
   m_TagString: Untagged
@@ -112,6 +113,19 @@ MonoBehaviour:
   lookDistance: 5
   forgetTime: 10
   isHit: 0
+--- !u!114 &5765793689543596442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299876395030141612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444f1b2f0cb424237936509d5a51c561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 20
 --- !u!1 &5074802269033266461
 GameObject:
   m_ObjectHideFlags: 0

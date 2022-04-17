@@ -5,16 +5,17 @@ using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
     public float HP = 20;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private GameObject enemy;
+
+    void Start(){
+        if (enemy == null)
+            enemy = gameObject.GetComponentInParent<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP == 0)
+            enemy.SetActive(false);
     }
 }

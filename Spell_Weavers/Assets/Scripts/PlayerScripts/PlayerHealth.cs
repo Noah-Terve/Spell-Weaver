@@ -17,9 +17,10 @@ public class PlayerHealth : MonoBehaviour
     
     void Update() {
         if (Health.RuntimeVal == 0){
-            Debug.Log("Health is 0, trying to update");
+            Debug.Log("Health is 0, trying to respawn");
             Handler.Died();
-            Health.RuntimeVal += 1 /*TODO: add whatever we want to reset their lives to be here */; 
+            Health.RuntimeVal += 20 
+            /*TODO: add whatever we want to reset their lives to be here */; 
         }
     }
 
