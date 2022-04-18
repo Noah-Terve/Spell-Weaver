@@ -25,6 +25,12 @@ public class PlayerJump : MonoBehaviour {
             // JumpSFX.Play();
         }
     }
+    
+    public void OnCollisionEnter2D(Collision2D Collision) {
+        if(Collision.gameObject.tag == "Ground") {
+            animator.SetTrigger("Grounded");
+        }
+    }
 
     public void Jump() {
         rb.velocity = Vector2.up * jumpForce;

@@ -212,9 +212,8 @@ GameObject:
   - component: {fileID: 8008677059783448099}
   - component: {fileID: 8008677059783448092}
   - component: {fileID: -2692365927827356299}
-  - component: {fileID: 5199125844399300414}
-  - component: {fileID: 9197007555009335168}
   - component: {fileID: 7843505854422422064}
+  - component: {fileID: 5838539435198605363}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -285,37 +284,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5199125844399300414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008677059783448097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cace895776712264aa822908f22f4a1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpPower: 5
-  jumpWithinRange: 0.5
---- !u!114 &9197007555009335168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008677059783448097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9087ee843ed82a847ba9505364a09457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookDistance: 5
-  forgetTime: 10
-  isHit: 0
-  DistanceToPlayer: 1.5
 --- !u!114 &7843505854422422064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,3 +298,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 20
   type: 1
+  anim: {fileID: 0}
+  healthLoot: {fileID: 0}
+--- !u!114 &5838539435198605363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008677059783448097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5371e2dc26c7e416d8823c95cd568ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

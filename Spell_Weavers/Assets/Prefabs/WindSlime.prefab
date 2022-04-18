@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 5765793689543596442}
   m_Layer: 7
   m_Name: WindSlime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   lookDistance: 5
   forgetTime: 10
   isHit: 0
+  DistanceToPlayer: 1.5
 --- !u!114 &5765793689543596442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 20
   type: 2
+  anim: {fileID: 0}
+  healthLoot: {fileID: 0}
 --- !u!1 &5074802269033266461
 GameObject:
   m_ObjectHideFlags: 0

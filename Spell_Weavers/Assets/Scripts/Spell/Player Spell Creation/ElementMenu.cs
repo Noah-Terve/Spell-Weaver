@@ -7,6 +7,7 @@ public class ElementMenu : MonoBehaviour
 {
 
     static GameObject spellMenu;
+    public bool canCastSpells = false;
     /*
      *       Name: Start()
      * Parameters: None
@@ -27,6 +28,11 @@ public class ElementMenu : MonoBehaviour
      *       Note: Checks every frame
      */
     void Update() {
+        // stop the player from accessing the spell creation menu until they
+        // have unlocked it.
+        if (!canCastSpells)
+            return;
+        
         if (Input.GetKeyDown(KeyCode.E) && !Spellbook.inCast)
             switchMenu();
         
