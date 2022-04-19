@@ -36,10 +36,8 @@ public class PlayerJump : MonoBehaviour {
         rb.velocity = Vector2.up * jumpForce;
     }
 
-    // TODO: Make sure to edit the overlap circles to make sure that the
-    //       jump check works if you are on the edge.
     public bool IsGrounded() {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .05f, groundLayer);
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .15f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, .05f, enemyLayer);
         if ((groundCheck != null) || (enemyCheck != null)) {
             return true;

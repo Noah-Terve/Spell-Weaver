@@ -204,10 +204,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Welcome to spell Weavers where you are a mage on a quest to rid the caves
-    of enemies
-
-    Good luck'
+  m_Text: Good luck on your quest
 --- !u!222 &551089455
 CanvasRenderer:
   m_ObjectHideFlags: 0

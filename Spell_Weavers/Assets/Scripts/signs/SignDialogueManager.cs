@@ -16,18 +16,6 @@ public class SignDialogueManager : MonoBehaviour
               dialogueLength = dialogue.Length; //allows us test dialogue without an NPC
        }
 
-       void Update(){
-              //temporary testing before NPC is created
-              if (Input.GetKeyDown("o")){
-                     dialogueBox.SetActive(true);
-              }
-              if (Input.GetKeyDown("p")){
-                     dialogueBox.SetActive(false);
-                     dialogueText.text = "..."; //reset text
-                     counter = 0; //reset counter
-              }
-       }
-
        public void OpenDialogue(){
               dialogueBox.SetActive(true);
        }
