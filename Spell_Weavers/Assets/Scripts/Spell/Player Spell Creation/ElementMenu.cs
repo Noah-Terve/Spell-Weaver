@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
@@ -7,7 +8,7 @@ public class ElementMenu : MonoBehaviour
 {
 
     static GameObject spellMenu;
-    public bool canCastSpells = false;
+    public bool canCastSpells = true;
     /*
      *       Name: Start()
      * Parameters: None
@@ -19,6 +20,9 @@ public class ElementMenu : MonoBehaviour
         spellMenu = GameObject.FindGameObjectsWithTag("Spell Menu")[0];
         spellMenu.SetActive(false);
         Spellbook.canCast = true;
+        
+        if(SceneManager.GetActiveScene().name == "Tutorial")
+            canCastSpells = false;
     }
     /*
      *       Name: Update()
