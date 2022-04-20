@@ -377,6 +377,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3677108242575600897, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
+      propertyPath: list
+      value: 
+      objectReference: {fileID: 11400000, guid: d35d6f569ec68ce4490d2a1129a595d9, type: 2}
     - target: {fileID: 3677108242575600911, guid: 055af30ea19591d499e32514d1ad89e5, type: 3}
       propertyPath: m_Name
       value: Spell Center

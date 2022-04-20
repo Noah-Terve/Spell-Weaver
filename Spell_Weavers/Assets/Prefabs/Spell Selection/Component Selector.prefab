@@ -517,7 +517,7 @@ MonoBehaviour:
   keyButtonPrefab: {fileID: 3789095322559074033, guid: 0e5aaf7e1a96d504eb0900123e53e54d, type: 3}
   choiceBox: {fileID: 6673154073055485329}
   descriptionBox: {fileID: 2893622405942969282}
-  compList: {fileID: 11400000, guid: 97419284400aaa94a9082f05f86fe733, type: 2}
+  compList: {fileID: 11400000, guid: d35d6f569ec68ce4490d2a1129a595d9, type: 2}
 --- !u!1 &4699911036953281503
 GameObject:
   m_ObjectHideFlags: 0

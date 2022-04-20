@@ -163,4 +163,19 @@ public class HoldComponents : MonoBehaviour
     public void clearSpellList() {
         Spellbook.spells = new Spell[3];
     }
+    
+    /*
+     *       Name: updateMenu()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Updates the component buttons
+     *       Note: 
+     */
+    public void updateMenu() {
+        foreach (GameObject g in componentButtons)
+            Destroy(g);
+        componentButtons.Clear();
+
+        makeMenu();
+    }
 }
