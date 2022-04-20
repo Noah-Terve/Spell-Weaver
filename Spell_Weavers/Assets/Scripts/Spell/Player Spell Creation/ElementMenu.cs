@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
@@ -7,6 +8,7 @@ public class ElementMenu : MonoBehaviour
 {
 
     static GameObject spellMenu;
+    public bool canCastSpells = true;
     /*
      *       Name: Start()
      * Parameters: None
@@ -18,6 +20,9 @@ public class ElementMenu : MonoBehaviour
         spellMenu = GameObject.FindGameObjectsWithTag("Spell Menu")[0];
         spellMenu.SetActive(false);
         Spellbook.canCast = true;
+        
+        if(SceneManager.GetActiveScene().name == "Tutorial")
+            canCastSpells = false;
     }
     /*
      *       Name: Update()
@@ -27,6 +32,11 @@ public class ElementMenu : MonoBehaviour
      *       Note: Checks every frame
      */
     void Update() {
+        // stop the player from accessing the spell creation menu until they
+        // have unlocked it.
+        if (!canCastSpells)
+            return;
+        
         if (Input.GetKeyDown(KeyCode.E) && !Spellbook.inCast)
             switchMenu();
         

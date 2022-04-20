@@ -79,8 +79,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[WASD] To Move\n[E] Toggle Spell Creator\n[Left Click] Cast Spell \n\t(can
-    only do this once you have made a spell)\n[ESC] Toggle Pause Menu"
+  m_Text: '[WASD] To Move
+
+    [ESC] Toggle Pause Menu'
 --- !u!114 &5239174471301097989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,4 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b34c59f7d7074314adf6217f3235672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InstructionsAwakeFor: 15
+  InstructionsAwakeFor: 7

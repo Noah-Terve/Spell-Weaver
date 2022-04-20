@@ -10,6 +10,8 @@ TagManager:
   - PauseMenuVolumeSlider
   - Ground
   - Checkpoint
+  - Lava
+  - DialogueManager
   layers:
   - Default
   - TransparentFX
