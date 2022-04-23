@@ -16,6 +16,11 @@ public class GameHandler : MonoBehaviour
     public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
+    
+    public static string [] SceneNames;
+    private static int SceneIndex;
+    private static int NumScenes;
+    
 
     void Awake (){
         SetLevel (volumeLevel);
@@ -33,6 +38,27 @@ public class GameHandler : MonoBehaviour
         
         if (pSpawn == null)
             pSpawn = Player.transform;
+        
+        // Handle scene transitions by keeping track of the index you are at.
+        // usually this can be done by just setting SceneNames and then skipping
+        // the for loop because we can start at 1, but if we start at
+        // some random scene we need to start there.
+        NumScenes = 4;
+        
+        if (SceneNames == null){
+            SceneNames = new string[NumScenes];
+            SceneNames[0] = "MainMenu";
+            SceneNames[1] = "Tutorial";
+            SceneNames[2] = "WaterLevel";
+            SceneNames[3] = "FireLevel";
+        }
+        
+        for (int i = 0; i < NumScenes; i++){
+            if (SceneNames[i] == SceneManager.GetActiveScene().name) {
+                SceneIndex = i;
+                break;
+            }
+        }
         
         pauseMenuUI.SetActive(false);
         GameisPaused = false;
@@ -70,21 +96,12 @@ public class GameHandler : MonoBehaviour
         volumeLevel = sliderValue;
     }
     
-    // Load the beginning of the game when 
-    // the botton is clicked in the main menu.
-    public void StartGame() {
-        SceneManager.LoadScene("Zone1", LoadSceneMode.Single);
-    }
-    
-    public void StartTutorial() {
-        SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
-    }
-    
     // This function is for the pause menu restart, which brings them back
     // to the main menu
     public void RestartGame(){
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        SceneIndex = 0;
     }
     
     // This function quits the entire game, again for pause menu.
@@ -101,4 +118,10 @@ public class GameHandler : MonoBehaviour
         Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, Player.transform.position.z);
         Player.transform.position = pSpn2;
     }
+    
+    public void NextLevel(){
+        SceneIndex++;
+        SceneManager.LoadScene(SceneNames[SceneIndex], LoadSceneMode.Single);
+    }
+    
 }
