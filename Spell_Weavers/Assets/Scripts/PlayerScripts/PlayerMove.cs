@@ -23,15 +23,16 @@ public class PlayerMove : MonoBehaviour {
 
     void Update(){
         //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
-        if (canMove)
-            hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        else
-            hMove = Vector3.zero;
+        if (!isAlive || !canMove )
+            return;
+            
+        // hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+        // transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
+     
+        
+        hMove = new Vector3(Input.GetAxis("Horizontal")  * runSpeed, rb.velocity.y, 0.0f);
+        rb.velocity = hMove;
 
-
-        if (isAlive == true){
-            transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
-        }
 
         if (Input.GetAxis("Horizontal") != 0){
               animator.SetBool ("Walk", true);
@@ -51,9 +52,9 @@ public class PlayerMove : MonoBehaviour {
 
     void FixedUpdate(){
         //slow down on hills / stops sliding from velocity
-        if (hMove.x == 0){
-            rb.velocity = new Vector2(rb.velocity.x / 1.1f, rb.velocity.y) ;
-        }
+      //  if (hMove.x == 0){
+            //rb.velocity = new Vector2(rb.velocity.x / 1.1f, rb.velocity.y) ;
+       // }
     }
 
     private void playerTurn(){
