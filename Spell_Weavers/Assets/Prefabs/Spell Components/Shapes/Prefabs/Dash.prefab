@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6185dc6d7e3474ab1054fb1c1075e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomVFX: {fileID: 817102478075497262, guid: cd68d0cae73098f409a3d4027c89fb67, type: 3}
   knockBack: 10
 --- !u!50 &8023837910763921395
 Rigidbody2D:
@@ -90,7 +91,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8023837910763921396}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9afee38fdc615164bbc1aafd381d59db, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

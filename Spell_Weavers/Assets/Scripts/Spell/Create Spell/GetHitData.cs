@@ -10,9 +10,12 @@ using UnityEngine;
  */
 public class GetHitData : MonoBehaviour
 {
+    public GameObject boomVFX;
+
     public Spell spell;
 
     public float knockBack = 1;
+
 
     void OnTriggerEnter2D(Collider2D hit)
     {
@@ -26,6 +29,17 @@ public class GetHitData : MonoBehaviour
             direction.Normalize() ;
             // TESTING PURPOSES
             hit.gameObject.GetComponent<Rigidbody2D>().velocity += (direction)* knockBack;
+
+            GameObject boom = Instantiate(boomVFX, hit.gameObject.transform.position, boomVFX.transform.rotation);
+            
+            StartCoroutine(destroyEffects(boom));
         }
     }
+
+    IEnumerator destroyEffects(GameObject vfx) {
+        yield return new WaitForSeconds(2f);
+        Destroy(vfx);
+    }
+
+    
 }

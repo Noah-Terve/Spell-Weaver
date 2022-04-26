@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6185dc6d7e3474ab1054fb1c1075e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomVFX: {fileID: 817102478075497262, guid: cd68d0cae73098f409a3d4027c89fb67, type: 3}
   knockBack: 5
 --- !u!50 &1400317046751589884
 Rigidbody2D:
