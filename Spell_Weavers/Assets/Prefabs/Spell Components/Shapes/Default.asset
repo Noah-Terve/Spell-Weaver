@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  cooldown: 5
-  castTime: 0.1
-  dmg: 0
+  cooldown: 1.5
+  castTime: 0
+  dmg: 1
   lingering: 0.2
-  description: 'Cooldown + 5 s
+  description: 'Cooldown + 1.5 s
 
-    Cast Time + 0.1 s
+    Cast Time + 0 s
 
-    Damage + 0
+    Damage + 1
 
     Lingering
     + 0.2 s

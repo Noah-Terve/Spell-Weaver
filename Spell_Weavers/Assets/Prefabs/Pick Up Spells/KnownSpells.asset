@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78148540fb8857147aa07182d39a335a, type: 3}
   m_Name: KnownSpells
   m_EditorClassIdentifier: 
-  allElements: []
+  allElements:
+  - {fileID: 11400000, guid: ee2f98936c922604b8fc279e4654e333, type: 2}
   allShapes:
-  - {fileID: 11400000, guid: c5cb15e3d53f1154b9da1b62311a5f97, type: 2}
+  - {fileID: 11400000, guid: af3632be1cc4eca41b3ceb987252dc25, type: 2}
   allEffects: []

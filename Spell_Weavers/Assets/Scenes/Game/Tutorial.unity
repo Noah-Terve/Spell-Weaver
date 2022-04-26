@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.113778
+      value: -9.560936
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122750,7 +122750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.171102
+      value: -12.618259
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122817,7 +122817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.164017
+      value: -9.611175
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122992,7 +122992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13
+      value: -12.447158
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -125026,7 +125026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.852842
+      value: -12.3
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -126258,7 +126258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.113778
+      value: -9.560936
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -126471,7 +126471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.001156
+      value: -9.448314
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -126528,7 +126528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.9931383
+      value: -6.440296
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -126880,16 +126880,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: '*dev note* here we would bring you to the next level after you keep
-        walking a bit.'
+      value: And you made it to the exit of the cave, good luck on your adventure!
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: And you made it to the exit of the cave, good luck on your adventure!
+      value: I'll be with you every step of the way!
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[2]
@@ -126928,7 +126927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.87
+      value: -12.317158
       objectReference: {fileID: 0}
     - target: {fileID: 2651043116735610524, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -128276,6 +128275,11 @@ PrefabInstance:
       propertyPath: dialogue.Array.data[0]
       value: You should press WASD to move around
       objectReference: {fileID: 0}
+    - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: '*Note from devs: If you would like to skip this level and go to the
+        next one, '
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3979986924808720881, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
@@ -128523,11 +128527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077420229571168580, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.19
+      value: 2396.34
       objectReference: {fileID: 0}
     - target: {fileID: 9077420229571168580, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 9077420229571168580, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -128560,6 +128564,22 @@ PrefabInstance:
     - target: {fileID: 9077420229571168580, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077420229571168581, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
+      propertyPath: m_Size.x
+      value: 25.359152
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077420229571168581, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
+      propertyPath: m_Size.y
+      value: 19.117538
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077420229571168581, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
+      propertyPath: m_Offset.x
+      value: -6.8802385
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077420229571168581, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0299668
       objectReference: {fileID: 0}
     - target: {fileID: 9077420229571168586, guid: acd66ac4ed61a444b9579e58bdac0b8b, type: 3}
       propertyPath: NextLevelUI
