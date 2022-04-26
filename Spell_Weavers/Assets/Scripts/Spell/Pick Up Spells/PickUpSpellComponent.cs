@@ -16,13 +16,13 @@ public class PickUpSpellComponent : MonoBehaviour
 
 
     /*
-     *       Name: Start()
+     *       Name: Awake()
      * Parameters: None
      *     Return: None
      *    Purpose: Finds the spell menu
      *       Note: 
      */
-    void Start() {
+    void Awake() {
         hold = GameObject.FindWithTag("Spell Menu").GetComponent<HoldComponents>();
     }
 
