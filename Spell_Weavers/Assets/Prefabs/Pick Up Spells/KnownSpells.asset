@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: KnownSpells
   m_EditorClassIdentifier: 
   allElements: []
-  allShapes: []
+  allShapes:
+  - {fileID: 11400000, guid: c5cb15e3d53f1154b9da1b62311a5f97, type: 2}
   allEffects: []

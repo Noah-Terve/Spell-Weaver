@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4472397330743399905}
   - component: {fileID: 466162208057611079}
   - component: {fileID: -285165254478259321}
+  - component: {fileID: -7930962174005180290}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: GameController
@@ -48,7 +49,6 @@ MonoBehaviour:
   Player: {fileID: 0}
   pauseMenuUI: {fileID: 0}
   mixer: {fileID: 24100000, guid: 34dd49e7b97d74ef2bed0967661a83fa, type: 2}
-  InitialHP: 20
 --- !u!114 &-285165254478259321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,3 +61,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5047dd63c6808f4b972bce61765176a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canCastSpells: 1
+--- !u!114 &-7930962174005180290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4977296677426205680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a66f4aed4bd0b42ab79d2e24440ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: {fileID: 11400000, guid: d35d6f569ec68ce4490d2a1129a595d9, type: 2}
