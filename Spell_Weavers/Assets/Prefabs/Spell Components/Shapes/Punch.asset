@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a426d1c664e48458376daa5ad2750d, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: 
-  cooldown: 4
+  cooldown: 2
   castTime: 0.1
   dmg: 3
   lingering: 0
-  description: 'Cooldown + 4 s
+  description: 'Cooldown + 2 s
 
     Cast Time + 0.1 s
 

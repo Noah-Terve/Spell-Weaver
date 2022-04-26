@@ -19,6 +19,9 @@ public class PlayerHealth : MonoBehaviour
     }
     
     void Update() {
+        if (transform.position.y < -50)
+            Handler.Died();
+            
         if (Health.RuntimeVal == 0){
             Debug.Log("Health is 0, trying to respawn");
             Handler.Died();

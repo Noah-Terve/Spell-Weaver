@@ -11,7 +11,7 @@ public class PickUpSpellComponent : MonoBehaviour
     HoldComponents hold;
 
     void Start() {
-        hold = GameObject.FindGameObjectsWithTag("Spell Menu")[0].GetComponent<HoldComponents>();
+        hold = GameObject.FindWithTag("Spell Menu").GetComponent<HoldComponents>();
     }
     
     public void addComponents() {
