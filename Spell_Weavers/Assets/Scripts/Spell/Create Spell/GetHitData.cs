@@ -16,7 +16,13 @@ public class GetHitData : MonoBehaviour
 
     public float knockBack = 1;
 
-
+    /*
+     *       Name: OnTriggerEnter2D(Colllider2D hit)
+     * Parameters: The collider that is in the trigger (Collider2D)
+     *     Return: None
+     *    Purpose: When the attack hit box triggers the with the attack, it makes does the calculation on hit
+     *       Note: Starts the vfx
+     */
     void OnTriggerEnter2D(Collider2D hit)
     {
         if (hit.gameObject.tag == spell.targetTag && spell != null)
@@ -35,7 +41,13 @@ public class GetHitData : MonoBehaviour
             StartCoroutine(destroyEffects(boom));
         }
     }
-
+    /*
+     *       Name: destroyEffects(GameObject vfx)
+     * Parameters: The prefab of the on hit particle effects (GameObject)
+     *     Return: None
+     *    Purpose: Deletes the particle effect after it is done playing 
+     *       Note: Runs a coroutine
+     */
     IEnumerator destroyEffects(GameObject vfx) {
         yield return new WaitForSeconds(2f);
         Destroy(vfx);

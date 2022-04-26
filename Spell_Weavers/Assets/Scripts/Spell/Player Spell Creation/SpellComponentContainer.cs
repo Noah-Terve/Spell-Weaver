@@ -13,11 +13,25 @@ public class SpellComponentContainer : MonoBehaviour
     public static Text text;
 
     public SpellComponent comp;
-
+    
+    /*
+     *       Name: writeDescription()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: When hovered over, shows the description
+     *       Note: 
+     */
     public void writeDescription() {
         text.text = comp.name + "\n---\n" + comp.description;
     }
     
+    /*
+     *       Name: eraseDescription()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: When not hovering over anything, erase the description
+     *       Note: 
+     */
     public void eraseDescription() {
         text.text = "";
     }

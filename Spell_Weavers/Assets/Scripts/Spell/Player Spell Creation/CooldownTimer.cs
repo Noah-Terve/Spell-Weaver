@@ -17,6 +17,13 @@ public class CooldownTimer : MonoBehaviour
     public GameObject noSpell;
     public Text key;
 
+    /*
+     *       Name: Start()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Sets up the timers in the corner
+     *       Note: 
+     */
     void Start() {
         switch(slot) {
             case 0:
@@ -34,7 +41,13 @@ public class CooldownTimer : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /*
+     *       Name: Update()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Runs the timer circles
+     *       Note: 
+     */
     void Update()
     {
         Spell s = Spellbook.spells[slot];

@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ *    Name: PickUpSpellComponent
+ * Purpose: Allows for a component to be picked up
+ *    Date: Created 4/20/2022 by Matthew
+ */
 public class PickUpSpellComponent : MonoBehaviour
 {
     // The spell components that get picked up 
@@ -10,10 +14,25 @@ public class PickUpSpellComponent : MonoBehaviour
 
     HoldComponents hold;
 
+
+    /*
+     *       Name: Start()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Finds the spell menu
+     *       Note: 
+     */
     void Start() {
         hold = GameObject.FindWithTag("Spell Menu").GetComponent<HoldComponents>();
     }
-    
+
+    /*
+     *       Name: addComponents()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Adds the components in the component list pick up to the component list
+     *       Note: Called in OnTriggerEnter2D
+     */
     public void addComponents() {
         List<ElementComponent> element = new List<ElementComponent>(knownList.allElements);
         List<ShapeComponent> shape = new List<ShapeComponent>(knownList.allShapes);
@@ -35,10 +54,25 @@ public class PickUpSpellComponent : MonoBehaviour
         hold.updateMenu();
     }
 
+    /*
+     *       Name: destroyObject()
+     * Parameters: None
+     *     Return: None
+     *    Purpose: Destroys self
+     *       Note: 
+     */
     public void destroyObject() {
         Destroy(gameObject);
     }
     
+
+        /*
+     *       Name: OnTriggerEnter2D()
+     * Parameters: addComponents();
+     *     Return: None
+     *    Purpose: Adds the component, and destroys self
+     *       Note: 
+     */
     void OnTriggerEnter2D() {
         addComponents();
         destroyObject();
