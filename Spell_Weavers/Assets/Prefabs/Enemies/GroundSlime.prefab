@@ -107,11 +107,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5784263810389631331}
-  - component: {fileID: 7965865468785791569}
-  - component: {fileID: 6364500561473893108}
   - component: {fileID: 2128222577764694029}
   - component: {fileID: 1221147461366042642}
   - component: {fileID: 3352960599160550387}
+  - component: {fileID: 7860117493279027381}
   m_Layer: 7
   m_Name: GroundSlime
   m_TagString: Enemy
@@ -135,37 +134,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7965865468785791569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351180084795903501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cace895776712264aa822908f22f4a1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpPower: 5
-  jumpWithinRange: 0.5
---- !u!114 &6364500561473893108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351180084795903501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9087ee843ed82a847ba9505364a09457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookDistance: 5
-  forgetTime: 10
-  isHit: 0
-  DistanceToPlayer: 1.5
 --- !u!61 &2128222577764694029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +180,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3352960599160550387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +197,24 @@ MonoBehaviour:
   type: 3
   anim: {fileID: 0}
   healthLoot: {fileID: 0}
+--- !u!114 &7860117493279027381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351180084795903501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5371e2dc26c7e416d8823c95cd568ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  speed: 4
+  damage: 10
+  EnemyLives: 3
+  attackRange: 10
+  isAttacking: 0
 --- !u!1 &1865231548231250146
 GameObject:
   m_ObjectHideFlags: 0

@@ -114,9 +114,8 @@ GameObject:
   - component: {fileID: 8240830305410252812}
   - component: {fileID: 5790018466486306147}
   - component: {fileID: 6110375274263243543}
-  - component: {fileID: 893309948525233024}
-  - component: {fileID: 7205674619774406421}
   - component: {fileID: 875620812405926708}
+  - component: {fileID: 8285398296431946714}
   m_Layer: 7
   m_Name: FireSlime
   m_TagString: Enemy
@@ -160,7 +159,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6110375274263243543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -187,37 +186,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71886885, y: 0.7501054}
   m_EdgeRadius: 0
---- !u!114 &893309948525233024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4246175338563100278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cace895776712264aa822908f22f4a1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpPower: 5
-  jumpWithinRange: 0.5
---- !u!114 &7205674619774406421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4246175338563100278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9087ee843ed82a847ba9505364a09457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookDistance: 5
-  forgetTime: 10
-  isHit: 0
-  DistanceToPlayer: 1.5
 --- !u!114 &875620812405926708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +202,24 @@ MonoBehaviour:
   type: 0
   anim: {fileID: 0}
   healthLoot: {fileID: 0}
+--- !u!114 &8285398296431946714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246175338563100278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5371e2dc26c7e416d8823c95cd568ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  speed: 4
+  damage: 10
+  EnemyLives: 3
+  attackRange: 10
+  isAttacking: 0
 --- !u!1 &4436780373667923704
 GameObject:
   m_ObjectHideFlags: 0
