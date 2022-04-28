@@ -119604,41 +119604,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3979986924808720881, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7495762
-      objectReference: {fileID: 0}
-    - target: {fileID: 3979986924808720881, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.100381434
-      objectReference: {fileID: 0}
-    - target: {fileID: 3979986924808720886, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
-      propertyPath: m_Size.x
-      value: 2.3041825
-      objectReference: {fileID: 0}
-    - target: {fileID: 3979986924808720886, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.6550789
-      objectReference: {fileID: 0}
     - target: {fileID: 3979986924808720887, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: m_Name
       value: MoveSign
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: You should press WASD to move around
+      value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: '*Note from devs: If you would like to skip this level and go to the
-        next one, '
+      value: You should press WASD to move around
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3979986924808720881, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
 --- !u!1001 &5578572214107453258
 PrefabInstance:

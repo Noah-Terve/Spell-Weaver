@@ -8,7 +8,7 @@ public class RuntimeVar : ScriptableObject, ISerializationCallbackReceiver
     public float InitialVal;
 
     [System.NonSerialized]
-    private float _RuntimeVal;
+    public float _RuntimeVal;
     public float RuntimeVal 
     {
         get => _RuntimeVal;
