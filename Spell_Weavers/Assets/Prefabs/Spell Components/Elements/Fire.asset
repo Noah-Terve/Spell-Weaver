@@ -29,5 +29,6 @@ MonoBehaviour:
     flames, which grows the size of the spell by 50%
 
     Strong against Wind'
+  vfx: {fileID: 5861000580702404971, guid: 74836c011847eda48b014ccc77f649e9, type: 3}
   sizeMultiplier: 1.5
   strongAgainst: 2

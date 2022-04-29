@@ -32,5 +32,6 @@ MonoBehaviour:
 
     Strong against
     Water'
+  vfx: {fileID: 8176106590058528508, guid: 586b1bfb8266d6f40b0ea8d9a4309678, type: 3}
   sizeMultiplier: 2
   strongAgainst: 1

@@ -29,5 +29,6 @@ MonoBehaviour:
     size of attack
 
     Strong against Fire'
+  vfx: {fileID: 1221034204446387088, guid: 3711a611373c35347adf82164cd9b708, type: 3}
   sizeMultiplier: 2
   strongAgainst: 0

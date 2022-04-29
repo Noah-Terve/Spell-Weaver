@@ -36,9 +36,17 @@ public class GetHitData : MonoBehaviour
             // TESTING PURPOSES
             hit.gameObject.GetComponent<Rigidbody2D>().velocity += (direction)* knockBack;
 
-            GameObject boom = Instantiate(boomVFX, hit.gameObject.transform.position, boomVFX.transform.rotation);
-            
-            StartCoroutine(destroyEffects(boom));
+            if (spell.allVfx.Count == 0)
+            {
+                GameObject boom = Instantiate(boomVFX, hit.gameObject.transform.position, boomVFX.transform.rotation);
+                StartCoroutine(destroyEffects(boom));
+            }
+            else {
+                foreach (GameObject g in spell.allVfx) {
+                    GameObject vx = Instantiate(g, hit.gameObject.transform.position, g.transform.rotation);
+                    vx.transform.localScale = Vector3.one * 0.5f;
+                }
+            }
         }
     }
     /*
