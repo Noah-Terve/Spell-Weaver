@@ -43,7 +43,8 @@ public class PlayerJump : MonoBehaviour {
     }
 
     public void Jump() {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        float targetSpeed = jumpForce - rb.velocity.y;
+        rb.AddForce(Vector2.up * targetSpeed, ForceMode2D.Impulse);
         jumpTimer = 0;
         groundTimer = 0;
         // Vector2 vel = rb.velocity;

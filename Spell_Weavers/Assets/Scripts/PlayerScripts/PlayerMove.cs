@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour {
     private Vector2 hMove = Vector2.zero;
     private Vector2 prevSpeed = Vector2.zero;
     void Start(){
+        runSpeed = startSpeed;
         animator = gameObject.GetComponentInChildren<Animator>();
         rb = transform.GetComponent<Rigidbody2D>();
     }
