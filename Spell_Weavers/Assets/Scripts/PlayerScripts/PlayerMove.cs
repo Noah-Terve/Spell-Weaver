@@ -6,33 +6,43 @@ public class PlayerMove : MonoBehaviour {
 
     public Animator animator;
     public Rigidbody2D rb;
-    private bool FaceRight = true; // determine which way player is facing.
-    public static float runSpeed = 10f;
+    public bool FaceRight = true; // determine which way player is facing.
+    public static float runSpeed = 14f;
     public float startSpeed = 10f;
     public bool isAlive = true;
+
+    float accelerate = 8f;
+    float decelerate = 24f;
+    float speedDecay = 0.2f;
+    float velocityPwr = 1.1f;
+
+    float input = 0f;
 
     public bool canMove = true;
 
     //public AudioSource WalkSFX;
-    private Vector3 hMove;
-
+    private Vector2 hMove = Vector2.zero;
+    private Vector2 prevSpeed = Vector2.zero;
     void Start(){
         animator = gameObject.GetComponentInChildren<Animator>();
         rb = transform.GetComponent<Rigidbody2D>();
     }
 
-    void Update(){
+    void Update() {
         //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
         if (!isAlive || !canMove )
             return;
             
         // hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
         // transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
-     
+        /*
+        prevSpeed = rb.velocity - hMove;
+        prevSpeed = Vector2.Lerp(prevSpeed, Vector2.zero, Time.deltaTime);
+        hMove = new Vector2(Input.GetAxis("Horizontal")  * runSpeed, 0.0f);
+        rb.velocity = prevSpeed + hMove;
+        */
+        input = Input.GetAxis("Horizontal");
         
-        hMove = new Vector3(Input.GetAxis("Horizontal")  * runSpeed, rb.velocity.y, 0.0f);
-        rb.velocity = hMove;
-
 
         if (Input.GetAxis("Horizontal") != 0){
               animator.SetBool ("Walk", true);
@@ -45,16 +55,28 @@ public class PlayerMove : MonoBehaviour {
         }
 
         // NOTE: if input is moving the Player right and Player faces left, turn, and vice-versa
-        if ((hMove.x <0 && !FaceRight) || (hMove.x >0 && FaceRight)){
+        if (input != 0 && input > 0 == FaceRight)
             playerTurn();
-        }
+        
+
+        
     }
 
     void FixedUpdate(){
-        //slow down on hills / stops sliding from velocity
-      //  if (hMove.x == 0){
-            //rb.velocity = new Vector2(rb.velocity.x / 1.1f, rb.velocity.y) ;
-       // }
+        float targetSpeed = input * runSpeed;
+        float speedDifference = targetSpeed - rb.velocity.x;
+        float acceleration = (Mathf.Abs(targetSpeed) > 0.1f) ? accelerate : decelerate;
+        float move = Mathf.Pow(Mathf.Abs(speedDifference) * acceleration, velocityPwr) * Mathf.Sign(speedDifference);
+        rb.AddForce(move * Vector2.right);
+    /*
+        if (Mathf.Abs(input) < 0.01f) {
+            float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), speedDecay);
+
+            amount *= -Mathf.Sign(rb.velocity.x);
+
+            rb.AddForce(Vector2.right * amount, ForceMode2D.Impulse);
+        }
+      */  
     }
 
     private void playerTurn(){

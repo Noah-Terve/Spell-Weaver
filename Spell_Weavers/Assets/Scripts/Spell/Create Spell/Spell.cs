@@ -75,6 +75,14 @@ public class Spell
      */
     public IEnumerator castSpell()
     {
+
+        player.GetComponent<PlayerMove>().canMove = false;
+        Spellbook.inCast = true;
+        // player.GetComponent<Rigidbody2D>().velocity += new Vector2(xMove * player.transform.localScale.x, yMove * player.transform.localScale.y);
+
+        float xDir = xMove * (player.GetComponent<PlayerMove>().FaceRight ? 1 : -1);
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(xDir, yMove), ForceMode2D.Impulse);
+
         List<GameObject> theHitBoxes = new List<GameObject>();
         foreach (GameObject hb in hitboxes)
         {
@@ -93,9 +101,9 @@ public class Spell
         foreach (GameObject vfx in allVfx)
             GameObject.Instantiate(vfx, player.transform.position, Quaternion.identity);
 
-        player.GetComponent<PlayerMove>().canMove = false;
-        Spellbook.inCast = true;
-        player.GetComponent<Rigidbody2D>().velocity += new Vector2(xMove * player.transform.localScale.x, yMove * player.transform.localScale.y);
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+
+        
         yield return new WaitForSeconds(castTime);
         
         Spellbook.inCast = false;

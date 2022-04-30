@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8023837910763921395}
   - component: {fileID: 8441469820129043880}
   - component: {fileID: 3382140795428005392}
+  - component: {fileID: 414952017674468581}
   m_Layer: 0
   m_Name: Dash
   m_TagString: Untagged
@@ -108,6 +109,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &414952017674468581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023837910763921396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f6951ab2be5fd4a8953399d8ac2b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8023837911236293558
 GameObject:
   m_ObjectHideFlags: 0
