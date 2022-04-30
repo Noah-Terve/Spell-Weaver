@@ -204,7 +204,19 @@ PrefabInstance:
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1587137934650842538, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587137934650842538, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
       propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587137934650842538, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587137934650842538, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3549278109469787891, guid: 7b06e426f8f6a4e40a859f0c571ac255, type: 3}
@@ -5984,7 +5996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008677059783448097, guid: 3cf7df7fb251e0b4c980b86a73e0dad4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8008677059783448099, guid: 3cf7df7fb251e0b4c980b86a73e0dad4, type: 3}
       propertyPath: m_RootOrder

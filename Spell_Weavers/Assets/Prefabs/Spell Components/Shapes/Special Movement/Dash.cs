@@ -7,9 +7,10 @@ public class Dash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float speed = 20f;
+        float speed = 50f;
         float dir = Spell.player.GetComponent<PlayerMove>().FaceRight ? -1 : 1;
-        Spell.player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * speed * dir, ForceMode2D.Impulse);
+        float accel = Spell.player.GetComponent<PlayerMove>().accelerate;
+        Spell.player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * speed * dir * accel, ForceMode2D.Impulse);
         Debug.Log(Spell.player.GetComponent<Rigidbody2D>().velocity);
     }
 }

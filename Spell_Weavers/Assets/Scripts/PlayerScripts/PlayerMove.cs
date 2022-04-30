@@ -63,9 +63,12 @@ public class PlayerMove : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        if (!isAlive || !canMove)
+        if (!isAlive)
             return;
-            
+        
+        if (!canMove)
+            input = 0;
+
         float targetSpeed = input * runSpeed;
         float speedDifference = targetSpeed - rb.velocity.x;
         float acceleration = (Mathf.Abs(targetSpeed) > 0.1f) ? accelerate : decelerate;

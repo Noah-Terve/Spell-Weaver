@@ -32,9 +32,17 @@ public class GetHitData : MonoBehaviour
 
 
             Vector2 direction = hit.gameObject.transform.position - gameObject.transform.position;
-            direction.Normalize() ;
+            direction.Normalize();
+            EnemyMoveHit enemyMove = hit.gameObject.GetComponent<EnemyMoveHit>();
+
+            float enemySpeed = (enemyMove != null) ? enemyMove.speed : 1;
+
+            Vector2 added = direction * knockBack * enemySpeed - hit.gameObject.GetComponent<Rigidbody2D>().velocity;
+
             // TESTING PURPOSES
-            hit.gameObject.GetComponent<Rigidbody2D>().velocity += (direction)* knockBack;
+            hit.gameObject.GetComponent<Rigidbody2D>().AddForce(added, ForceMode2D.Impulse);
+
+            
 
             if (spell.allVfx.Count == 0)
             {
