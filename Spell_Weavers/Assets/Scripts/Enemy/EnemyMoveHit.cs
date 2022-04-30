@@ -17,6 +17,8 @@ public class EnemyMoveHit : MonoBehaviour
        public bool isAttacking = false;
        private float scaleX;
 
+       public static float noResponseTime = 0.114f;
+
        void Start () {
               anim = GetComponentInChildren<Animator> ();
               scaleX = gameObject.transform.localScale.x;
@@ -66,6 +68,7 @@ public class EnemyMoveHit : MonoBehaviour
                      return;
               
               GameObject player = collision.gameObject;
+              Rigidbody2D rb = player.GetComponent<Rigidbody2D>(); 
               isAttacking = true;
               
               //anim.SetBool("Attack", true);
@@ -79,9 +82,21 @@ public class EnemyMoveHit : MonoBehaviour
                      pushBack = knockBack;
               else 
                      pushBack = -knockBack;
-              
+              pushBack -= rb.velocity.x;
+
+
               // collision.gameObject.transform.position = new Vector3(transform.position.x + pushBack, transform.position.y + 1, -1);
               // collision.gameObject.GetComponent<Rigidbody2D>().velocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity + Vector2.right * knockBack;
-              player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockBack, ForceMode2D.Impulse);
+              float accel = player.GetComponent<PlayerMove>().accelerate;
+              //Vector2 dir = player.transform.position - transform.position;
+              // dir.Normalize();
+              rb.AddForce(rb.mass * (Vector2.right * pushBack * accel), ForceMode2D.Impulse);
       }
+
+       IEnumerator playerPreventMove(PlayerMove playerMove) {
+              playerMove.canMove = false;
+              yield return new WaitForSeconds(noResponseTime);
+              playerMove.canMove = true;
+       }
+
 }

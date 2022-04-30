@@ -11,10 +11,12 @@ public class PlayerMove : MonoBehaviour {
     public float startSpeed = 10f;
     public bool isAlive = true;
 
-    float accelerate = 8f;
-    float decelerate = 24f;
-    float speedDecay = 0.2f;
-    float velocityPwr = 1.1f;
+    public float accelerate = 15f;
+    public float decelerate = 15f;
+    public float speedDecay = 0.2f;
+    public float velocityPwr = 1.1f;
+    
+    
 
     float input = 0f;
 
@@ -30,9 +32,7 @@ public class PlayerMove : MonoBehaviour {
 
     void Update() {
         //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
-        if (!isAlive || !canMove )
-            return;
-            
+        
         // hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
         // transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
         /*
@@ -63,12 +63,15 @@ public class PlayerMove : MonoBehaviour {
     }
 
     void FixedUpdate(){
+        if (!isAlive || !canMove)
+            return;
+            
         float targetSpeed = input * runSpeed;
         float speedDifference = targetSpeed - rb.velocity.x;
         float acceleration = (Mathf.Abs(targetSpeed) > 0.1f) ? accelerate : decelerate;
         float move = Mathf.Pow(Mathf.Abs(speedDifference) * acceleration, velocityPwr) * Mathf.Sign(speedDifference);
-        rb.AddForce(move * Vector2.right);
-    /*
+        rb.AddForce(move * Vector2.right * rb.mass);
+    
         if (Mathf.Abs(input) < 0.01f) {
             float amount = Mathf.Min(Mathf.Abs(rb.velocity.x), speedDecay);
 
@@ -76,7 +79,7 @@ public class PlayerMove : MonoBehaviour {
 
             rb.AddForce(Vector2.right * amount, ForceMode2D.Impulse);
         }
-      */  
+      
     }
 
     private void playerTurn(){
