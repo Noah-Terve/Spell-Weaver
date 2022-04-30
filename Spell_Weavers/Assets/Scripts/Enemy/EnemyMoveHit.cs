@@ -17,11 +17,15 @@ public class EnemyMoveHit : MonoBehaviour
        public bool isAttacking = false;
        private float scaleX;
 
+       private Rigidbody2D rb;
+
        public static float noResponseTime = 0.114f;
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
               scaleX = gameObject.transform.localScale.x;
+
+              rb = GetComponent<Rigidbody2D>();
 
               if (GameObject.FindGameObjectWithTag ("Player") != null) {
                      target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
@@ -34,20 +38,26 @@ public class EnemyMoveHit : MonoBehaviour
 
        void Update () {
               float DistToPlayer = Vector3.Distance(transform.position, target.position);
+              if ((target == null) || (DistToPlayer > attackRange))
+                     return;
 
-              if ((target != null) && (DistToPlayer <= attackRange)){
-                     transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
-                     if (isAttacking == false) {
-                            //anim.SetBool("Walk", true);
-                            //flip enemy to face player direction. Wrong direction? Swap the * -1.
-                            if (target.position.x > gameObject.transform.position.x){
-                                   gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
-                            } else {
-                                    gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
-                            }
+              // transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+              Vector2 toPlayer = target.position - transform.position;
+              float dir = Mathf.Sign(toPlayer.x);
+              float move = speed * dir - rb.velocity.x;
+
+              rb.AddForce(Vector2.right * move);
+
+              if (isAttacking == false) {
+                     //anim.SetBool("Walk", true);
+                     //flip enemy to face player direction. Wrong direction? Swap the * -1.
+                     if (target.position.x > gameObject.transform.position.x){
+                            gameObject.transform.localScale = new Vector2(scaleX, gameObject.transform.localScale.y);
+                     } else {
+                            gameObject.transform.localScale = new Vector2(scaleX * -1, gameObject.transform.localScale.y);
                      }
-                     //else  { anim.SetBool("Walk", false);}
               }
+                     //else  { anim.SetBool("Walk", false);}
                //else { anim.SetBool("Walk", false);}
        }
 
