@@ -11,6 +11,9 @@ public class GameHandler : MonoBehaviour
     public Transform pSpawn;
     public GameObject Player;
     
+    public GameObject ControlsUI;
+    public static bool ControlsOn = true;
+    
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
     public GameObject deathMenuUI;
@@ -72,6 +75,17 @@ public class GameHandler : MonoBehaviour
             if (GameisPaused) Resume();
             else Pause();
         }
+        
+        if (Input.GetKeyDown(KeyCode.I)){
+            if(ControlsOn){
+                ControlsUI.SetActive(false);
+                ControlsOn = false;
+            }
+            else{
+                ControlsUI.SetActive(true);
+                ControlsOn = true;
+            }
+        }    
     }
     
     // pause menu functions
