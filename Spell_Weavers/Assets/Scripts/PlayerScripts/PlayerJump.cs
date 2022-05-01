@@ -15,7 +15,9 @@ public class PlayerJump : MonoBehaviour {
     public float earlyJumpTime = 0.12f;
     public GameObject dustTrail;
     public GameObject jumpDust;
+    
 
+    bool hasFullyLeftGround = true;
     float jumpTimer = 0f;
     float groundTimer = 0f;
 
@@ -36,8 +38,11 @@ public class PlayerJump : MonoBehaviour {
             jumpTimer = coyoteTime;
         
         if (isAlive && jumpTimer > 0 && groundTimer > 0) {
+            Debug.Log("Before:: " + jumpTimer + " : " + groundTimer);
             Jump();
+            Debug.Log("After:: " + jumpTimer + " : " + groundTimer);
         }
+        
     }
     
     public void OnCollisionEnter2D(Collision2D Collision) {
@@ -49,8 +54,9 @@ public class PlayerJump : MonoBehaviour {
     public void Jump() {
         float targetSpeed = jumpForce - rb.velocity.y;
         rb.AddForce(Vector2.up * targetSpeed, ForceMode2D.Impulse);
-        jumpTimer = 0;
-        groundTimer = 0;
+        jumpTimer = -1;
+        groundTimer = -1;
+        hasFullyLeftGround = false;
         if (jumpDust != null)
             Instantiate(jumpDust, feet.position, Quaternion.identity);
 
@@ -60,15 +66,20 @@ public class PlayerJump : MonoBehaviour {
         animator.SetTrigger("Jump");
         // JumpSFX.Play();
     }
+    
+    void OnDrawGizmos(){
+        Gizmos.DrawWireSphere(feet.position, .05f);
+    }
 
     public bool IsGrounded() {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .15f, groundLayer);
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .05f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, .05f, enemyLayer);
         if ((groundCheck != null) || (enemyCheck != null)) {
-            groundTimer = earlyJumpTime;
+            if (hasFullyLeftGround)
+                groundTimer = earlyJumpTime;
             return true;
         }
-        
+        hasFullyLeftGround = true;
 
         return false;
     }
