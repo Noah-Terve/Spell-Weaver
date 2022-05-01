@@ -31,16 +31,15 @@ public class CannonBall : MonoBehaviour
         rotatingArt.transform.eulerAngles = Vector3.MoveTowards(rotatingArt.transform.eulerAngles, Vector3.forward * 360, rotationSpeed * 360 * Time.deltaTime);
         if (rotatingArt.transform.eulerAngles.z >= 360)
             rotatingArt.transform.eulerAngles = Vector3.zero;
-        
-        Debug.Log(transform.position.x);
 
-        if (Mathf.Abs(transform.localPosition.x) >= distance)
+        // Destroy self after getting too far
+        if (Mathf.Abs(transform.localPosition.magnitude) >= distance)
             destroySelf();
     }
 
     void destroySelf() {
         if (vfx != null)
-            Instantiate(vfx, transform.position, transform.rotation);
+            Instantiate(vfx, transform.position, vfx.transform.rotation);
         Destroy(gameObject);
     }
 

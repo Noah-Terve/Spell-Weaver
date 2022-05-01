@@ -131,9 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 5
   speed: 5
-  vfx: {fileID: 0}
+  vfx: {fileID: 8756896340254682413, guid: d68a2da93bb95484d921a80a0a28acf9, type: 3}
+  angle: 0
   rotationSpeed: 2
   rotatingArt: {fileID: 8657937707285522812}
+  knockBack: 10
 --- !u!58 &8657937708476787778
 CircleCollider2D:
   m_ObjectHideFlags: 0
