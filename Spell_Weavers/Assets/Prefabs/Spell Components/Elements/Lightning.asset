@@ -32,5 +32,6 @@ MonoBehaviour:
     of being half the size
 
     Strong against Earth'
+  vfx: {fileID: 7002089599420156105, guid: 522ee491c65aac448935af36e50d99aa, type: 3}
   sizeMultiplier: 0.5
   strongAgainst: 3

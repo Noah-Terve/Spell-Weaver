@@ -8,6 +8,7 @@ public class EnemyMoveHit : MonoBehaviour
        public float speed = 4f;
        private Transform target;
        public int damage = 10;
+       public float knockBack = 20f;
 
        public int EnemyLives = 3;
        private GameHandler gameHandler;
@@ -60,22 +61,27 @@ public class EnemyMoveHit : MonoBehaviour
               Gizmos.DrawWireSphere(transform.position, attackRange);
        }
        
-       public void OnCollisionEnter2D(Collision2D collision){
-             if (collision.gameObject.tag == "Player") {
-                    isAttacking = true;
-                    //anim.SetBool("Attack", true);
-                    // TODO: turn back on when gamehandler deals with player hp
-                    // gameHandler.playerGetHit(damage);
-                    //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
-                    //StartCoroutine(HitEnemy());
-                    float pushBack = 0f;
-                    if (collision.gameObject.transform.position.x > gameObject.transform.position.x){
-                           pushBack = 3f;
-                    }
-                    else {
-                           pushBack = -3f;
-                    }
-                    collision.gameObject. transform.position = new Vector3(transform.position.x + pushBack, transform.position.y + 1, -1);
-             }
+       public void OnCollisionEnter2D(Collision2D collision) {
+              if (collision.gameObject.tag != "Player")
+                     return;
+              
+              GameObject player = collision.gameObject;
+              isAttacking = true;
+              
+              //anim.SetBool("Attack", true);
+              // TODO: turn back on when gamehandler deals with player hp
+              // gameHandler.playerGetHit(damage);
+              //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
+              //StartCoroutine(HitEnemy());
+
+              float pushBack = 0f;
+              if (player.transform.position.x > gameObject.transform.position.x)
+                     pushBack = knockBack;
+              else 
+                     pushBack = -knockBack;
+              
+              // collision.gameObject.transform.position = new Vector3(transform.position.x + pushBack, transform.position.y + 1, -1);
+              // collision.gameObject.GetComponent<Rigidbody2D>().velocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity + Vector2.right * knockBack;
+              player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockBack, ForceMode2D.Impulse);
       }
 }

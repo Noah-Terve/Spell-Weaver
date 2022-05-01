@@ -29,5 +29,6 @@ MonoBehaviour:
     faster component that is smaller than normal
 
     Strong against Fire'
+  vfx: {fileID: 179273590753748993, guid: 70b8133f1824d3440b6e075315659c4a, type: 3}
   sizeMultiplier: 0.75
   strongAgainst: 0

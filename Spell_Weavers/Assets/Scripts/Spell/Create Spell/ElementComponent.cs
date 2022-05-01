@@ -11,6 +11,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Element", menuName = "Spell Element")]
 public class ElementComponent : SpellComponent
 {
+    public GameObject vfx;
     public float sizeMultiplier = 1f;
     public Element strongAgainst;
 }

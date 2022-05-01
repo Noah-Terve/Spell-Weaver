@@ -32,5 +32,6 @@ MonoBehaviour:
 
     Strong against
     Earth'
+  vfx: {fileID: 1914207802853106, guid: ab064b17e26a5c94d9ec494ec810db63, type: 3}
   sizeMultiplier: 1
   strongAgainst: 3

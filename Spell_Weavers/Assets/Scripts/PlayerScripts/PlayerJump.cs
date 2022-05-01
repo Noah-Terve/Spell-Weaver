@@ -11,6 +11,12 @@ public class PlayerJump : MonoBehaviour {
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
     public bool isAlive = true;
+    public float coyoteTime = 0.12f;
+    public float earlyJumpTime = 0.12f;
+
+    float jumpTimer = 0f;
+    float groundTimer = 0f;
+
     //public AudioSource JumpSFX;
 
     void Start(){
@@ -19,10 +25,14 @@ public class PlayerJump : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButtonDown("Jump") && IsGrounded() && isAlive) {
+        jumpTimer -= Time.deltaTime;
+        groundTimer -= Time.deltaTime;
+        IsGrounded();
+        if (Input.GetButtonDown("Jump"))
+            jumpTimer = coyoteTime;
+        
+        if (isAlive && jumpTimer > 0 && groundTimer > 0) {
             Jump();
-            animator.SetTrigger("Jump");
-            // JumpSFX.Play();
         }
     }
     
@@ -33,15 +43,25 @@ public class PlayerJump : MonoBehaviour {
     }
 
     public void Jump() {
-        rb.velocity = Vector2.up * jumpForce;
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        jumpTimer = 0;
+        groundTimer = 0;
+        // Vector2 vel = rb.velocity;
+        // vel.y = jumpForce;
+        // rb.velocity = vel;
+        animator.SetTrigger("Jump");
+        // JumpSFX.Play();
     }
 
     public bool IsGrounded() {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .15f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, .05f, enemyLayer);
         if ((groundCheck != null) || (enemyCheck != null)) {
+            groundTimer = earlyJumpTime;
             return true;
         }
+        
+
         return false;
     }
 }

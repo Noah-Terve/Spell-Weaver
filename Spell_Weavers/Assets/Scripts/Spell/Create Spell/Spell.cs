@@ -21,8 +21,11 @@ public class Spell
     // Specs of the spell
     public float castTime = 0f, cooldown = 0f, dmg = 0f, lingering = 0f; // Basic time and damage
     public List<GameObject> hitboxes; // All of the prefabs to detect the damage
+    public HashSet<GameObject> allVfx; // The particle effects of the different types
     HashSet<SpellComponent> spellComponents; // put into a hash set to make it so rearrangements do not matter
     HashSet<EffectComponent> effects; // All of the effects that would be triggered
+    
+
 
     HashSet<Element> superEffective; // elemental system
     float sizeMultiplier = 1f; // The size of the spell (Water should decrease, and earth increase)
@@ -72,6 +75,14 @@ public class Spell
      */
     public IEnumerator castSpell()
     {
+
+        player.GetComponent<PlayerMove>().canMove = false;
+        Spellbook.inCast = true;
+        // player.GetComponent<Rigidbody2D>().velocity += new Vector2(xMove * player.transform.localScale.x, yMove * player.transform.localScale.y);
+
+        float xDir = xMove * (player.GetComponent<PlayerMove>().FaceRight ? 1 : -1);
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(xDir, yMove), ForceMode2D.Impulse);
+
         List<GameObject> theHitBoxes = new List<GameObject>();
         foreach (GameObject hb in hitboxes)
         {
@@ -87,9 +98,12 @@ public class Spell
             theHitBoxes.Add(g);
         }
 
-        player.GetComponent<PlayerMove>().canMove = false;
-        Spellbook.inCast = true;
-        player.GetComponent<Rigidbody2D>().velocity += new Vector2(xMove * player.transform.localScale.x, yMove * player.transform.localScale.y);
+        foreach (GameObject vfx in allVfx)
+            GameObject.Instantiate(vfx, player.transform.position, Quaternion.identity);
+
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+
+        
         yield return new WaitForSeconds(castTime);
         
         Spellbook.inCast = false;
@@ -192,6 +206,9 @@ public class Spell
                 ElementComponent x = s as ElementComponent;
                 superEffective.Add(x.strongAgainst);
                 sizeMultiplier *= x.sizeMultiplier;
+                
+                if (x.vfx != null)
+                    allVfx.Add(x.vfx);
             }
             else if (s is ShapeComponent)
             {
@@ -241,6 +258,7 @@ public class Spell
         sizeMultiplier = 1f;
 
         // Initialize the Sets/Lists
+        allVfx = new HashSet<GameObject>();
         hitboxes = new List<GameObject>();
         spellComponents = new HashSet<SpellComponent>();
         superEffective = new HashSet<Element>();
