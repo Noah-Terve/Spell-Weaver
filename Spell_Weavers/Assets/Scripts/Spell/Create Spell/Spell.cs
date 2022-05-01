@@ -124,11 +124,14 @@ public class Spell
     public void dmgCalc(GameObject enemy)
     {
         delayComingAfter(enemy);
-        
-        if (superEffective.Contains(enemy.GetComponent<EnemyHP>().type))
-            enemy.GetComponent<EnemyHP>().HP -= dmg * 2;
+        EnemyHP enemyHp = enemy.GetComponent<EnemyHP>();
+        if (enemyHp == null)
+            return;
+
+        if (superEffective.Contains(enemyHp.type))
+            enemyHp.HP -= dmg * 2;
         else
-            enemy.GetComponent<EnemyHP>().HP -= dmg;
+            enemyHp.HP -= dmg;
             
         // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
