@@ -15,7 +15,8 @@ public class PlayerJump : MonoBehaviour {
     public float earlyJumpTime = 0.12f;
     public GameObject dustTrail;
     public GameObject jumpDust;
-    
+    public float gravity = 1f;
+    public float fallMultiplier = 2f;
 
     bool hasFullyLeftGround = true;
     float jumpTimer = 0f;
@@ -37,14 +38,15 @@ public class PlayerJump : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
             jumpTimer = coyoteTime;
         
-        if (isAlive && jumpTimer > 0 && groundTimer > 0) {
-            Debug.Log("Before:: " + jumpTimer + " : " + groundTimer);
-            Jump();
-            Debug.Log("After:: " + jumpTimer + " : " + groundTimer);
-        }
+        
         
     }
     
+    void FixedUpdate() {
+        if (isAlive && jumpTimer > 0 && groundTimer > 0) 
+            Jump();
+    }
+
     public void OnCollisionEnter2D(Collision2D Collision) {
         if(Collision.gameObject.tag == "Ground") {
             animator.SetTrigger("Grounded");

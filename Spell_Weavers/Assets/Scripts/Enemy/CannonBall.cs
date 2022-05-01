@@ -43,10 +43,11 @@ public class CannonBall : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D (Collision2D hit) {
-        if (hit.gameObject.tag != "Player")
+    void OnTriggerEnter2D (Collider2D hit) {
+        if (hit.gameObject.tag != "Player") {
             destroySelf();
-            
+            return;
+        }
         // MAY WANT TO CHANGE HOW IT WORKS
         GameObject player = hit.gameObject;
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>(); 
