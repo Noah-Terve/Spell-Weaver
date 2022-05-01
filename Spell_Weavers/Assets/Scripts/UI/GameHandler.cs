@@ -13,6 +13,7 @@ public class GameHandler : MonoBehaviour
     
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject deathMenuUI;
     public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
@@ -113,10 +114,40 @@ public class GameHandler : MonoBehaviour
         #endif
     }
     
-    // respawn at the last checkpoint they ran into
+    // pull up the death interface to allow them to respawn, restart level,
+    // quit game, or go back to the main menu.
     public void Died(){
+        Time.timeScale = 0f;
+        deathMenuUI.SetActive(true);
+        GameisPaused = true;
+        Spellbook.GameisPaused = true;
+    }
+    
+    public void DeathRespawnAtLastCheckpoint(){
+        Time.timeScale = 1f;
+        deathMenuUI.SetActive(false);
+        GameisPaused = false;
+        Spellbook.GameisPaused = false;
         Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, Player.transform.position.z);
         Player.transform.position = pSpn2;
+    }
+    
+    public void DeathRestartLevel(){
+        Time.timeScale = 1f;
+        deathMenuUI.SetActive(false);
+        GameisPaused = false;
+        Spellbook.GameisPaused = false;
+        SceneManager.LoadScene(SceneNames[SceneIndex], LoadSceneMode.Single);
+        //TODO: Update the list of components they have access to.
+    }
+    
+    public void DeathMainMenu(){
+        Time.timeScale = 1f;
+        deathMenuUI.SetActive(false);
+        GameisPaused = false;
+        Spellbook.GameisPaused = false;
+        SceneManager.LoadScene("MainMenu");
+        SceneIndex = 0;
     }
     
     public void NextLevel(){
