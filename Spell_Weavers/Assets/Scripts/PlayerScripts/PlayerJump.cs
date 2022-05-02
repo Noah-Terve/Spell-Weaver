@@ -43,7 +43,6 @@ public class PlayerJump : MonoBehaviour {
     }
     
     void FixedUpdate() {
-        Debug.Log("JumpTimer: " + jumpTimer + "\nGroundTimer: " + groundTimer);
         if (isAlive && jumpTimer > 0 && groundTimer > 0) 
             Jump();
     }

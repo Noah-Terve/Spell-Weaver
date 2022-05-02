@@ -55,26 +55,16 @@ public class PickUpSpellComponent : MonoBehaviour
     }
 
     /*
-     *       Name: destroyObject()
-     * Parameters: None
-     *     Return: None
-     *    Purpose: Destroys self
-     *       Note: 
-     */
-    public void destroyObject() {
-        Destroy(gameObject);
-    }
-    
-
-        /*
      *       Name: OnTriggerEnter2D()
      * Parameters: addComponents();
      *     Return: None
      *    Purpose: Adds the component, and destroys self
      *       Note: 
      */
-    void OnTriggerEnter2D() {
-        addComponents();
-        destroyObject();
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Player") {
+            addComponents();
+            Destroy(gameObject);
+        }
     }
 }
