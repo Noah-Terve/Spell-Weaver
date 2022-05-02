@@ -74,7 +74,7 @@ public class PlayerJump : MonoBehaviour {
     }
 
     public bool IsGrounded() {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .05f, groundLayer);
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .15f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, .05f, enemyLayer);
         if ((groundCheck != null) || (enemyCheck != null)) {
             if (hasFullyLeftGround)
