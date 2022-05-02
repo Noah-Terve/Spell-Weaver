@@ -79,6 +79,7 @@ public class PlayerJump : MonoBehaviour {
         if ((groundCheck != null) || (enemyCheck != null)) {
             if (hasFullyLeftGround)
                 groundTimer = earlyJumpTime;
+
             return true;
         }
         hasFullyLeftGround = true;
