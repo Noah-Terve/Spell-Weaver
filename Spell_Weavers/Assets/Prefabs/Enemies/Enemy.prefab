@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444f1b2f0cb424237936509d5a51c561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 20
+  HP: 15
   type: 1
   anim: {fileID: 0}
   healthLoot: {fileID: 0}
@@ -315,7 +315,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   speed: 4
   damage: 10
-  pushspeed: 100
+  knockBack: 3
   EnemyLives: 3
   attackRange: 10
   isAttacking: 0
