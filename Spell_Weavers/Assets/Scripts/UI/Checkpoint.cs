@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     public static GameHandler Handler;
     private IEnumerator coroutine;
+    public RuntimeVar Health;
     
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,6 @@ public class Checkpoint : MonoBehaviour
             coroutine = Deactivate(.5f);
             StartCoroutine(coroutine);
         }
-            
         
         if (Handler == null)
             Handler = FindObjectOfType(typeof(GameHandler)) as GameHandler;
@@ -23,6 +23,7 @@ public class Checkpoint : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player"){
+            Health._RuntimeVal = 20;
             Handler.pSpawn = gameObject.transform;
         }
     }

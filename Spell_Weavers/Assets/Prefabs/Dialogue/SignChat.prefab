@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3979986924808720880}
   - component: {fileID: 3979986924808720881}
-  - component: {fileID: 3979986924808720886}
   - component: {fileID: 8485287126749759629}
   m_Layer: 0
   m_Name: SignChat
@@ -47,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00496611, y: -0.02731359}
+  m_Offset: {x: -0.056379676, y: 0.84671366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,33 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9602712, y: 1.0844238}
-  m_EdgeRadius: 0
---- !u!61 &3979986924808720886
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3979986924808720887}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.1291428, y: 0.32538575}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3560548, y: 1.8282543}
+  m_Size: {x: 3.472181, y: 3.4788177}
   m_EdgeRadius: 0
 --- !u!114 &8485287126749759629
 MonoBehaviour:

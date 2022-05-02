@@ -29,6 +29,8 @@ public class SignDialogueManager : MonoBehaviour
        public void LoadDialogueArray(string[] NPCscript, int scriptLength){
               dialogue = NPCscript;
               dialogueLength = scriptLength;
+              dialogueText.text = dialogue[0];
+              counter = 1;
        }
 
         //function for the button to display next line of dialogue
