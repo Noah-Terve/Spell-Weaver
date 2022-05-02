@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/FireLevel.unity
     guid: 28f66825cfb56694b8b37727352e2bbd
+  - enabled: 1
+    path: Assets/Scenes/Game/WindLevel.unity
+    guid: 158d005b22eaaf44096ff4b5ce2fe178
+  - enabled: 1
+    path: Assets/Scenes/Game/YouWin.unity
+    guid: 394a15db5ce394b67a819094572df670
   m_configObjects: {}

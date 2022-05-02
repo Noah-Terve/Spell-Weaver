@@ -47,7 +47,7 @@ public class GameHandler : MonoBehaviour
         // usually this can be done by just setting SceneNames and then skipping
         // the for loop because we can start at 1, but if we start at
         // some random scene we need to start there.
-        NumScenes = 4;
+        NumScenes = 6;
         
         if (SceneNames == null){
             SceneNames = new string[NumScenes];
@@ -55,6 +55,8 @@ public class GameHandler : MonoBehaviour
             SceneNames[1] = "Tutorial";
             SceneNames[2] = "WaterLevel";
             SceneNames[3] = "FireLevel";
+            SceneNames[4] = "WindLevel";
+            SceneNames[5] = "YouWin";
         }
         
         for (int i = 0; i < NumScenes; i++){
@@ -64,6 +66,7 @@ public class GameHandler : MonoBehaviour
             }
         }
         
+        deathMenuUI.SetActive(false);
         pauseMenuUI.SetActive(false);
         GameisPaused = false;
         Spellbook.GameisPaused = false;
