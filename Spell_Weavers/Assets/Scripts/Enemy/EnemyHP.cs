@@ -11,6 +11,8 @@ public class EnemyHP : MonoBehaviour
     private Renderer rend;
     public Animator anim;
     public GameObject healthLoot;
+    
+    public RuntimeVar PlayerHealth;
 
     void Start(){
         rend = GetComponentInChildren<Renderer> ();
@@ -31,6 +33,8 @@ public class EnemyHP : MonoBehaviour
         //anim.SetBool ("isDead", true);
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(Death());
+        
+        PlayerHealth.RuntimeVal += 5;
     }
 
     IEnumerator Death(){

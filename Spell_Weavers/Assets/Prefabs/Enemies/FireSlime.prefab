@@ -202,6 +202,7 @@ MonoBehaviour:
   type: 0
   anim: {fileID: 0}
   healthLoot: {fileID: 0}
+  PlayerHealth: {fileID: 11400000, guid: e01a8c478df2dcb45b979cf5bb35be05, type: 2}
 --- !u!114 &8285398296431946714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,11 +217,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   speed: 4
-  damage: 10
+  damage: 2
   knockBack: 3
   EnemyLives: 3
   attackRange: 10
   isAttacking: 0
+  PlayerHealth: {fileID: 11400000, guid: e01a8c478df2dcb45b979cf5bb35be05, type: 2}
 --- !u!1 &4436780373667923704
 GameObject:
   m_ObjectHideFlags: 0

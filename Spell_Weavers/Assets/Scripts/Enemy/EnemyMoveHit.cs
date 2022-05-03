@@ -7,7 +7,7 @@ public class EnemyMoveHit : MonoBehaviour
     public Animator anim;
        public float speed = 4f;
        private Transform target;
-       public int damage = 10;
+       public int damage = 2;
        public float knockBack = 20f;
 
        public int EnemyLives = 3;
@@ -20,6 +20,8 @@ public class EnemyMoveHit : MonoBehaviour
        private Rigidbody2D rb;
 
        public static float noResponseTime = 0.114f;
+       
+       public RuntimeVar PlayerHealth;
 
        void Start () {
               anim = GetComponentInChildren<Animator> ();
@@ -82,8 +84,7 @@ public class EnemyMoveHit : MonoBehaviour
               isAttacking = true;
               
               //anim.SetBool("Attack", true);
-              // TODO: turn back on when gamehandler deals with player hp
-              // gameHandler.playerGetHit(damage);
+              PlayerHealth.RuntimeVal -= damage;
               //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
               //StartCoroutine(HitEnemy());
 

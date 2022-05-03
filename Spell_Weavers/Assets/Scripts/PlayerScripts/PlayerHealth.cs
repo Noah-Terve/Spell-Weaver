@@ -23,21 +23,8 @@ public class PlayerHealth : MonoBehaviour
             Handler.Died();
             
         if (Health.RuntimeVal == 0){
-            Debug.Log("Health is 0, trying to respawn");
             Handler.Died();
-            Health.RuntimeVal += 20 
-            /*TODO: add whatever we want to reset their lives to be here */;
-
+            Health.RuntimeVal += 20;
         }
     }
-
-    public void OnCollisionEnter2D(Collision2D Collision) {
-        if(Collision.gameObject.tag == "Enemy") {
-            animator.SetTrigger("Hit");
-            Debug.Log("player health was " + Health.RuntimeVal);
-            Health.RuntimeVal -= 2;
-            Debug.Log("player health is now " + Health.RuntimeVal);
-        }
-    }
-
 }
