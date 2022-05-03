@@ -30,5 +30,5 @@ MonoBehaviour:
 
     Sends the player upwards, damaging enemies in the way'
   xMove: 0
-  yMove: 20
-  shapePrefab: {fileID: 8023837910763921396, guid: 3d68fb9bbdb782b489d00c17f4a9d3c1, type: 3}
+  yMove: 0
+  shapePrefab: {fileID: 2316241683288565509, guid: 0e3e2a20abc7d4f44a3195de8d6e549d, type: 3}
