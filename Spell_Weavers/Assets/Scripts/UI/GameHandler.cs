@@ -70,6 +70,7 @@ public class GameHandler : MonoBehaviour
         pauseMenuUI.SetActive(false);
         GameisPaused = false;
         Spellbook.GameisPaused = false;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -134,7 +135,7 @@ public class GameHandler : MonoBehaviour
     // pull up the death interface to allow them to respawn, restart level,
     // quit game, or go back to the main menu.
     public void Died(){
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         deathMenuUI.SetActive(true);
         GameisPaused = true;
         Spellbook.GameisPaused = true;
@@ -155,9 +156,8 @@ public class GameHandler : MonoBehaviour
         deathMenuUI.SetActive(false);
         GameisPaused = false;
         Spellbook.GameisPaused = false;
-        SceneManager.LoadScene(SceneNames[SceneIndex], LoadSceneMode.Single);
         GetComponent<ResetListOnPlay>().setSpellList();
-        //TODO: Update the list of components they have access to.
+        SceneManager.LoadScene(SceneNames[SceneIndex]);
     }
     
     public void DeathMainMenu(){
