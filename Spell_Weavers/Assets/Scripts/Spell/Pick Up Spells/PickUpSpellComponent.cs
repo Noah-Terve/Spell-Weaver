@@ -34,9 +34,32 @@ public class PickUpSpellComponent : MonoBehaviour
      *       Note: Called in OnTriggerEnter2D
      */
     public void addComponents() {
+        /*
         List<ElementComponent> element = new List<ElementComponent>(knownList.allElements);
-        List<ShapeComponent> shape = new List<ShapeComponent>(knownList.allShapes);
-        List<EffectComponent> effect = new List<EffectComponent>(knownList.allEffects);
+        List<ShapeComponent> shape = new List<ShapeComponent>(knownList.allShapes); 
+        List<EffectComponent> effect = new List<EffectComponent>(knownList.allEffects); 
+        */
+        
+        List<ElementComponent> element;
+        List<ShapeComponent> shape; 
+        List<EffectComponent> effect; 
+        
+        if (knownList.allElements != null)
+            element = new List<ElementComponent>(knownList.allElements);
+        else 
+            element = new List<ElementComponent>();
+
+        if (knownList.allShapes != null)
+            shape = new List<ShapeComponent>(knownList.allShapes);
+        else 
+            shape = new List<ShapeComponent>();
+
+        if (knownList.allEffects != null)
+            effect = new List<EffectComponent>(knownList.allEffects);
+        else 
+            effect = new List<EffectComponent>();
+        
+
 
         foreach (SpellComponent s in pickUp) {
             if (s is ElementComponent && !element.Contains(s as ElementComponent))
@@ -46,7 +69,7 @@ public class PickUpSpellComponent : MonoBehaviour
             else if (s is EffectComponent  && !effect.Contains(s as EffectComponent))
                 effect.Add(s as EffectComponent);
         }
-
+    
         knownList.allElements = element.ToArray();
         knownList.allShapes = shape.ToArray();
         knownList.allEffects = effect.ToArray();

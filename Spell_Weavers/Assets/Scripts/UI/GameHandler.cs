@@ -134,10 +134,11 @@ public class GameHandler : MonoBehaviour
     // pull up the death interface to allow them to respawn, restart level,
     // quit game, or go back to the main menu.
     public void Died(){
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
         deathMenuUI.SetActive(true);
         GameisPaused = true;
         Spellbook.GameisPaused = true;
+        
     }
     
     public void DeathRespawnAtLastCheckpoint(){
@@ -155,6 +156,7 @@ public class GameHandler : MonoBehaviour
         GameisPaused = false;
         Spellbook.GameisPaused = false;
         SceneManager.LoadScene(SceneNames[SceneIndex], LoadSceneMode.Single);
+        GetComponent<ResetListOnPlay>().setSpellList();
         //TODO: Update the list of components they have access to.
     }
     

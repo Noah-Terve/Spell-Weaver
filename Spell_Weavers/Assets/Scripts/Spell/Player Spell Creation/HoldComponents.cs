@@ -35,6 +35,12 @@ public class HoldComponents : MonoBehaviour
      *       Note: Starts before the first frame, before Start Functions
      */
     void Awake() {
+        if (compList.allElements == null) 
+            compList.allElements = new ElementComponent[0];
+        if (compList.allEffects == null) 
+            compList.allEffects = new EffectComponent[0];
+        if (compList.allShapes == null) 
+            compList.allShapes = new ShapeComponent[0];
         numComponents = initialNumComponentOnBootUp;
         spellBook = GameObject.FindGameObjectsWithTag("Spell Center")[0].GetComponent<Spellbook>();
         makeMenu();
