@@ -315,7 +315,7 @@ public class Spell
      */
     public override string ToString() {
         string str = "[ - ";
-        foreach (SpellComponent s in spellComponents)
+        foreach (SpellComponent s in spellParts)
             str += s.name + " - ";
         return str + "]";
     }
