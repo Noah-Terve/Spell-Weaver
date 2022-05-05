@@ -2868,18 +2868,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2053971668}
     m_Modifications:
-    - target: {fileID: 7193205624933108496, guid: 6a1f029000043433e9f2280207ee9883, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193205624933108496, guid: 6a1f029000043433e9f2280207ee9883, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193205624933108496, guid: 6a1f029000043433e9f2280207ee9883, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7193205626143259857, guid: 6a1f029000043433e9f2280207ee9883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
