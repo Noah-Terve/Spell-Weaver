@@ -320,6 +320,8 @@ MonoBehaviour:
   earlyJumpTime: 0.12
   dustTrail: {fileID: 9037382754772766912}
   jumpDust: {fileID: 3483372168016617929, guid: 6da892d8dc1a0b14f9c67ec0641bfd20, type: 3}
+  gravity: 1
+  fallMultiplier: 10
 --- !u!114 &147306299825530001
 MonoBehaviour:
   m_ObjectHideFlags: 0

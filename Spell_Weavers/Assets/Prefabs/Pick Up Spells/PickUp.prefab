@@ -132,6 +132,7 @@ MonoBehaviour:
   pickUp:
   - {fileID: 0}
   knownList: {fileID: 11400000, guid: d35d6f569ec68ce4490d2a1129a595d9, type: 2}
+  pickUpParticles: {fileID: 1382101711737037944, guid: 1d77957266e4d494593eddbc11022379, type: 3}
 --- !u!58 &6132932663915756920
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -47,6 +47,16 @@ public class HoldComponents : MonoBehaviour
         slotMenu();
         SpellComponentContainer.text = descriptionBox;
     }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.J))
+            makeSpell(0);
+        if (Input.GetKeyDown(KeyCode.K))
+            makeSpell(1);
+        if (Input.GetKeyDown(KeyCode.L))
+            makeSpell(2);
+    }
+
     /*
      *       Name: makeMenu()
      * Parameters: None
@@ -64,7 +74,7 @@ public class HoldComponents : MonoBehaviour
         for (int i = 0; i < compList.allEffects.Length; i++) 
             makeButton(100, 100 - i * 30, compList.allEffects[i]);
     }
-    
+
     /*
      *       Name: slotMenu()
      * Parameters: The x position of the button(float); The y position of the button (float); The component that it will add (SpellComponent)
@@ -73,9 +83,9 @@ public class HoldComponents : MonoBehaviour
      *       Note: Is used in making the buttons
      */
     void slotMenu() {
-        makeSlot(310, 100, 0, "Bind to J");
-        makeSlot(310, 0   , 1, "Bind to K");
-        makeSlot(310, -100 , 2, "Bind to L");
+        makeSlot(310, 100, 0, "Bind to J (Or press J on the Keyboard)");
+        makeSlot(310, 0   , 1, "Bind to K (Or press K on the Keyboard)");
+        makeSlot(310, -100 , 2, "Bind to L (Or press L on the Keyboard)");
     }
 
     /*

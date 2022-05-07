@@ -97,10 +97,10 @@ public class Spell
 
             theHitBoxes.Add(g);
         }
-
+        /*
         foreach (GameObject vfx in allVfx)
             GameObject.Instantiate(vfx, player.transform.position, Quaternion.identity);
-
+        */
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 
         
