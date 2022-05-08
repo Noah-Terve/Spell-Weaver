@@ -9,6 +9,8 @@ public class Checkpoint : MonoBehaviour
     public RuntimeVar Health;
     private bool used = false;
     
+    public GameObject vfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,8 @@ public class Checkpoint : MonoBehaviour
                 Handler.updateStatsDisplay();
                 used = true;
             }
+            if (vfx != null)
+                Instantiate(vfx, transform);
         }
     }
     
