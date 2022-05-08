@@ -18,7 +18,7 @@ public class PlayerJump : MonoBehaviour {
     public float gravity = 1f;
     public float fallMultiplier = 2f;
 
-    bool hasFullyLeftGround = true;
+    //bool hasFullyLeftGround = true;
     float jumpTimer = 0f;
     float groundTimer = 0f;
 
@@ -36,6 +36,8 @@ public class PlayerJump : MonoBehaviour {
         if (dustTrail != null)
             dustTrail.SetActive(isGrounded);
         if (Input.GetButtonDown("Jump"))
+            jumpTimer = coyoteTime;
+        if (Input.GetButtonDown("Jump2"))
             jumpTimer = coyoteTime;
         
         
@@ -58,7 +60,7 @@ public class PlayerJump : MonoBehaviour {
         rb.AddForce(Vector2.up * targetSpeed, ForceMode2D.Impulse);
         jumpTimer = -1;
         groundTimer = -1;
-        hasFullyLeftGround = false;
+        // hasFullyLeftGround = false;
         if (jumpDust != null)
             Instantiate(jumpDust, feet.position, Quaternion.identity);
 
@@ -77,12 +79,12 @@ public class PlayerJump : MonoBehaviour {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, .15f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, .05f, enemyLayer);
         if ((groundCheck != null) || (enemyCheck != null)) {
-            if (hasFullyLeftGround)
-                groundTimer = earlyJumpTime;
+            //if (hasFullyLeftGround)
+            groundTimer = earlyJumpTime;
 
             return true;
         }
-        hasFullyLeftGround = true;
+        // hasFullyLeftGround = true;
 
         return false;
     }

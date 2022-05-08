@@ -97,10 +97,10 @@ public class Spell
 
             theHitBoxes.Add(g);
         }
-
+        /*
         foreach (GameObject vfx in allVfx)
             GameObject.Instantiate(vfx, player.transform.position, Quaternion.identity);
-
+        */
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 
         
@@ -132,7 +132,9 @@ public class Spell
             enemyHp.HP -= dmg * 2;
         else
             enemyHp.HP -= dmg;
-            
+        
+        if (enemyHp.HP < 0)
+            enemyHp.HP = 0;
         // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
     }

@@ -52,7 +52,6 @@ public class GetHitData : MonoBehaviour
             else {
                 foreach (GameObject g in spell.allVfx) {
                     GameObject vx = Instantiate(g, hit.gameObject.transform.position, g.transform.rotation);
-                    vx.transform.localScale = Vector3.one * 0.5f;
                 }
             }
         }

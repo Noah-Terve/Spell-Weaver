@@ -11,6 +11,7 @@ public class PickUpSpellComponent : MonoBehaviour
     // The spell components that get picked up 
     public SpellComponent[] pickUp;
     public SpellComponentList knownList;
+    public GameObject pickUpParticles;
 
     HoldComponents hold;
 
@@ -87,6 +88,7 @@ public class PickUpSpellComponent : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
             addComponents();
+            Instantiate(pickUpParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
