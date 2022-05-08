@@ -35,7 +35,7 @@ public class PlayerJump : MonoBehaviour {
         bool isGrounded = IsGrounded();
         if (dustTrail != null)
             dustTrail.SetActive(isGrounded);
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
             jumpTimer = coyoteTime;
         
         
