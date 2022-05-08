@@ -7,12 +7,13 @@ public class Checkpoint : MonoBehaviour
     public static GameHandler Handler;
     private IEnumerator coroutine;
     public RuntimeVar Health;
-    public GameObject vfx;
+    private bool used = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         // Deactivate the startpoint after a second so they can't go back to it
-        if (transform.root.gameObject.name == "StartPoint"){
+        if (transform.gameObject.name == "StartPoint"){
             coroutine = Deactivate(.5f);
             StartCoroutine(coroutine);
         }
@@ -25,9 +26,11 @@ public class Checkpoint : MonoBehaviour
         if (other.gameObject.tag == "Player"){
             Health._RuntimeVal = 20;
             Handler.pSpawn = gameObject.transform;
-            if (vfx != null)
-                Instantiate(vfx, transform);
-
+            if (!used && transform.gameObject.name != "StartPoint"){
+                Handler.lives += 3;
+                Handler.updateStatsDisplay();
+                used = true;
+            }
         }
     }
     

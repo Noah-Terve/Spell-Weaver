@@ -25,6 +25,9 @@ public class GameHandler : MonoBehaviour
     private static int SceneIndex;
     private static int NumScenes;
     
+    public int lives = 10;
+    public GameObject healthText;
+    
 
     void Awake (){
         SetLevel (volumeLevel);
@@ -71,6 +74,7 @@ public class GameHandler : MonoBehaviour
         GameisPaused = false;
         Spellbook.GameisPaused = false;
         Time.timeScale = 1f;
+        updateStatsDisplay();
     }
 
     // Update is called once per frame
@@ -92,9 +96,14 @@ public class GameHandler : MonoBehaviour
         }    
     }
     
+    public void updateStatsDisplay(){
+        Text healthTextTemp = healthText.GetComponent<Text>();
+        healthTextTemp.text = "LIVES: " + lives;
+    }
+     
     // pause menu functions
     void Pause(){
-        if (SceneManager.GetActiveScene().name == "MainMenu") return;
+        if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "YouWin") return;
         
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
@@ -121,6 +130,7 @@ public class GameHandler : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         SceneIndex = 0;
+        lives = 10;
     }
     
     // This function quits the entire game, again for pause menu.
@@ -135,18 +145,16 @@ public class GameHandler : MonoBehaviour
     // pull up the death interface to allow them to respawn, restart level,
     // quit game, or go back to the main menu.
     public void Died(){
-        Time.timeScale = 0f;
-        deathMenuUI.SetActive(true);
-        GameisPaused = true;
-        Spellbook.GameisPaused = true;
+        if(lives == 1) {
+            Time.timeScale = 0f;
+            deathMenuUI.SetActive(true);
+            GameisPaused = true;
+            Spellbook.GameisPaused = true;
+            lives = 0;
+            return;
+        }
         
-    }
-    
-    public void DeathRespawnAtLastCheckpoint(){
-        Time.timeScale = 1f;
-        deathMenuUI.SetActive(false);
-        GameisPaused = false;
-        Spellbook.GameisPaused = false;
+        lives--;
         Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, Player.transform.position.z);
         Player.transform.position = pSpn2;
     }
@@ -156,6 +164,7 @@ public class GameHandler : MonoBehaviour
         deathMenuUI.SetActive(false);
         GameisPaused = false;
         Spellbook.GameisPaused = false;
+        lives = 10;
         GetComponent<ResetListOnPlay>().setSpellList();
         SceneManager.LoadScene(SceneNames[SceneIndex]);
     }
@@ -167,11 +176,13 @@ public class GameHandler : MonoBehaviour
         Spellbook.GameisPaused = false;
         SceneManager.LoadScene("MainMenu");
         SceneIndex = 0;
+        lives = 10;
     }
     
     public void NextLevel(){
         SceneIndex++;
         SceneManager.LoadScene(SceneNames[SceneIndex], LoadSceneMode.Single);
+        lives = 10;
     }
     
 }
