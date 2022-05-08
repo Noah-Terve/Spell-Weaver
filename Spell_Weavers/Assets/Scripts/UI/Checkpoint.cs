@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour
     public static GameHandler Handler;
     private IEnumerator coroutine;
     public RuntimeVar Health;
-    
+    public GameObject vfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,9 @@ public class Checkpoint : MonoBehaviour
         if (other.gameObject.tag == "Player"){
             Health._RuntimeVal = 20;
             Handler.pSpawn = gameObject.transform;
+            if (vfx != null)
+                Instantiate(vfx, transform);
+
         }
     }
     

@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 11400000, guid: e01a8c478df2dcb45b979cf5bb35be05, type: 2}
+  vfx: {fileID: 6705409966066508309, guid: 993305b040e90a94b8b5cfd544f8492f, type: 3}
 --- !u!1 &2651043116904599399
 GameObject:
   m_ObjectHideFlags: 0

@@ -2826,7 +2826,7 @@ PrefabInstance:
     - target: {fileID: 2210309226098449377, guid: 478aea2674307a8408b4036dabaafbce, type: 3}
       propertyPath: pickUp.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: af3632be1cc4eca41b3ceb987252dc25, type: 2}
+      objectReference: {fileID: 11400000, guid: ee2f98936c922604b8fc279e4654e333, type: 2}
     - target: {fileID: 2210309226098449377, guid: 478aea2674307a8408b4036dabaafbce, type: 3}
       propertyPath: pickUp.Array.data[1]
       value: 
@@ -85577,7 +85577,7 @@ PrefabInstance:
     - target: {fileID: 2210309226098449377, guid: 478aea2674307a8408b4036dabaafbce, type: 3}
       propertyPath: pickUp.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: ee2f98936c922604b8fc279e4654e333, type: 2}
+      objectReference: {fileID: 11400000, guid: c5cb15e3d53f1154b9da1b62311a5f97, type: 2}
     - target: {fileID: 2210309226098449377, guid: 478aea2674307a8408b4036dabaafbce, type: 3}
       propertyPath: pickUp.Array.data[1]
       value: 
@@ -85771,6 +85771,10 @@ PrefabInstance:
     - target: {fileID: 2651043116904599397, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102748787757046523, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
+      propertyPath: vfx
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}

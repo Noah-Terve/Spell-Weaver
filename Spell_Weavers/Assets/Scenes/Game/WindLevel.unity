@@ -3136,6 +3136,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 3102748787757046523, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
+      propertyPath: vfx
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30783f7eb2287464e995a411ac77fde2, type: 3}
 --- !u!4 &774622631 stripped
@@ -5174,7 +5178,7 @@ CompositeCollider2D:
   m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
-  m_VertexDistance: 0.0005
+  m_VertexDistance: 0.05
   m_OffsetDistance: 0.00005
 --- !u!50 &1375853342
 Rigidbody2D:

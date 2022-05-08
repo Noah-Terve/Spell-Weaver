@@ -132,7 +132,9 @@ public class Spell
             enemyHp.HP -= dmg * 2;
         else
             enemyHp.HP -= dmg;
-            
+        
+        if (enemyHp.HP < 0)
+            enemyHp.HP = 0;
         // TODO:: Change the HP + Knock back enemy(?)
         Debug.Log("HIT " + enemy.name + " WITH " + ToString());
     }
