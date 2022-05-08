@@ -75,6 +75,13 @@ public class EnemyMoveHit : MonoBehaviour
               Gizmos.DrawWireSphere(transform.position, attackRange);
        }
        
+
+       void OnBecameVisible() {
+           this.enabled = true;
+       }
+       void OnBecameInvisible() {
+           this.enabled = false;
+       }
        public void OnCollisionEnter2D(Collision2D collision) {
               if (collision.gameObject.tag != "Player")
                      return;
