@@ -15,7 +15,7 @@ public class PlayerBetterFall : MonoBehaviour {
       void Update(){
             if (rb.velocity.y < 0) {
                   rb.velocity += Vector2.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-            } else if (rb.velocity.y > 0 && !Input.GetButton ("Jump")){
+            } else if (rb.velocity.y > 0 && !Input.GetButton ("Jump") && !Input.GetButton ("Jump2")){
                   rb.velocity += Vector2.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
       }
