@@ -58,7 +58,7 @@ public class CannonBall : MonoBehaviour
                 pushBack = knockBack;
             else 
                 pushBack = -knockBack;
-            pushBack -= rb.velocity.x;
+            // pushBack -= rb.velocity.x;
         rb.AddForce(rb.mass * (Vector2.right * pushBack * accel), ForceMode2D.Impulse);
 
         destroySelf();
