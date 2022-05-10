@@ -17,7 +17,7 @@ public class BossBehavior : MonoBehaviour
         private Transform player;
         private Vector2 PlayerVect;
 
-
+        public GameObject NxtLevel;
     //    public int EnemyLives = 30;
 
     //    private Renderer rend;
@@ -26,13 +26,14 @@ public class BossBehavior : MonoBehaviour
         public float attackRange = 10;
         public bool isAttacking = false;
         private float scaleX;
-        public string ElemType = "Earth"; 
+        public Element CurrPhase; 
 
         public EnemyHP BossHP;
 
         public float originHP;
 
         public bool CanMove = true;
+ 
     //    public int CurrElemPhase = 0; 
 
         public void Start () {
@@ -45,14 +46,16 @@ public class BossBehavior : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
             PlayerVect = player.transform.position;
 
-            if (projectiles.Count == 0) {
-                projectiles.Add(GameObject.Find(ElemType + "BossAttack"));
-            }
+            ExtraStart();
             timeBtwShots = startTimeBtwShots;
+            NxtLevel.SetActive(false);
        }
 
         public void Update () {
 
+            if (BossHP.HP == 0) {
+                NxtLevel.SetActive(true);
+            }
             float DistToPlayer = Vector3.Distance(transform.position, player.position);
             if ((player == null) || (DistToPlayer > attackRange) || isAttacking) {
                 return;
@@ -123,8 +126,10 @@ public class BossBehavior : MonoBehaviour
     void OnDrawGizmosSelected() {
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
     public virtual void PerformAttack(Vector3 player) {}
     public virtual void BasicAttack(Vector3 player, float SizeMod) {}
-
     public virtual void DesperationAttack(Vector3 player) {}
+    
+    public virtual void ExtraStart() {}
 }

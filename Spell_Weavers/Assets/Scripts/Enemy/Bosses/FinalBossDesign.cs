@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthBossBehave : BossBehavior
+public class FinalBossDesign : BossBehavior
 {
     // Start is called before the first frame update
 
+    bool UsedDM = false;
 
-    bool UsedDM = false; 
+    public Animator Anim;
+
+
     public override void ExtraStart() {
-        if (projectiles.Count == 0) {
+
+        if (projectiles.Count != 4) {
+            projectiles.Clear();
+            projectiles.Add(GameObject.Find("FireBossAttack"));
+            projectiles.Add(GameObject.Find("WaterBossAttack"));
+            projectiles.Add(GameObject.Find("WindBossAttack"));
             projectiles.Add(GameObject.Find("EarthBossAttack"));
         }
-        CurrPhase = Element.Earth;
+        CurrPhase = Element.Water;
     }
-
 
     public override void PerformAttack(Vector3 player)
     {
@@ -30,17 +37,41 @@ public class EarthBossBehave : BossBehavior
 
         Vector3 SpawnVector = transform.position;
         GameObject CurrProjectile = null;
-        if (CurrPhase == Element.Earth) {
-            SpawnVector = PlayerPosition;
-            SpawnVector.y += 5;
-            CurrProjectile = projectiles[0];
+        switch (CurrPhase)
+        {
+            case Element.Fire:
+
+                CurrProjectile = projectiles[0];
+                break;
+
+            case Element.Water:
+                SpawnVector.x += PlayerPosition.x > gameObject.transform.position.x ? 5 : -5;
+                SpawnVector.y = PlayerPosition.y + 3;
+                
+                CurrProjectile = projectiles[1];
+                break;
+
+
+            case Element.Wind:
+ 
+                CurrProjectile = projectiles[2];
+                break;
+
+            case Element.Earth:
+                SpawnVector = PlayerPosition;
+                SpawnVector.y += 5;
+                CurrProjectile = projectiles[3];
+                break;
+
+            default:
+                break;
         }
         GameObject attack = Instantiate (CurrProjectile, SpawnVector, Quaternion.identity);
 
         attack.transform.localScale *= SizeMod;
         isAttacking = false;
-    }
 
+    }
     public override void DesperationAttack(Vector3 player)
     {
         Debug.Log("Entered DM\n");
@@ -67,3 +98,4 @@ public class EarthBossBehave : BossBehavior
     // Update is called once per frame
 
 }
+

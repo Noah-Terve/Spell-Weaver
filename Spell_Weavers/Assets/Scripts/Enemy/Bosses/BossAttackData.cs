@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthAttackMove : MonoBehaviour
+public class BossAttackData : MonoBehaviour
 {
     // Start is called before the first frame update
-public GameHandler gameHandlerObj;
+        public GameHandler gameHandlerObj;
        public int damage = 5;
        public float speed = 10f;
        private Transform playerTrans;
