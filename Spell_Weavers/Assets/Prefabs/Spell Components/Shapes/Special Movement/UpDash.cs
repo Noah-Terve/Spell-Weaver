@@ -16,10 +16,16 @@ public class UpDash : MonoBehaviour
         // float difference = Spell.player.GetComponent<PlayerJump>().rb.velocity.y;
         
         //true if difference between 
-        bool LowSpeed = (JumpForce - CurrSpeed) > MinSpeed;
+        if (CurrSpeed < 0) {
+            JumpForce += -CurrSpeed;
+            // CurrSpeed = 0;
+            Spell.player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * SpeedFactor * JumpForce, ForceMode2D.Impulse);
+            return;
+        }
+        bool LowSpeed = (JumpForce - CurrSpeed) < MinSpeed;
         
         //Player's base jump force corrected for their current move speed
-        float accel = LowSpeed ? (JumpForce - CurrSpeed) : MinSpeed;
+        float accel = LowSpeed ? MinSpeed : (JumpForce - CurrSpeed) ;
         Spell.player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * SpeedFactor * accel, ForceMode2D.Impulse);
         // Debug.Log(Spell.player.GetComponent<Rigidbody2D>().velocity);
     }
