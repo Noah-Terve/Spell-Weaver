@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7278287227063742143}
   - component: {fileID: 426990855786003123}
-  - component: {fileID: 2396562361960439300}
   m_Layer: 0
   m_Name: HealthBarBG
   m_TagString: Untagged
@@ -114,21 +113,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2396562361960439300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5810326443585946912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12b86859eba74e3d950429687d5eeae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 11400000, guid: e01a8c478df2dcb45b979cf5bb35be05, type: 2}
-  initialHP: 20
-  ScaleOfHPBar: 2
 --- !u!1 &6631350871145666875
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +542,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08395338, g: 1, b: 0, a: 1}
   m_FlipX: 0

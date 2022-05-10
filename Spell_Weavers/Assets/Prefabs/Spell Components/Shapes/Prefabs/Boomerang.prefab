@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boomVFX: {fileID: 817102478075497262, guid: cd68d0cae73098f409a3d4027c89fb67, type: 3}
-  knockBack: 20
+  knockBack: 10
 --- !u!50 &5540679165653990763
 Rigidbody2D:
   serializedVersion: 4
