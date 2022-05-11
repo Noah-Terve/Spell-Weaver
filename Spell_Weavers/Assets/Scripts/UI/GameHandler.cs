@@ -150,6 +150,7 @@ public class GameHandler : MonoBehaviour
             deathMenuUI.SetActive(true);
             GameisPaused = true;
             Spellbook.GameisPaused = true;
+            Spellbook.spells = new Spell[3];
             lives = 0;
             return;
         }
@@ -157,6 +158,7 @@ public class GameHandler : MonoBehaviour
         lives--;
         Vector3 pSpn2 = new Vector3(pSpawn.position.x, pSpawn.position.y, Player.transform.position.z);
         Player.transform.position = pSpn2;
+        updateStatsDisplay();
     }
     
     public void DeathRestartLevel(){
@@ -180,8 +182,10 @@ public class GameHandler : MonoBehaviour
     }
     
     public void NextLevel(){
+        GetComponent<ResetListOnPlay>().updateLearned();
         SceneIndex++;
         SceneManager.LoadScene(SceneNames[SceneIndex], LoadSceneMode.Single);
+       
         lives = 10;
     }
     

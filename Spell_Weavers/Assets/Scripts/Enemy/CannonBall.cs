@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CannonBall : MonoBehaviour
 {
-    
+    public RuntimeVar playerHP;
+    public int damage = 4;
     public float distance = 5f;
     public float speed = 5f;
     public GameObject vfx;
@@ -60,6 +61,8 @@ public class CannonBall : MonoBehaviour
                 pushBack = -knockBack;
             // pushBack -= rb.velocity.x;
         rb.AddForce(rb.mass * (Vector2.right * pushBack * accel), ForceMode2D.Impulse);
+
+        playerHP.RuntimeVal -= damage;
 
         destroySelf();
     }

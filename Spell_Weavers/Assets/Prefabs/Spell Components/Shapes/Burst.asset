@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 2
   castTime: 0.5
-  dmg: 1
+  dmg: 4
   lingering: 0.2
   description: 'Cooldown + 2 s
 

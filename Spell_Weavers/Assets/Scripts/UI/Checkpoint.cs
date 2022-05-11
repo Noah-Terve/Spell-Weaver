@@ -29,7 +29,7 @@ public class Checkpoint : MonoBehaviour
             Health._RuntimeVal = 20;
             Handler.pSpawn = gameObject.transform;
             if (!used && transform.gameObject.name != "StartPoint"){
-                Handler.lives += 3;
+                Handler.lives = 10;
                 Handler.updateStatsDisplay();
                 used = true;
             }

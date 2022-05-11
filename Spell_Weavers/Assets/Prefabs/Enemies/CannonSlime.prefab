@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2fab977d8b0b642a2da6d84e57cba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHP: {fileID: 11400000, guid: e01a8c478df2dcb45b979cf5bb35be05, type: 2}
+  damage: 4
   distance: 5
   speed: 5
   vfx: {fileID: 8756896340254682413, guid: d68a2da93bb95484d921a80a0a28acf9, type: 3}

@@ -15,15 +15,37 @@ public class ResetListOnPlay : MonoBehaviour
     static EffectComponent[] eff;
 
     public void updateLearned() {
-        System.Array.Copy(list.allElements, elems, list.allElements.Length);
-        System.Array.Copy(list.allShapes, shape, list.allShapes.Length);
-        System.Array.Copy(list.allEffects, eff, list.allEffects.Length);
+        // System.Array.Copy(list.allElements, elems, list.allElements.Length);
+        // System.Array.Copy(list.allShapes, shape, list.allShapes.Length);
+        // System.Array.Copy(list.allEffects, eff, list.allEffects.Length);
+        // if (list.allElements.Length != 0) {
+        //     List<ElementComponent> el = new List<ElementComponent>(list.allElements);
+        //     elems = el.ToArray();
+        // }
+
+        // if (list.allShapes.Length != 0) {
+        //     List<ShapeComponent>   s  = new List<ShapeComponent>(list.allShapes);
+        //     shape = s.ToArray();
+        // }
+
+        // if (list.allEffects.Length != 0) {
+        //     List<EffectComponent>  ef = new List<EffectComponent>(list.allEffects);
+        //     eff   = ef.ToArray();
+        // }
+        elems = list.allElements;
+        shape = list.allShapes;
+        eff   = list.allEffects;
+        
+        
+        
     }
 
     public void setSpellList() {
         list.allElements = elems;
         list.allShapes = shape;
         list.allEffects = eff;
+
+        
     }
 
     void Awake() {
@@ -41,5 +63,6 @@ public class ResetListOnPlay : MonoBehaviour
         list.allElements = new ElementComponent[0];
         list.allShapes = new ShapeComponent[0];
         list.allEffects = new EffectComponent[0];
+
     }
 }
