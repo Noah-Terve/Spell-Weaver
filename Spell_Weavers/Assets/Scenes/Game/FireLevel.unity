@@ -2810,7 +2810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2511011198711097907, guid: ef44e082c31374c56a89060797c7b83e, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2511011198711097907, guid: ef44e082c31374c56a89060797c7b83e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6026,7 +6026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: So you've collected your first effect component...
+      value: So you've collected a effect component...
       objectReference: {fileID: 0}
     - target: {fileID: 8485287126749759629, guid: 0481d6dcd011543dcac00beb1fd79b44, type: 3}
       propertyPath: dialogue.Array.data[1]
