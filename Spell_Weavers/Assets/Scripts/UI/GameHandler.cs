@@ -59,7 +59,8 @@ public class GameHandler : MonoBehaviour
             SceneNames[2] = "WaterLevel";
             SceneNames[3] = "FireLevel";
             SceneNames[4] = "WindLevel";
-            SceneNames[5] = "YouWin";
+            SceneNames[5] = "FinalLevel";
+            SceneNames[6] = "YouWin";
         }
         
         for (int i = 0; i < NumScenes; i++){
